@@ -1,6 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'idea'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 version = '1.0'
 
 repositories {
@@ -8,5 +9,17 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.projectlombok:lombok:1.16.4'
+    compile 'com.google.guava:guava:19.0-rc2'
+
+    compile 'org.springframework:spring-core:4.2.5.RELEASE'
+    compile 'org.springframework:spring-context:4.2.5.RELEASE'
+    compile 'org.springframework:spring-test:4.2.5.RELEASE'
+    compile 'org.springframework:spring-web:4.2.5.RELEASE'
+
+    compile 'net.sf.jtidy:jtidy:r938'
+    compile 'org.jsoup:jsoup:1.8.3'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'commons-io:commons-io:2.4'
 }

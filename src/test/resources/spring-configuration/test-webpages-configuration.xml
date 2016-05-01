@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="espnNflProjectionsPageOneUnformatted"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
+        <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
+    </bean>
+
+    <bean id="espnNflProjectionsPageOneFormatted"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedStringFactory">
+        <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageEddieLacy"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile" value="classpath:test-webpages/espn/projections-eddie-lacy.html"/>
+    </bean>
+
+</beans>

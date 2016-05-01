@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="class-definitions.xml"/>
+
+    <!--<bean id="integerValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">-->
+    <!--<constructor-arg ref="integerClass"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="stringValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">-->
+    <!--<constructor-arg ref="stringClass"/>-->
+    <!--</bean>-->
+
+    <bean id="espnProjectionsRushingYardsValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="xpathSelector" ref="rushingYardsSelectorStatement"/>
+    </bean>
+
+    <bean id="rushingYardsSelectorStatement" class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagname" value="td"/>
+        <property name="classname" value="playertableStat"/>
+        <property name="childElementIndex" value="6"/>
+    </bean>
+
+</beans>
