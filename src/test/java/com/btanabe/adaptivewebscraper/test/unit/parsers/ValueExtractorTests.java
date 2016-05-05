@@ -1,6 +1,7 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
 import com.btanabe.adaptivewebscraper.parsers.ValueExtractor;
+import com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
@@ -22,15 +25,40 @@ public class ValueExtractorTests {
 
     @Autowired
     @Qualifier("espnProjectionsRushingYardsValueExtractor")
-    private ValueExtractor<Integer> testIntegerValueExtraction;
+    private ValueExtractor<Integer> rushingYardsProjectionValueExtractor;
 
     @Autowired
-    @Qualifier("espnProjectionsPageEddieLacy")
+    @Qualifier("espnPlayerProjectionRowValueExtractor")
+    private ValueExtractor<Document> playerProjectionRowValueExtractor;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageEddieLacyDocument")
     private Document espnProjectionsPageEddieLacy;
+
+    @Autowired
+    @Qualifier("espnNflProjectionsPageOneFormatted")
+    private Document espnProjectionsPageOne;
 
     @Test
     public void shouldBeAbleToExtractIntegersFromAWebPage() throws Exception {
-        testIntegerValueExtraction.setDocument(espnProjectionsPageEddieLacy);
-        assertThat(testIntegerValueExtraction.call(), is(equalTo(293)));
+        rushingYardsProjectionValueExtractor.setDocument(espnProjectionsPageEddieLacy);
+        assertThat(rushingYardsProjectionValueExtractor.call().findFirst().get(), is(equalTo(293)));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractLikeIntegersFromMoreThanOneHtmlElementOnAPage() throws Exception {
+        playerProjectionRowValueExtractor.setDocument(espnProjectionsPageOne);
+
+        Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractor.call();
+        assertThat(playerProjectionDocumentStream.count(), is(equalTo(40L)));
+    }
+
+    @Test
+    public void shouldBeAbleToPopulateOutputObjectsProperly() throws Exception {
+        playerProjectionRowValueExtractor.setDocument(espnProjectionsPageOne);
+
+        Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractor.call();
+        final String playerNameSelectorStatement = SelectorStatementBuilder.builder().tagName("a").className("flexpop").build().getObject();
+        assertThat(playerProjectionDocumentStream.anyMatch(document -> document.select(playerNameSelectorStatement).text().contains("Antonio Brown")), is(true));
     }
 }

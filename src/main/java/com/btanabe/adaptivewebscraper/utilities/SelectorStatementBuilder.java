@@ -14,13 +14,28 @@ import org.springframework.beans.factory.FactoryBean;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SelectorStatementBuilder implements FactoryBean<String> {
-    public String tagname;
-    public String classname;
-    public int childElementIndex;
+    private String parentTagName;
+    private SelectorStatementEqualityOperators parentClassnameEqualityOperator;
+    private String parentClassname;
+
+    private String tagName;
+    private SelectorStatementEqualityOperators classnameEqualityOperator;
+    private String className;
+    private int childElementIndex;
 
     @Override
     public String getObject() throws Exception {
-        return String.format("%s.%s:eq(%d)", tagname, classname, childElementIndex);
+        StringBuilder statement = new StringBuilder();
+
+        String parentElementSelectorStatement = buildTagAndClassSelectorStatement(parentTagName, parentClassnameEqualityOperator, parentClassname);
+        if (!parentElementSelectorStatement.isEmpty()) {
+            statement.append(parentElementSelectorStatement).append(" > ");
+
+        }
+
+        statement.append(buildTagAndClassSelectorStatement(tagName, classnameEqualityOperator, className)).append(":eq(").append(childElementIndex).append(")");
+
+        return statement.toString();
     }
 
     @Override
@@ -31,5 +46,18 @@ public class SelectorStatementBuilder implements FactoryBean<String> {
     @Override
     public boolean isSingleton() {
         return false;
+    }
+
+    private String buildTagAndClassSelectorStatement(final String tagName, final SelectorStatementEqualityOperators classnameEqualityOperator, final String className) {
+        StringBuilder statement = new StringBuilder();
+        if (tagName != null) {
+            statement.append(tagName);
+
+            if (classnameEqualityOperator != null) {
+                statement.append("[class").append(classnameEqualityOperator).append(className).append("]");
+            }
+        }
+
+        return statement.toString();
     }
 }

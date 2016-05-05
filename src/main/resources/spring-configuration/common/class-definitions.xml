@@ -3,12 +3,26 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- Types -->
     <bean id="stringClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="java.lang.String"/>
     </bean>
 
     <bean id="integerClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="java.lang.Integer"/>
+    </bean>
+
+    <bean id="documentClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="org.jsoup.nodes.Document"/>
+    </bean>
+
+    <!-- Factories -->
+    <bean id="documentFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.DocumentFactory"/>
+    </bean>
+
+    <bean id="integerFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.IntegerFactory"/>
     </bean>
 
 </beans>

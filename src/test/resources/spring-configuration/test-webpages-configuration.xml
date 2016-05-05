@@ -3,18 +3,28 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="espnNflProjectionsPageOneUnformatted"
+    <bean id="espnNflProjectionsPageOneAsAStringUnformatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
         <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
     </bean>
 
-    <bean id="espnNflProjectionsPageOneFormatted"
+    <bean id="espnNflProjectionsPageOneAsAStringFormatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedStringFactory">
         <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
     </bean>
 
-    <bean id="espnProjectionsPageEddieLacy"
+    <bean id="espnNflProjectionsPageOneFormatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageEddieLacyDocument"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile" value="classpath:test-webpages/espn/projections-eddie-lacy.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageEddieLacyString"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
         <property name="inputFile" value="classpath:test-webpages/espn/projections-eddie-lacy.html"/>
     </bean>
 
