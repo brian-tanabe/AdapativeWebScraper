@@ -1,18 +1,13 @@
 package com.btanabe.adaptivewebscraper.factories;
 
-import com.btanabe.adaptivewebscraper.processors.HtmlTidier;
-import com.google.common.util.concurrent.ListenableFutureTask;
-import org.apache.commons.io.IOUtils;
-import org.jsoup.Jsoup;
-
-import java.net.URL;
+import com.btanabe.adaptivewebscraper.tasks.WebRequestTask;
 
 /**
- * Created by Brian on 4/15/16.
+ * Created by Brian on 5/6/16.
  */
 public class WebRequestTaskFactory {
 
-    public static ListenableFutureTask createWebRequestTask(final String urlToDownload) {
-        return ListenableFutureTask.create(() -> Jsoup.parse(HtmlTidier.tidyHtmlAndConvertToXhtml(IOUtils.toString(new URL(urlToDownload).openStream(), "utf-8"))));
+    public static WebRequestTask createWebRequestTask(final String urlToDownload) {
+        return new WebRequestTask(urlToDownload);
     }
 }

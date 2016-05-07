@@ -25,4 +25,8 @@
         <constructor-arg value="com.btanabe.adaptivewebscraper.factories.IntegerFactory"/>
     </bean>
 
+    <bean id="stringFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.StringFactory"/>
+    </bean>
+
 </beans>

@@ -10,7 +10,7 @@ repositories {
 
 dependencies {
     compile 'org.projectlombok:lombok:1.16.4'
-    compile 'com.google.guava:guava:19.0-rc2'
+    compile 'com.google.guava:guava:19.0'
 
     compile 'org.springframework:spring-core:4.2.5.RELEASE'
     compile 'org.springframework:spring-context:4.2.5.RELEASE'
@@ -22,4 +22,6 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     testCompile 'commons-io:commons-io:2.4'
+    testCompile 'org.mockito:mockito-all:2.0.2-beta'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
 }

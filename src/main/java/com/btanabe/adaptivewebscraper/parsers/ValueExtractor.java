@@ -19,22 +19,32 @@ import java.util.stream.Stream;
 /**
  * Created by Brian on 4/5/16.
  */
-public abstract class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>> {
-
-    @Setter(onMethod = @__({@Autowired}))
-    @NonNull
-    private Class<OutputClazz> objectClasspath;
-
-    @Setter(onMethod = @__({@Autowired}))
-    private Class<FactoryBean<OutputClazz>> outputClazzFactoryClazz;
+public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>> {
 
     @Setter
     @NonNull
-    private Document document;
+    protected Document document;
 
     @Setter(onMethod = @__({@Autowired}))
     @NonNull
-    private String xpathSelector;
+    protected Class<OutputClazz> objectClasspath;
+
+    @Setter(onMethod = @__({@Autowired}))
+    protected Class<FactoryBean<OutputClazz>> outputClazzFactoryClazz;
+
+    @Setter(onMethod = @__({@Autowired}))
+    @NonNull
+    protected String xpathSelector;
+
+    @Setter(onMethod = @__({@Autowired}))
+    @NonNull
+    private String textGetterMethodName;
+
+    @Setter(onMethod = @__({@Autowired}))
+    private Class<?>[] textGetterMethodParameterTypes;
+
+    @Setter(onMethod = @__({@Autowired}))
+    private Object[] textGetterMethodParameters;
 
     @Override
     public Stream<OutputClazz> call() throws Exception {
@@ -55,7 +65,9 @@ public abstract class ValueExtractor<OutputClazz> implements Callable<Stream<Out
         return matchedElements.toArray(instantiateOutputClazzArray(matchedElements.size()));
     }
 
-    protected abstract String createFactoryConstructorStringArgument(final Element element);
+    protected String createFactoryConstructorStringArgument(final Element element) throws Exception {
+        return (String) ClassUtils.getMethod(Element.class, textGetterMethodName, textGetterMethodParameterTypes).invoke(element, textGetterMethodParameters);
+    }
 
     protected OutputClazz createOutputClassAndSetItsValue(final String valueAsString) throws Exception {
         Constructor<FactoryBean<OutputClazz>> constructor = ClassUtils.getConstructorIfAvailable(outputClazzFactoryClazz, String.class);

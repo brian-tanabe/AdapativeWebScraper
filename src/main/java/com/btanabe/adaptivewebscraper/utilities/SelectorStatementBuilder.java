@@ -21,19 +21,17 @@ public class SelectorStatementBuilder implements FactoryBean<String> {
     private String tagName;
     private SelectorStatementEqualityOperators classnameEqualityOperator;
     private String className;
-    private int childElementIndex;
+    private Integer childElementIndex;
+    private String containsText;
 
     @Override
     public String getObject() throws Exception {
         StringBuilder statement = new StringBuilder();
 
-        String parentElementSelectorStatement = buildTagAndClassSelectorStatement(parentTagName, parentClassnameEqualityOperator, parentClassname);
-        if (!parentElementSelectorStatement.isEmpty()) {
-            statement.append(parentElementSelectorStatement).append(" > ");
-
-        }
-
-        statement.append(buildTagAndClassSelectorStatement(tagName, classnameEqualityOperator, className)).append(":eq(").append(childElementIndex).append(")");
+        appendParentElementSelectorStatement(statement);
+        appendElementSelectorStatement(statement);
+        appendEqualsSelectorStatement(statement);
+        appendContainsTextSelectorStatement(statement);
 
         return statement.toString();
     }
@@ -48,6 +46,16 @@ public class SelectorStatementBuilder implements FactoryBean<String> {
         return false;
     }
 
+    private void appendParentElementSelectorStatement(final StringBuilder statement) {
+        if(parentTagName != null) {
+            statement.append(buildTagAndClassSelectorStatement(parentTagName, parentClassnameEqualityOperator, parentClassname)).append(" > ");
+        }
+    }
+
+    private void appendElementSelectorStatement(final StringBuilder statement) {
+        statement.append(buildTagAndClassSelectorStatement(tagName, classnameEqualityOperator, className));
+    }
+
     private String buildTagAndClassSelectorStatement(final String tagName, final SelectorStatementEqualityOperators classnameEqualityOperator, final String className) {
         StringBuilder statement = new StringBuilder();
         if (tagName != null) {
@@ -59,5 +67,17 @@ public class SelectorStatementBuilder implements FactoryBean<String> {
         }
 
         return statement.toString();
+    }
+
+    private void appendEqualsSelectorStatement(final StringBuilder statement) {
+        if(childElementIndex != null) {
+            statement.append(":eq(").append(childElementIndex).append(")");
+        }
+    }
+
+    private void appendContainsTextSelectorStatement(final StringBuilder statement) {
+        if(containsText != null) {
+            statement.append(":contains(").append(containsText).append(")");
+        }
     }
 }

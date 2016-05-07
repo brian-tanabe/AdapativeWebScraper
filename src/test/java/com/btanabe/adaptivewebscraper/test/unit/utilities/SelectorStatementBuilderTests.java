@@ -28,6 +28,8 @@ public class SelectorStatementBuilderTests {
     private final String testClassName = "playertable";
     private final int testChildElementIndex = 6;
 
+    private final String testContainsText = "NEXT";
+
     @Test
     public void shouldBeAbleToBuildStatementsWithoutParentElements() throws Exception {
         SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).className(testClassName).classnameEqualityOperator(EQUALS).childElementIndex(testChildElementIndex).build();
@@ -86,5 +88,11 @@ public class SelectorStatementBuilderTests {
     public void shouldBeAbleToBuildStatementsWithElementsWhoseClassNameEqualsSpecifiedValue() throws Exception {
         SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().parentTagName(testParentTagName).parentClassnameEqualityOperator(EQUALS).parentClassname(testParentClassName).tagName(testTagName).className(testClassName).classnameEqualityOperator(EQUALS).childElementIndex(testChildElementIndex).build();
         assertThat(testStatement.getObject(), is(equalTo(String.format("%s[class = %s] > %s[class = %s]:eq(%d)", testParentTagName, testParentClassName, testTagName, testClassName, testChildElementIndex))));
+    }
+
+    @Test
+    public void shouldBeAbleToBuildStatementsWithContainsTextValuesSpecified() throws Exception {
+        SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).containsText(testContainsText).build();
+        assertThat(testStatement.getObject(), is(equalTo(String.format("%s:contains(%s)", testTagName, testContainsText))));
     }
 }
