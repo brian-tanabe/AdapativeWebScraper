@@ -1,15 +1,21 @@
 package com.btanabe.adaptivewebscraper.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Created by Brian on 5/1/16.
  */
 @Builder
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class EspnNflProjectionModel {
     private Integer playerId;
     private Integer rank;

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="espnPlayerProjectionsPageEddieLacy" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
+        <property name="name" value="Eddie Lacy"/>
+        <property name="rank" value="31"/>
+        <property name="team" value="GB"/>
+        <property name="position" value="RB"/>
+        <property name="passingAttempts" value="0"/>
+        <property name="passingCompletions" value="0"/>
+        <property name="passingYards" value="0"/>
+        <property name="passingTouchdowns" value="0"/>
+        <property name="interceptions" value="0"/>
+        <property name="rushingAttempts" value="240"/>
+        <property name="rushingYards" value="1055"/>
+        <property name="rushingTouchdowns" value="7"/>
+        <property name="receptions" value="27"/>
+        <property name="receivingYards" value="277"/>
+        <property name="receivingTouchdowns" value="2"/>
+        <property name="fantasyPoints" value="212"/>
+        <property name="playerId" value="15848"/>
+    </bean>
+</beans>

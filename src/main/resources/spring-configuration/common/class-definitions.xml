@@ -16,6 +16,10 @@
         <constructor-arg value="org.jsoup.nodes.Document"/>
     </bean>
 
+    <bean id="espnNflProjectionModel" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel"/>
+    </bean>
+
     <!-- Factories -->
     <bean id="documentFactoryClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="com.btanabe.adaptivewebscraper.factories.DocumentFactory"/>

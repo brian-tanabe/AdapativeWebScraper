@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="../common/class-definitions.xml"/>
+    <import resource="espn-projection-page-selector-statment-configurations.xml"/>
+
+    <util:list id="emptyList"></util:list>
+
+    <bean id="espnProjectionsNameValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+        <property name="xpathSelector" ref="espnProjectionsPageNameSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodParameters">
+            <list></list>
+        </property>
+        <property name="textGetterMethodParameterTypes">
+            <list></list>
+        </property>
+    </bean>
 
     <bean id="espnProjectionsRushingYardsValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+        <property name="xpathSelector" ref="espnPlayerProjectionsPageRushingYardsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
-        <property name="xpathSelector" ref="rushingYardsSelectorStatement"/>
         <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes">
@@ -18,15 +36,6 @@
         </property>
     </bean>
 
-    <bean id="rushingYardsSelectorStatement" class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
-        <property name="parentTagName" value="tr"/>
-        <property name="parentClassnameEqualityOperator" value="STARTS_WITH"/>
-        <property name="parentClassname" value="pncPlayerRow"/>
-        <property name="tagName" value="td"/>
-        <property name="classnameEqualityOperator" value="EQUALS"/>
-        <property name="className" value="playertableStat"/>
-        <property name="childElementIndex" value="6"/>
-    </bean>
 
     <bean id="espnPlayerProjectionRowValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
         <property name="xpathSelector" ref="espnPlayerProjectionRowSelectorStatement"/>
@@ -41,13 +50,6 @@
         </property>
     </bean>
 
-    <bean id="espnPlayerProjectionRowSelectorStatement"
-          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
-        <property name="tagName" value="tr"/>
-        <property name="classnameEqualityOperator" value="STARTS_WITH"/>
-        <property name="className" value="pncPlayerRow"/>
-    </bean>
-
     <bean id="espnProjectionsPageNextPageValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
@@ -57,10 +59,13 @@
         <property name="textGetterMethodParameters" value="href"/>
     </bean>
 
-    <bean id="espnPlayerProjectionsPageNextPageSelectorStatement"
-          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
-        <property name="tagName" value="a"/>
-        <property name="containsText" value="NEXT"/>
+    <bean id="espnProjectionsPageRankValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+        <property name="xpathSelector" ref="espnPlayerProjectionsPageRankSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
     </bean>
 
 </beans>

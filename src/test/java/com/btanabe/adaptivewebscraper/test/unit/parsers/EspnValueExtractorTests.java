@@ -1,7 +1,7 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
+import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
 import com.btanabe.adaptivewebscraper.parsers.ValueExtractor;
-import com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +21,15 @@ import static org.junit.Assert.assertThat;
  */
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
-public class ValueExtractorTests {
+public class EspnValueExtractorTests {
+
+    @Autowired
+    @Qualifier("espnProjectionsNameValueExtractor")
+    private ValueExtractor<String> nameValueExtractor;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageRankValueExtractor")
+    private ValueExtractor<Integer> rankValueExtractor;
 
     @Autowired
     @Qualifier("espnProjectionsRushingYardsValueExtractor")
@@ -43,10 +51,30 @@ public class ValueExtractorTests {
     @Qualifier("espnNflProjectionsPageOneFormatted")
     private Document espnProjectionsPageOne;
 
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageEddieLacy")
+    private EspnNflProjectionModel expectedEddieLacyModel;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageNameSelectorStatement")
+    private String playerNameSelectorStatement;
+
+    @Test
+    public void shouldBeAbleToExtractNamesFromPlayerDocuments() throws Exception {
+        nameValueExtractor.setDocument(espnProjectionsPageEddieLacy);
+        assertThat(nameValueExtractor.call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getName())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractRanksFromPlayerDocuments() throws Exception {
+        rankValueExtractor.setDocument(espnProjectionsPageEddieLacy);
+        assertThat(rankValueExtractor.call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getRank())));
+    }
+
     @Test
     public void shouldBeAbleToExtractIntegersFromAWebPage() throws Exception {
         rushingYardsProjectionValueExtractor.setDocument(espnProjectionsPageEddieLacy);
-        assertThat(rushingYardsProjectionValueExtractor.call().findFirst().get(), is(equalTo(293)));
+        assertThat(rushingYardsProjectionValueExtractor.call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getRushingYards())));
     }
 
     @Test
@@ -62,8 +90,7 @@ public class ValueExtractorTests {
         playerProjectionRowValueExtractor.setDocument(espnProjectionsPageOne);
 
         Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractor.call();
-        final String playerNameSelectorStatement = SelectorStatementBuilder.builder().tagName("a").className("flexpop").build().getObject();
-        assertThat(playerProjectionDocumentStream.anyMatch(document -> document.select(playerNameSelectorStatement).text().contains("Antonio Brown")), is(true));
+        assertThat(playerProjectionDocumentStream.anyMatch(document -> document.select(playerNameSelectorStatement).text().contains(expectedEddieLacyModel.getName())), is(true));
     }
 
     @Test

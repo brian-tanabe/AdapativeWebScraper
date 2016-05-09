@@ -57,15 +57,18 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
 
             try {
                 matchedElements.add(createOutputClassAndSetItsValue(createFactoryConstructorStringArgument(element)));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         });
 
         return matchedElements.toArray(instantiateOutputClazzArray(matchedElements.size()));
     }
 
     protected String createFactoryConstructorStringArgument(final Element element) throws Exception {
+        String value = (String) ClassUtils.getMethod(Element.class, textGetterMethodName, textGetterMethodParameterTypes).invoke(element, textGetterMethodParameters);
+        System.out.println(String.format("value=[%s], elementSiblingIndex=[%d], siblingIndex=[%d]", value, element.elementSiblingIndex(), element.siblingIndex()));
+
         return (String) ClassUtils.getMethod(Element.class, textGetterMethodName, textGetterMethodParameterTypes).invoke(element, textGetterMethodParameters);
     }
 
