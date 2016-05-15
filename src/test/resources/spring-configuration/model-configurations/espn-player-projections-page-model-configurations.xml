@@ -14,7 +14,7 @@
         <property name="passingTouchdowns" value="0"/>
         <property name="interceptions" value="0"/>
         <property name="rushingAttempts" value="240"/>
-        <property name="rushingYards" value="1055"/>
+        <property name="rushingYards" value="1050"/>
         <property name="rushingTouchdowns" value="7"/>
         <property name="receptions" value="27"/>
         <property name="receivingYards" value="277"/>

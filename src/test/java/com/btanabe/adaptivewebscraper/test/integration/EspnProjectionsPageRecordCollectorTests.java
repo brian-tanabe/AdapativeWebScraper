@@ -44,6 +44,10 @@ public class EspnProjectionsPageRecordCollectorTests {
     @Qualifier("espnNflProjectionsPageOneFormatted")
     private Document firstPageDocument;
 
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageEddieLacy")
+    private EspnNflProjectionModel expectedEddieLacyModel;
+
     @Before
     public void setupMockWebRequestTaskFactory() throws Exception {
 
@@ -65,5 +69,12 @@ public class EspnProjectionsPageRecordCollectorTests {
     public void shouldBeAbleToFindFortyPlayersOnPageOne() throws Exception {
         final List<EspnNflProjectionModel> records = espnNflProjectionsPageRecordCollector.getAllRecordsAsList();
         assertThat(records.size(), is(equalTo(40)));
+    }
+
+    @Test
+    public void shouldBeAbleToCorrectlyParseASinglePlayerCorrectly() throws Exception {
+        final List<EspnNflProjectionModel> records = espnNflProjectionsPageRecordCollector.getAllRecordsAsList();
+        EspnNflProjectionModel playerFromRecordCollector = records.stream().filter(player -> player.getName().equals(expectedEddieLacyModel.getName())).findFirst().get();
+        assertThat(playerFromRecordCollector, is(equalTo(expectedEddieLacyModel)));
     }
 }

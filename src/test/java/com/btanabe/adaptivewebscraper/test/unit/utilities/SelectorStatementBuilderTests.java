@@ -40,6 +40,51 @@ public class SelectorStatementBuilderTests {
     @Qualifier("espnProjectionsPageTeamAndPositionSelectorStatement")
     private String playerTeamXpathSelectorStatement;
 
+    @Autowired
+    @Qualifier("espnProjectionsPagePassingCompletionsAndAttemptsSelectorStatement")
+    private String playerPassingCompletionsAndAttemptsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnProjectionsPagePassingYardsSelectorStatement")
+    private String playerPassingYardsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnProjectionsPagePassingTouchdownsSelectorStatement")
+    private String playerPassingTouchdownsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageInterceptionsSelectorStatement")
+    private String playerInterceptionsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageRushingAttemptsSelectorStatement")
+    private String playerRushingAttemptsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageRushingYardsSelectorStatement")
+    private String playerRushingYardsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageRushingTouchdownsSelectorStatement")
+    private String playerRushingTouchdownsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageReceptionsSelectorStatement")
+    private String playerReceptionsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageReceivingYardsSelectorStatement")
+    private String playerReceivingYardsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageReceivingTouchdownsSelectorStatement")
+    private String playerReceivingTouchdownsSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageFantasyPointsSelectorStatement")
+    private String playerFantasyPointsSelectorStatement;
+
+    //////////////////// statement builder implementation tests: ////////////////////
     @Test
     public void shouldBeAbleToBuildStatementsWithoutParentElements() throws Exception {
         SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).className(testClassName).classnameEqualityOperator(EQUALS).childElementIndex(testChildElementIndex).build();
@@ -47,7 +92,7 @@ public class SelectorStatementBuilderTests {
     }
 
     @Test
-    public void shouldBeABleToBuildStatementsWithParentElements() throws Exception {
+    public void shouldBeAbleToBuildStatementsWithParentElements() throws Exception {
         SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().parentTagName(testParentTagName).parentClassnameEqualityOperator(EQUALS).parentClassname(testParentClassName).tagName(testTagName).className(testClassName).classnameEqualityOperator(EQUALS).childElementIndex(testChildElementIndex).build();
         assertThat(testStatement.getObject(), is(equalTo(String.format("%s[class = %s] > %s[class = %s]:eq(%d)", testParentTagName, testParentClassName, testTagName, testClassName, testChildElementIndex))));
     }
@@ -106,6 +151,7 @@ public class SelectorStatementBuilderTests {
         assertThat(testStatement.getObject(), is(equalTo(String.format("%s:contains(%s)", testTagName, testContainsText))));
     }
 
+    //////////////////// Targeted selector statement builder tests: ////////////////////
     @Test
     public void shouldBeAbleToConstructNameSelectorStatementCorrectly() {
         assertThat(playerNameXpathSelectorStatement, is(equalTo("td[class = playertablePlayerName] > a[class = flexpop]")));
@@ -114,5 +160,60 @@ public class SelectorStatementBuilderTests {
     @Test
     public void shouldBeAbleToConstructTeamSelectorStatementCorrectly() {
         assertThat(playerTeamXpathSelectorStatement, is(equalTo("td[class = playertablePlayerName]")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructPassingCompletionsAndAttemptsSelectorStatementCorrectly() {
+        assertThat(playerPassingCompletionsAndAttemptsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(4)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructPassingYardsSelectorStatementCorrectly() {
+        assertThat(playerPassingYardsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(5)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructPassingTouchdownsSelectorStatementCorrectly() {
+        assertThat(playerPassingTouchdownsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(6)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructInterceptionsSelectorStatementCorrectly() {
+        assertThat(playerInterceptionsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(7)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructRushingAttemptsSelectorStatementCorrectly() {
+        assertThat(playerRushingAttemptsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(8)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructRushingYardsSelectorStatementCorrectly() {
+        assertThat(playerRushingYardsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(9)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructRushingTouchdownsSelectorStatementCorrectly() {
+        assertThat(playerRushingTouchdownsSelectorStatement,  is(equalTo("td[class = playertableStat]:eq(10)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructReceptionsSelectorStatementCorrectly() {
+        assertThat(playerReceptionsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(11)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructReceivingYardsSelectorStatementCorrectly() {
+        assertThat(playerReceivingYardsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(12)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructReceivingTouchdownsSelectorStatementCorrectly() {
+        assertThat(playerReceivingTouchdownsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(13)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructFantasyPointsSelectorStatementCorrectly() {
+        assertThat(playerFantasyPointsSelectorStatement, is(equalTo("td[class = playertableStat appliedPoints]")));
     }
 }

@@ -3,6 +3,29 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- tr[class ^= pncPlayerRow] -->
+    <bean id="espnPlayerProjectionRowSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="tr"/>
+        <property name="classnameEqualityOperator" value="STARTS_WITH"/>
+        <property name="className" value="pncPlayerRow"/>
+    </bean>
+
+    <!-- a:contains(NEXT) -->
+    <bean id="espnPlayerProjectionsPageNextPageSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="a"/>
+        <property name="containsText" value="NEXT"/>
+    </bean>
+
+    <!-- td[class = playertableData] -->
+    <bean id="espnPlayerProjectionsPageRankSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableData"/>
+    </bean>
+
     <!-- a[class = flexpop] -->
     <!-- TESTED -->
     <bean id="espnProjectionsPageNameSelectorStatement"
@@ -24,34 +47,113 @@
         <property name="className" value="playertablePlayerName"/>
     </bean>
 
+    <!-- td[class = playertableStat]:eq(4) -->
+    <!-- TESTED -->
+    <bean id="espnProjectionsPagePassingCompletionsAndAttemptsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="4"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(5) -->
+    <!-- TESTED -->
+    <bean id="espnProjectionsPagePassingYardsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="5"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(6) -->
+    <!-- TESTED -->
+    <bean id="espnProjectionsPagePassingTouchdownsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="6"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(7) -->
+    <!-- TESTED -->
+    <bean id="espnProjectionsPageInterceptionsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="7"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(8) -->
+    <!-- TESTED -->
+    <bean id="espnProjectionsPageRushingAttemptsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="8"/>
+    </bean>
+
     <!-- td[class = playertableStat]:eq(9) -->
-    <bean id="espnPlayerProjectionsPageRushingYardsSelectorStatement" class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+    <!-- TESTED -->
+    <bean id="espnPlayerProjectionsPageRushingYardsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="td"/>
         <property name="classnameEqualityOperator" value="EQUALS"/>
         <property name="className" value="playertableStat"/>
         <property name="childElementIndex" value="9"/>
     </bean>
 
-    <!-- tr[class ^= pncPlayerRow] -->
-    <bean id="espnPlayerProjectionRowSelectorStatement"
+    <!-- td[class = playertableStat]:eq(10) -->
+    <!-- TESTED -->
+    <bean id="espnPlayerProjectionsPageRushingTouchdownsSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
-        <property name="tagName" value="tr"/>
-        <property name="classnameEqualityOperator" value="STARTS_WITH"/>
-        <property name="className" value="pncPlayerRow"/>
-    </bean>
-
-    <!-- a:contains(NEXT) -->
-    <bean id="espnPlayerProjectionsPageNextPageSelectorStatement"
-          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
-        <property name="tagName" value="a"/>
-        <property name="containsText" value="NEXT"/>
-    </bean>
-
-    <!-- td[class = playertableData] -->
-    <bean id="espnPlayerProjectionsPageRankSelectorStatement" class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="td"/>
         <property name="classnameEqualityOperator" value="EQUALS"/>
-        <property name="className" value="playertableData"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="10"/>
     </bean>
 
+    <!-- td[class = playertableStat]:eq(11) -->
+    <!-- TESTED -->
+    <bean id="espnPlayerProjectionsPageReceptionsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="11"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(12) -->
+    <!-- TESTED -->
+    <bean id="espnPlayerProjectionsPageReceivingYardsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="12"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(13) -->
+    <!-- TESTED -->
+    <bean id="espnPlayerProjectionsPageReceivingTouchdownsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat"/>
+        <property name="childElementIndex" value="13"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(1) -->
+    <!-- TESTED -->
+    <bean id="espnPlayerProjectionsPageFantasyPointsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertableStat appliedPoints"/>
+        <!--<property name="childElementIndex" value="1"/>-->
+    </bean>
 </beans>

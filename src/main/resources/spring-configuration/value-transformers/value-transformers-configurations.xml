@@ -7,5 +7,7 @@
     <bean id="tableTagAdderValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.TableTagAdderValueTransformer"/>
     <bean id="teamNameIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.EspnTeamNameValueTransformer"/>
     <bean id="positionIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.EspnPositionValueTransformer"/>
+    <bean id="passingCompletionsIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransformer"/>
+    <bean id="passingAttemptsIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.DenominatorSelectorValueTransformer"/>
 
 </beans>

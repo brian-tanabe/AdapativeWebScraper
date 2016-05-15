@@ -14,6 +14,10 @@
         <constructor-arg value="java.lang.Integer"/>
     </bean>
 
+    <bean id="doubleClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="java.lang.Double"/>
+    </bean>
+
     <bean id="documentClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="org.jsoup.nodes.Document"/>
     </bean>
@@ -22,19 +26,24 @@
         <constructor-arg value="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel"/>
     </bean>
 
+    <!-- Constants -->
     <util:list id="emptyList"></util:list>
 
     <!-- Factories -->
-    <bean id="documentFactoryClass" class="java.lang.Class" factory-method="forName">
-        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.DocumentFactory"/>
+    <bean id="stringFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.StringFactory"/>
     </bean>
 
     <bean id="integerFactoryClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="com.btanabe.adaptivewebscraper.factories.IntegerFactory"/>
     </bean>
 
-    <bean id="stringFactoryClass" class="java.lang.Class" factory-method="forName">
-        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.StringFactory"/>
+    <bean id="doubleFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.DoubleFactory"/>
+    </bean>
+
+    <bean id="documentFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.DocumentFactory"/>
     </bean>
 
 </beans>

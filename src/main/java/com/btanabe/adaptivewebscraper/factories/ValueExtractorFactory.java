@@ -39,10 +39,7 @@ public class ValueExtractorFactory<OutputClazz> {
     @Setter(onMethod = @__({@Autowired}))
     private List<Function<String, String>> valueTransformers;
 
-    @Setter(onMethod = @__({@Autowired}))
-    private String valueExtractorName;
-
     public ValueExtractor createValueExtractor(final Document document) {
-        return new ValueExtractor<OutputClazz>(document, objectClasspath, outputClazzFactoryClazz, xpathSelector, textGetterMethodName, textGetterMethodParameterTypes, textGetterMethodParameters, valueTransformers, valueExtractorName);
+        return new ValueExtractor<OutputClazz>(document, objectClasspath, outputClazzFactoryClazz, xpathSelector, textGetterMethodName, textGetterMethodParameterTypes, textGetterMethodParameters, valueTransformers);
     }
 }

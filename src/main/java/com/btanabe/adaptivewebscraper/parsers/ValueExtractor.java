@@ -46,9 +46,6 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
     @NonNull
     private final List<Function<String, String>> valueTransformers;
 
-    @NonNull
-    private final String valueExtractorName;
-
     @Override
     public Stream<OutputClazz> call() throws Exception {
         return Stream.of(getAllOccurrencesAsString());
@@ -89,10 +86,5 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
     private OutputClazz[] instantiateOutputClazzArray(final int arraySize) {
         Object array = Array.newInstance(objectClasspath, arraySize);
         return (OutputClazz[]) array;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("valueExtractorName=[%s], xpathSelector=[%s], textGetterMethodName=[%s], textGetterMethodParameters=[%s]", valueExtractorName, xpathSelector, textGetterMethodName, textGetterMethodParameters);
     }
 }

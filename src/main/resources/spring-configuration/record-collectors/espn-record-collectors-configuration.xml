@@ -10,11 +10,23 @@
 
     <util:map id="espnNflPlayerProjectionValueExtractorSetterMethodMap"
               key-type="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory" value-type="java.lang.String">
+        <entry key-ref="espnProjectionsPlayerIdValueExtractorFactory" value="setPlayerId"/>
         <entry key-ref="espnProjectionsPageRankValueExtractorFactory" value="setRank"/>
         <entry key-ref="espnProjectionsNameValueExtractorFactory" value="setName"/>
         <entry key-ref="espnProjectionsTeamValueExtractorFactory" value="setTeam"/>
         <entry key-ref="espnProjectionsPositionValueExtractorFactory" value="setPosition"/>
+        <entry key-ref="espnProjectionsPassingCompletionsValueExtractorFactory" value="setPassingCompletions"/>
+        <entry key-ref="espnProjectionsPassingAttemptsValueExtractorFactory" value="setPassingAttempts"/>
+        <entry key-ref="espnProjectionsPassingYardsValueExtractorFactory" value="setPassingYards"/>
+        <entry key-ref="espnProjectionsPassingTouchdownsValueExtractorFactory" value="setPassingTouchdowns"/>
+        <entry key-ref="espnProjectionsInterceptionsValueExtractorFactory" value="setInterceptions"/>
+        <entry key-ref="espnProjectionsRushingAttemptsValueExtractorFactory" value="setRushingAttempts"/>
         <entry key-ref="espnProjectionsRushingYardsValueExtractorFactory" value="setRushingYards"/>
+        <entry key-ref="espnProjectionsRushingTouchdownsValueExtractorFactory" value="setRushingTouchdowns"/>
+        <entry key-ref="espnProjectionsReceptionsValueExtractorFactory" value="setReceptions"/>
+        <entry key-ref="espnProjectionsReceivingYardsValueExtractorFactory" value="setReceivingYards"/>
+        <entry key-ref="espnProjectionsReceivingTouchdownsValueExtractorFactory" value="setReceivingTouchdowns"/>
+        <entry key-ref="espnProjectionsFantasyPointsValueExtractorFactory" value="setFantasyPoints"/>
     </util:map>
 
     <bean id="espnNflPlayerProjectionsRecordCollector"

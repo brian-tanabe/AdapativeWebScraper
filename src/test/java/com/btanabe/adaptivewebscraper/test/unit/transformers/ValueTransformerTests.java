@@ -1,7 +1,9 @@
 package com.btanabe.adaptivewebscraper.test.unit.transformers;
 
+import com.btanabe.adaptivewebscraper.transformers.DenominatorSelectorValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.EspnPositionValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.EspnTeamNameValueTransformer;
+import com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.PassThroughValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.TableTagAdderValueTransformer;
 import org.junit.Test;
@@ -33,5 +35,15 @@ public class ValueTransformerTests {
     @Test
     public void shouldBeAbleToIsolatePositionsUsingTheEspnPositionValueTransformer() {
         assertThat(new EspnPositionValueTransformer().apply(", GB RB"), is(equalTo("RB")));
+    }
+
+    @Test
+    public void shouldBeAbleToIsolatePassingCompletionsUsingTheDenominatorSelectorValueTransformer() {
+        assertThat(new NumeratorSelectorValueTransformer().apply("200/300"), is(equalTo("200")));
+    }
+
+    @Test
+    public void shouldBeAbleToIsolatePassingAttemptsUsingTheDenominatorSelectorValueTransformer() {
+        assertThat(new DenominatorSelectorValueTransformer().apply("200/300"), is(equalTo("300")));
     }
 }

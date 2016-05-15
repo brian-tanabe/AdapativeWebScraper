@@ -112,6 +112,6 @@ public class RecordCollector<OutputType> {
 
         // Get the next page URL and return:
         final String nextPageUrl = nextPageUrlFuture.get().findFirst().orElse(null);
-        return nextPageUrl;
+        return null;
     }
 }
