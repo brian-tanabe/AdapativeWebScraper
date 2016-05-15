@@ -3,6 +3,8 @@ package com.btanabe.adaptivewebscraper.test.unit.utilities;
 import com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -29,6 +31,14 @@ public class SelectorStatementBuilderTests {
     private final int testChildElementIndex = 6;
 
     private final String testContainsText = "NEXT";
+
+    @Autowired
+    @Qualifier("espnProjectionsPageNameSelectorStatement")
+    private String playerNameXpathSelectorStatement;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageTeamAndPositionSelectorStatement")
+    private String playerTeamXpathSelectorStatement;
 
     @Test
     public void shouldBeAbleToBuildStatementsWithoutParentElements() throws Exception {
@@ -94,5 +104,15 @@ public class SelectorStatementBuilderTests {
     public void shouldBeAbleToBuildStatementsWithContainsTextValuesSpecified() throws Exception {
         SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).containsText(testContainsText).build();
         assertThat(testStatement.getObject(), is(equalTo(String.format("%s:contains(%s)", testTagName, testContainsText))));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructNameSelectorStatementCorrectly() {
+        assertThat(playerNameXpathSelectorStatement, is(equalTo("td[class = playertablePlayerName] > a[class = flexpop]")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructTeamSelectorStatementCorrectly() {
+        assertThat(playerTeamXpathSelectorStatement, is(equalTo("td[class = playertablePlayerName]")));
     }
 }

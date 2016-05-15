@@ -23,8 +23,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.powermock.api.mockito.PowerMockito.mock;
+import static org.powermock.api.mockito.PowerMockito.when;
 
 /**
  * Created by Brian on 5/1/16.
@@ -65,6 +65,5 @@ public class EspnProjectionsPageRecordCollectorTests {
     public void shouldBeAbleToFindFortyPlayersOnPageOne() throws Exception {
         final List<EspnNflProjectionModel> records = espnNflProjectionsPageRecordCollector.getAllRecordsAsList();
         assertThat(records.size(), is(equalTo(40)));
-        records.forEach(record -> System.out.println(record));
     }
 }

@@ -39,7 +39,7 @@ public class DocumentFactoryTests {
         final Document document = DocumentFactory.builder().documentText(entirePageHtmlText).build().getObject();
 
         assertThat(document.text(), containsString("Antonio Brown"));
-        assertThat(document.text(), containsString("Dion Lewis"));
+        assertThat(document.text(), containsString("Matt Forte"));
     }
 
 }

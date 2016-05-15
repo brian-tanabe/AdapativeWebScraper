@@ -1,5 +1,6 @@
 package com.btanabe.adaptivewebscraper.parsers;
 
+import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
@@ -18,15 +19,14 @@ import java.util.stream.Stream;
 public class DocumentParserTask<OutputClazz> implements Callable<OutputClazz> {
     private ListeningExecutorService executorService;
     private Document document;
-    private Map<ValueExtractor, String> outputObjectSetterMethodNameMappedToItsValueExtractor;
+    private Map<ValueExtractorFactory, String> outputObjectSetterMethodNameMappedToItsValueExtractorFactory;
     private Class<OutputClazz> outputClazzPath;
 
     @Override
     public OutputClazz call() throws Exception {
-        Map<ListenableFuture, String> futures = Maps.newHashMapWithExpectedSize(outputObjectSetterMethodNameMappedToItsValueExtractor.size());
-        outputObjectSetterMethodNameMappedToItsValueExtractor.keySet().forEach(valueExtractor -> {
-            valueExtractor.setDocument(document);
-            futures.put(executorService.submit(valueExtractor), outputObjectSetterMethodNameMappedToItsValueExtractor.get(valueExtractor));
+        Map<ListenableFuture, String> futures = Maps.newHashMapWithExpectedSize(outputObjectSetterMethodNameMappedToItsValueExtractorFactory.size());
+        outputObjectSetterMethodNameMappedToItsValueExtractorFactory.keySet().forEach(valueExtractorFactory -> {
+            futures.put(executorService.submit(valueExtractorFactory.createValueExtractor(document)), outputObjectSetterMethodNameMappedToItsValueExtractorFactory.get(valueExtractorFactory));
         });
 
         OutputClazz outputObject = ClassUtils.getConstructorIfAvailable(outputClazzPath).newInstance();

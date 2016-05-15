@@ -9,19 +9,21 @@
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
 
     <util:map id="espnNflPlayerProjectionValueExtractorSetterMethodMap"
-              key-type="com.btanabe.adaptivewebscraper.parsers.ValueExtractor" value-type="java.lang.String">
-        <entry key-ref="espnProjectionsNameValueExtractor" value="setName"/>
-        <entry key-ref="espnProjectionsPageRankValueExtractor" value="setRank"/>
-        <entry key-ref="espnProjectionsRushingYardsValueExtractor" value="setRushingYards"/>
+              key-type="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory" value-type="java.lang.String">
+        <entry key-ref="espnProjectionsPageRankValueExtractorFactory" value="setRank"/>
+        <entry key-ref="espnProjectionsNameValueExtractorFactory" value="setName"/>
+        <entry key-ref="espnProjectionsTeamValueExtractorFactory" value="setTeam"/>
+        <entry key-ref="espnProjectionsPositionValueExtractorFactory" value="setPosition"/>
+        <entry key-ref="espnProjectionsRushingYardsValueExtractorFactory" value="setRushingYards"/>
     </util:map>
 
     <bean id="espnNflPlayerProjectionsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
         <property name="executorService" ref="listeningExecutorService"/>
-        <property name="nextPageValueExtractor" ref="espnProjectionsPageNextPageValueExtractor"/>
-        <property name="recordDocumentExtractor" ref="espnPlayerProjectionRowValueExtractor"/>
+        <property name="nextPageValueExtractorFactory" ref="espnProjectionsPageNextPageValueExtractorFactory"/>
+        <property name="recordDocumentExtractorFactory" ref="espnPlayerProjectionRowValueExtractorFactory"/>
         <property name="seedWebPage" value="http://games.espn.go.com/ffl/tools/projections?leagueId=84978"/>
-        <property name="valueExtractorToSetterMethodNameMap"
+        <property name="valueExtractorFactoryToSetterMethodNameMap"
                   ref="espnNflPlayerProjectionValueExtractorSetterMethodMap"/>
         <property name="outputClassPath" ref="espnNflProjectionModel"/>
     </bean>

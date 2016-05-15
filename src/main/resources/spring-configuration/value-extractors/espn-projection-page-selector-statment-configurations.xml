@@ -4,17 +4,28 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- a[class = flexpop] -->
+    <!-- TESTED -->
     <bean id="espnProjectionsPageNameSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="a"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
         <property name="className" value="flexpop"/>
+        <property name="parentTagName" value="td"/>
+        <property name="parentClassnameEqualityOperator" value="EQUALS"/>
+        <property name="parentClassname" value="playertablePlayerName"/>
     </bean>
 
-    <!-- tr[class ^= pncPlayerRow > td[class = playertableStat]:eq(19) -->
+    <!-- a[class = flexpop] -->
+    <!-- TESTED -->
+    <bean id="espnProjectionsPageTeamAndPositionSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="className" value="playertablePlayerName"/>
+    </bean>
+
+    <!-- td[class = playertableStat]:eq(9) -->
     <bean id="espnPlayerProjectionsPageRushingYardsSelectorStatement" class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
-        <property name="parentTagName" value="tr"/>
-        <property name="parentClassnameEqualityOperator" value="STARTS_WITH"/>
-        <property name="parentClassname" value="pncPlayerRow"/>
         <property name="tagName" value="td"/>
         <property name="classnameEqualityOperator" value="EQUALS"/>
         <property name="className" value="playertableStat"/>
@@ -35,7 +46,6 @@
         <property name="tagName" value="a"/>
         <property name="containsText" value="NEXT"/>
     </bean>
-
 
     <!-- td[class = playertableData] -->
     <bean id="espnPlayerProjectionsPageRankSelectorStatement" class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">

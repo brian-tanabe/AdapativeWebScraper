@@ -1,71 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="../common/class-definitions.xml"/>
+    <import resource="../value-transformers/value-transformers-configurations.xml"/>
     <import resource="espn-projection-page-selector-statment-configurations.xml"/>
 
-    <util:list id="emptyList"></util:list>
-
-    <bean id="espnProjectionsNameValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+    <bean id="espnProjectionsNameValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageNameSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
-        <property name="textGetterMethodParameters">
-            <list></list>
-        </property>
-        <property name="textGetterMethodParameterTypes">
-            <list></list>
-        </property>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueExtractorName" value="NameValueExtractor"/>
     </bean>
 
-    <bean id="espnProjectionsRushingYardsValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+    <bean id="espnProjectionsTeamValueExtractorFactory" class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="espnProjectionsPageTeamAndPositionSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="teamNameIsolatorValueTransformer"/>
+        <property name="valueExtractorName" value="TeamValueExtractor"/>
+    </bean>
+
+    <bean id="espnProjectionsPositionValueExtractorFactory" class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="espnProjectionsPageTeamAndPositionSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="positionIsolatorValueTransformer"/>
+        <property name="valueExtractorName" value="PositionValueExtractor"/>
+    </bean>
+
+    <bean id="espnProjectionsRushingYardsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRushingYardsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
         <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
-        <property name="textGetterMethodParameterTypes">
-            <list></list>
-        </property>
-        <property name="textGetterMethodParameters">
-            <list></list>
-        </property>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueExtractorName" value="RushingYardsValueExtractor"/>
     </bean>
 
 
-    <bean id="espnPlayerProjectionRowValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+    <bean id="espnPlayerProjectionRowValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionRowSelectorStatement"/>
         <property name="objectClasspath" ref="documentClass"/>
         <property name="outputClazzFactoryClazz" ref="documentFactoryClass"/>
         <property name="textGetterMethodName" value="html"/>
-        <property name="textGetterMethodParameterTypes">
-            <list></list>
-        </property>
-        <property name="textGetterMethodParameters">
-            <list></list>
-        </property>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers" ref="tableTagAdderValueTransformer"/>
+        <property name="valueExtractorName" value="RowValueExtractor"/>
     </bean>
 
-    <bean id="espnProjectionsPageNextPageValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+    <bean id="espnProjectionsPageNextPageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
         <property name="textGetterMethodName" value="attr"/>
         <property name="textGetterMethodParameterTypes" ref="stringClass"/>
         <property name="textGetterMethodParameters" value="href"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueExtractorName" value="NextPageValueExtractor"/>
     </bean>
 
-    <bean id="espnProjectionsPageRankValueExtractor" class="com.btanabe.adaptivewebscraper.parsers.ValueExtractor">
+    <bean id="espnProjectionsPageRankValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRankSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
         <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueExtractorName" value="RankValueExtractor"/>
     </bean>
 
 </beans>

@@ -1,14 +1,13 @@
 package com.btanabe.adaptivewebscraper.collectors;
 
+import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
 import com.btanabe.adaptivewebscraper.parsers.DocumentParserTask;
-import com.btanabe.adaptivewebscraper.parsers.ValueExtractor;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import org.jsoup.nodes.Document;
@@ -30,8 +29,11 @@ import java.util.stream.Stream;
  * 5) Find the link to the next page                                 (main thread: t[m])
  * 6) Repeat steps 2 through 5 until the next page link is null      (Each its own thread: t[n+1...2n])
  * 5) Join and return
+ * <p>
+ * TODO I think parsed records should go straight on to an EventBus which the datastore
+ * TODO layer listens to and inserts/updates:
+ * TODO https://github.com/google/guava/wiki/EventBusExplained
  */
-@NoArgsConstructor
 public class RecordCollector<OutputType> {
 
     @NonNull
@@ -44,15 +46,15 @@ public class RecordCollector<OutputType> {
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private ValueExtractor<String> nextPageValueExtractor;
+    private ValueExtractorFactory<String> nextPageValueExtractorFactory;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private ValueExtractor<Document> recordDocumentExtractor;
+    private ValueExtractorFactory<Document> recordDocumentExtractorFactory;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private Map<ValueExtractor, String> valueExtractorToSetterMethodNameMap;
+    private Map<ValueExtractorFactory, String> valueExtractorFactoryToSetterMethodNameMap;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -89,16 +91,14 @@ public class RecordCollector<OutputType> {
 
         // Step 2: Find the link to the next page:
         AsyncFunction<Document, Stream<String>> nextPageUrlFunction = input -> {
-            nextPageValueExtractor.setDocument(input);
-            return executorService.submit(nextPageValueExtractor);
+            return executorService.submit(nextPageValueExtractorFactory.createValueExtractor(input));
         };
 
         ListenableFuture<Stream<String>> nextPageUrlFuture = Futures.transformAsync(webPageDownloadFuture, nextPageUrlFunction);
 
         // Step 3: Extract all Elements into their own Document:
         AsyncFunction<Document, Stream<Document>> recordPartitioningFunction = input -> {
-            recordDocumentExtractor.setDocument(input);
-            return executorService.submit(recordDocumentExtractor);
+            return executorService.submit(recordDocumentExtractorFactory.createValueExtractor(input));
         };
 
         // Gather all Documents:
@@ -106,12 +106,12 @@ public class RecordCollector<OutputType> {
 
         // Step 4: Parse each record:
         allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> {
-            DocumentParserTask<OutputType> task = new DocumentParserTask<OutputType>(executorService, recordDocument, valueExtractorToSetterMethodNameMap, outputClassPath);
+            DocumentParserTask<OutputType> task = new DocumentParserTask<OutputType>(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputClassPath);
             outputTypeFutures.add(executorService.submit(task));
         });
 
         // Get the next page URL and return:
         final String nextPageUrl = nextPageUrlFuture.get().findFirst().orElse(null);
-        return null;
+        return nextPageUrl;
     }
 }

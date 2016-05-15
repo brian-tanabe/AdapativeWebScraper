@@ -1,7 +1,7 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
+import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
-import com.btanabe.adaptivewebscraper.parsers.ValueExtractor;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,24 +24,32 @@ import static org.junit.Assert.assertThat;
 public class EspnValueExtractorTests {
 
     @Autowired
-    @Qualifier("espnProjectionsNameValueExtractor")
-    private ValueExtractor<String> nameValueExtractor;
+    @Qualifier("espnProjectionsPageRankValueExtractorFactory")
+    private ValueExtractorFactory<Integer> rankValueExtractorFactory;
 
     @Autowired
-    @Qualifier("espnProjectionsPageRankValueExtractor")
-    private ValueExtractor<Integer> rankValueExtractor;
+    @Qualifier("espnProjectionsNameValueExtractorFactory")
+    private ValueExtractorFactory<String> nameValueExtractorFactory;
 
     @Autowired
-    @Qualifier("espnProjectionsRushingYardsValueExtractor")
-    private ValueExtractor<Integer> rushingYardsProjectionValueExtractor;
+    @Qualifier("espnProjectionsTeamValueExtractorFactory")
+    private ValueExtractorFactory<String> teamValueExtractorFactory;
 
     @Autowired
-    @Qualifier("espnPlayerProjectionRowValueExtractor")
-    private ValueExtractor<Document> playerProjectionRowValueExtractor;
+    @Qualifier("espnProjectionsPositionValueExtractorFactory")
+    private ValueExtractorFactory<String> positionValueExtractorFactory;
 
     @Autowired
-    @Qualifier("espnProjectionsPageNextPageValueExtractor")
-    private ValueExtractor<String> nextPageValueExtractor;
+    @Qualifier("espnProjectionsRushingYardsValueExtractorFactory")
+    private ValueExtractorFactory<Integer> rushingYardsProjectionValueExtractorFactory;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionRowValueExtractorFactory")
+    private ValueExtractorFactory<Document> playerProjectionRowValueExtractorFactory;
+
+    @Autowired
+    @Qualifier("espnProjectionsPageNextPageValueExtractorFactory")
+    private ValueExtractorFactory<String> nextPageValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPageEddieLacyDocument")
@@ -60,44 +68,45 @@ public class EspnValueExtractorTests {
     private String playerNameSelectorStatement;
 
     @Test
-    public void shouldBeAbleToExtractNamesFromPlayerDocuments() throws Exception {
-        nameValueExtractor.setDocument(espnProjectionsPageEddieLacy);
-        assertThat(nameValueExtractor.call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getName())));
+    public void shouldBeAbleToExtractRanksFromPlayerDocuments() throws Exception {
+        assertThat(rankValueExtractorFactory.createValueExtractor(espnProjectionsPageEddieLacy).call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getRank())));
     }
 
     @Test
-    public void shouldBeAbleToExtractRanksFromPlayerDocuments() throws Exception {
-        rankValueExtractor.setDocument(espnProjectionsPageEddieLacy);
-        assertThat(rankValueExtractor.call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getRank())));
+    public void shouldBeAbleToExtractNamesFromPlayerDocuments() throws Exception {
+        assertThat(nameValueExtractorFactory.createValueExtractor(espnProjectionsPageEddieLacy).call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getName())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractTeamNamesFromPlayerDocuments() throws Exception {
+        assertThat(teamValueExtractorFactory.createValueExtractor(espnProjectionsPageEddieLacy).call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getTeam())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractPositionsFromPlayerDocuments() throws Exception {
+        assertThat(positionValueExtractorFactory.createValueExtractor(espnProjectionsPageEddieLacy).call().findFirst().get(), is(equalTo((String) expectedEddieLacyModel.getPosition())));
     }
 
     @Test
     public void shouldBeAbleToExtractIntegersFromAWebPage() throws Exception {
-        rushingYardsProjectionValueExtractor.setDocument(espnProjectionsPageEddieLacy);
-        assertThat(rushingYardsProjectionValueExtractor.call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getRushingYards())));
+        assertThat(rushingYardsProjectionValueExtractorFactory.createValueExtractor(espnProjectionsPageEddieLacy).call().findFirst().get(), is(equalTo(expectedEddieLacyModel.getRushingYards())));
     }
 
     @Test
     public void shouldBeAbleToExtractLikeIntegersFromMoreThanOneHtmlElementOnAPage() throws Exception {
-        playerProjectionRowValueExtractor.setDocument(espnProjectionsPageOne);
-
-        Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractor.call();
+        Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractorFactory.createValueExtractor(espnProjectionsPageOne).call();
         assertThat(playerProjectionDocumentStream.count(), is(equalTo(40L)));
     }
 
     @Test
     public void shouldBeAbleToPopulateOutputObjectsProperly() throws Exception {
-        playerProjectionRowValueExtractor.setDocument(espnProjectionsPageOne);
-
-        Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractor.call();
+        Stream<Document> playerProjectionDocumentStream = playerProjectionRowValueExtractorFactory.createValueExtractor(espnProjectionsPageOne).call();
         assertThat(playerProjectionDocumentStream.anyMatch(document -> document.select(playerNameSelectorStatement).text().contains(expectedEddieLacyModel.getName())), is(true));
     }
 
     @Test
     public void shouldBeAbleToFindTheLinkToTheNextPage() throws Exception {
-        nextPageValueExtractor.setDocument(espnProjectionsPageOne);
-
-        Stream<String> nextPageLinkStream = nextPageValueExtractor.call();
+        Stream<String> nextPageLinkStream = nextPageValueExtractorFactory.createValueExtractor(espnProjectionsPageOne).call();
         assertThat(nextPageLinkStream.findFirst().get(), is(equalTo("http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=40")));
     }
 }
