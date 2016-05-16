@@ -85,7 +85,6 @@ public class RecordCollector<OutputType> {
 
     // Consider making this a recursive function:
     private String generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(final String pageUrl, final List<ListenableFuture<OutputType>> outputTypeFutures) throws ExecutionException, InterruptedException {
-
         // Step 1: Download Page HTML
         ListenableFuture webPageDownloadFuture = executorService.submit(WebRequestTaskFactory.createWebRequestTask(pageUrl));
 
@@ -112,6 +111,6 @@ public class RecordCollector<OutputType> {
 
         // Get the next page URL and return:
         final String nextPageUrl = nextPageUrlFuture.get().findFirst().orElse(null);
-        return null;
+        return nextPageUrl;
     }
 }

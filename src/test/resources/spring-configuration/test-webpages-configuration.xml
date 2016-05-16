@@ -5,17 +5,18 @@
 
     <bean id="espnNflProjectionsPageOneAsAStringUnformatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
-        <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
+        <property name="inputFile" value="classpath:/test-webpages/espn/espn-player-projections-page-1.dirty.html"/>
     </bean>
 
     <bean id="espnNflProjectionsPageOneAsAStringFormatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedStringFactory">
-        <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
+        <property name="inputFile" value="classpath:/test-webpages/espn/espn-player-projections-page-1.dirty.html"/>
     </bean>
 
     <bean id="espnNflProjectionsPageOneFormatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
-        <property name="inputFile" value="classpath:/test-webpages/espn/projections-1.dirty.html"/>
+        <property name="inputFile"
+                  value="classpath:/test-webpages/espn/espn-player-projections-page-1.dirty.html"/>
     </bean>
 
     <bean id="espnProjectionsPageEddieLacyDocument"

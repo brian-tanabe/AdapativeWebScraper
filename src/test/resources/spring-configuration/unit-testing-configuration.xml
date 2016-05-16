@@ -9,6 +9,7 @@
 
     <!-- Test specific configurations: -->
     <import resource="classpath:/spring-configuration/test-webpages-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/espn-player-projections-webpages-configurations.xml"/>
     <import resource="classpath:/spring-configuration/test-web-requests.xml"/>
     <import resource="classpath:/spring-configuration/model-configurations/espn-player-projections-page-model-configurations.xml"/>
 </beans>
