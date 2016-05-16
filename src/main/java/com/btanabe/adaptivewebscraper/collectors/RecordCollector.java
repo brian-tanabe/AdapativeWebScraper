@@ -2,7 +2,7 @@ package com.btanabe.adaptivewebscraper.collectors;
 
 import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
-import com.btanabe.adaptivewebscraper.parsers.DocumentParserTask;
+import com.btanabe.adaptivewebscraper.processors.DocumentParserTask;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;

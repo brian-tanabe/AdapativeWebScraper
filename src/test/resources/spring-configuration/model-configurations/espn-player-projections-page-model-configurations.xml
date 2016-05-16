@@ -42,4 +42,24 @@
         <property name="receivingTouchdowns" value="0"/>
         <property name="fantasyPoints" value="0"/>
     </bean>
+
+    <bean id="espnPlayerProjectionsPageSteelersDefense" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
+        <property name="playerId" value="60023"/>
+        <property name="rank" value="285"/>
+        <property name="name" value="Steelers D/ST"/>
+        <property name="team" value="Steelers"/>
+        <property name="position" value="D/ST"/>
+        <property name="passingAttempts" value="0"/>
+        <property name="passingCompletions" value="0"/>
+        <property name="passingYards" value="0"/>
+        <property name="passingTouchdowns" value="0"/>
+        <property name="interceptions" value="0"/>
+        <property name="rushingAttempts" value="0"/>
+        <property name="rushingYards" value="0"/>
+        <property name="rushingTouchdowns" value="0"/>
+        <property name="receptions" value="0"/>
+        <property name="receivingYards" value="0"/>
+        <property name="receivingTouchdowns" value="0"/>
+        <property name="fantasyPoints" value="92"/>
+    </bean>
 </beans>

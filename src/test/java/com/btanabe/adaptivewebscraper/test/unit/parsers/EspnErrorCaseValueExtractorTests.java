@@ -94,8 +94,31 @@ public class EspnErrorCaseValueExtractorTests {
     private Document playerProjectionDocumentWithNoProjections;
 
     @Autowired
+    @Qualifier("espnProjectionsPageSteelersDefense")
+    private Document playerProjectionsDocumentWithNoLastNameOrTeam;
+
+    @Autowired
     @Qualifier("espnPlayerProjectionsPageJoshFerguson")
     private EspnNflProjectionModel expectedJoshFergusonModel;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageSteelersDefense")
+    private EspnNflProjectionModel expectedSteelersTeamDefenseModel;
+
+    @Test
+    public void shouldBeAbleToSetNameCorrectlyWhenTheInputPlayerIsATeamDefense() throws Exception {
+        assertThat(nameValueExtractorFactory.createValueExtractor(playerProjectionsDocumentWithNoLastNameOrTeam).call().findFirst().get(), is(equalTo(expectedSteelersTeamDefenseModel.getName())));
+    }
+
+    @Test
+    public void shouldBeAbleToSetTeamCorrectlyWhenTheInputPlayerIsATeamDefense() throws Exception {
+        assertThat(teamValueExtractorFactory.createValueExtractor(playerProjectionsDocumentWithNoLastNameOrTeam).call().findFirst().get(), is(equalTo(expectedSteelersTeamDefenseModel.getTeam())));
+    }
+
+    @Test
+    public void shouldBeAbleToSetPositionCorrectlyWhenTheInputPlayerIsATeamDefense() throws Exception {
+        assertThat(positionValueExtractorFactory.createValueExtractor(playerProjectionsDocumentWithNoLastNameOrTeam).call().findFirst().get(), is(equalTo(expectedSteelersTeamDefenseModel.getPosition())));
+    }
 
     @Test
     public void shouldBeAbleToExtractAPlayersPassingCompletionsAsZeroWhenTheyHaveNoProjectionListed() throws Exception {
