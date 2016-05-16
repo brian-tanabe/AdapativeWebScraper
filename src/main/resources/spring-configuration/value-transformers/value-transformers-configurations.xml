@@ -9,5 +9,6 @@
     <bean id="positionIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.EspnPositionValueTransformer"/>
     <bean id="passingCompletionsIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransformer"/>
     <bean id="passingAttemptsIsolatorValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.DenominatorSelectorValueTransformer"/>
+    <bean id="noNumberToZeroValueTransformer" class="com.btanabe.adaptivewebscraper.transformers.NoNumberToZeroValueTransformer"/>
 
 </beans>

@@ -70,9 +70,9 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
     }
 
     private String applyTransformations(final String untransformedString) {
-        String transformedString = null;
+        String transformedString = untransformedString;
         for (Function<String, String> transformer : valueTransformers) {
-            transformedString = transformer.apply(untransformedString);
+            transformedString = transformer.apply(transformedString);
         }
         return transformedString;
     }

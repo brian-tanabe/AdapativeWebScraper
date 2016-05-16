@@ -3,6 +3,7 @@ package com.btanabe.adaptivewebscraper.test.unit.transformers;
 import com.btanabe.adaptivewebscraper.transformers.DenominatorSelectorValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.EspnPositionValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.EspnTeamNameValueTransformer;
+import com.btanabe.adaptivewebscraper.transformers.NoNumberToZeroValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.PassThroughValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.TableTagAdderValueTransformer;
@@ -45,5 +46,15 @@ public class ValueTransformerTests {
     @Test
     public void shouldBeAbleToIsolatePassingAttemptsUsingTheDenominatorSelectorValueTransformer() {
         assertThat(new DenominatorSelectorValueTransformer().apply("200/300"), is(equalTo("300")));
+    }
+
+    @Test
+    public void shouldBeAbleToTransformHyphenHyphenToZeroUsingTheNoNumberToZeroValueTransformer() {
+        assertThat(new NoNumberToZeroValueTransformer().apply("--"), is(equalTo("0")));
+    }
+
+    @Test
+    public void shouldBeAbleToTransformFractionsOfHyphenHyphenToZeroOverZeroUsingTheNoNumberToZeroValueTransformer() {
+        assertThat(new NoNumberToZeroValueTransformer().apply("--/--"), is(equalTo("0/0")));
     }
 }

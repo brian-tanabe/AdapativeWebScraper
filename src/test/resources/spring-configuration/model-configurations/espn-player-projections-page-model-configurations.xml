@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="espnPlayerProjectionsPageEddieLacy" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
-        <property name="name" value="Eddie Lacy"/>
         <property name="rank" value="31"/>
+        <property name="name" value="Eddie Lacy"/>
         <property name="team" value="GB"/>
         <property name="position" value="RB"/>
         <property name="passingAttempts" value="0"/>
@@ -21,5 +21,25 @@
         <property name="receivingTouchdowns" value="2"/>
         <property name="fantasyPoints" value="212"/>
         <property name="playerId" value="15848"/>
+    </bean>
+
+    <bean id="espnPlayerProjectionsPageJoshFerguson" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
+        <property name="playerId" value="18006"/>
+        <property name="rank" value="1763"/>
+        <property name="name" value="Josh Ferguson"/>
+        <property name="team" value="Ind"/>
+        <property name="position" value="RB"/>
+        <property name="passingAttempts" value="0"/>
+        <property name="passingCompletions" value="0"/>
+        <property name="passingYards" value="0"/>
+        <property name="passingTouchdowns" value="0"/>
+        <property name="interceptions" value="0"/>
+        <property name="rushingAttempts" value="0"/>
+        <property name="rushingYards" value="0"/>
+        <property name="rushingTouchdowns" value="0"/>
+        <property name="receptions" value="0"/>
+        <property name="receivingYards" value="0"/>
+        <property name="receivingTouchdowns" value="0"/>
+        <property name="fantasyPoints" value="0"/>
     </bean>
 </beans>
