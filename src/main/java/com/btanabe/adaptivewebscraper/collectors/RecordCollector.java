@@ -2,7 +2,7 @@ package com.btanabe.adaptivewebscraper.collectors;
 
 import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
-import com.btanabe.adaptivewebscraper.processors.DocumentParserTask;
+import com.btanabe.adaptivewebscraper.tasks.DocumentParserTask;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;
@@ -110,7 +110,6 @@ public class RecordCollector<OutputType> {
         });
 
         // Get the next page URL and return:
-        final String nextPageUrl = nextPageUrlFuture.get().findFirst().orElse(null);
-        return nextPageUrl;
+        return nextPageUrlFuture.get().findFirst().orElse(null);
     }
 }

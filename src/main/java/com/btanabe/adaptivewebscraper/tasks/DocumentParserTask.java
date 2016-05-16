@@ -1,4 +1,4 @@
-package com.btanabe.adaptivewebscraper.processors;
+package com.btanabe.adaptivewebscraper.tasks;
 
 import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.google.common.collect.Maps;
@@ -36,7 +36,7 @@ public class DocumentParserTask<OutputClazz> implements Callable<OutputClazz> {
                 ClassUtils.getMethod(outputClazzPath, setterMethodName, value.getClass()).invoke(outputObject, value);
             } catch (Throwable error) {
                 System.err.println(String.format("OutputObject=[%s] threw an exception when trying to call method=[%s]", outputObject, setterMethodName));
-//                error.printStackTrace();
+                error.printStackTrace();
             }
         });
 

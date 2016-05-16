@@ -4,7 +4,6 @@ import com.btanabe.adaptivewebscraper.collectors.RecordCollector;
 import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
 import com.btanabe.adaptivewebscraper.test.integration.MockWebRequestTaskBase;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +17,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by Brian on 5/1/16.
  */
-@Ignore
 public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskBase {
 
     @Autowired
@@ -39,7 +37,7 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
     }
 
     @Test
-    public void shouldBeAbleToFindFortyPlayersOnPageOne() throws Exception {
+    public void shouldBeAbleToFindOneThousandSevenHundredSeventySixPlayersAcrossFortyFivePages() throws Exception {
         assertThat(collectedRecords.size(), is(equalTo(1776)));
     }
 
