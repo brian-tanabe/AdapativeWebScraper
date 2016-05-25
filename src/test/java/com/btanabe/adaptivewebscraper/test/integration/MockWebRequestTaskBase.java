@@ -31,8 +31,6 @@ public class MockWebRequestTaskBase {
         // Provides the same functionality as @RunWith(SpringJUnit4ClassRunner.class):
         this.testContextManager = new TestContextManager(getClass());
         this.testContextManager.prepareTestInstance(this);
-
-        System.out.println(String.format("Mocked web pages=%s", mockWebRequestCreation));
     }
 
     @Test

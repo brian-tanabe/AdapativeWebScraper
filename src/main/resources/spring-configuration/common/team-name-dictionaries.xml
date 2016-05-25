@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:map id="nflTeamNameDictionary" map-class="org.apache.commons.collections4.map.CaseInsensitiveMap"
+              key-type="java.lang.String" value-type="java.lang.String">
+
+        <!-- Cowboys -->
+        <entry key="dallas cowboys" value="DAL"/>
+        <entry key="dallas" value="DAL"/>
+        <entry key="cowboys" value="DAL"/>
+        <entry key="cowboys d/st" value="DAL"/>
+        <entry key="dal" value="DAL"/>
+
+        <!-- Giants -->
+        <entry key="new york giants" value="NYG"/>
+        <entry key="giants" value="NYG"/>
+        <entry key="giants d/st" value="NYG"/>
+        <entry key="nyg" value="NYG"/>
+
+        <!-- Eagles -->
+        <entry key="philadelphia eagles" value="PHI"/>
+        <entry key="philadelphia" value="PHI"/>
+        <entry key="eagles" value="PHI"/>
+        <entry key="eagles d/st" value="PHI"/>
+        <entry key="phi" value="PHI"/>
+
+        <!-- Redskins -->
+        <entry key="washington redskins" value="WAS"/>
+        <entry key="washington" value="WAS"/>
+        <entry key="redskins" value="WAS"/>
+        <entry key="redskins d/st" value="WAS"/>
+        <entry key="was" value="WAS"/>
+
+        <!-- Cardinals -->
+        <entry key="arizona cardinals" value="ARI"/>
+        <entry key="arizona" value="ARI"/>
+        <entry key="cardinals" value="ARI"/>
+        <entry key="cardinals d/st" value="ARI"/>
+        <entry key="ari" value="ARI"/>
+
+        <!-- Rams -->
+        <entry key="los angeles rams" value="LA"/>
+        <entry key="los angeles" value="LA"/>
+        <entry key="los angeles" value="LA"/>
+        <entry key="rams" value="LA"/>
+        <entry key="rams d/st" value="LA"/>
+        <entry key="la" value="LA"/>
+        <entry key="st. louis rams" value="LA"/>
+        <entry key="st louis rams" value="LA"/>
+        <entry key="st louis" value="LA"/>
+        <entry key="st. louis" value="LA"/>
+        <entry key="st. louis" value="LA"/>
+        <entry key="stl" value="LA"/>
+
+        <!-- 49ers -->
+        <entry key="san francisco 49ers" value="SF"/>
+        <entry key="san francisco" value="SF"/>
+        <entry key="49ers" value="SF"/>
+        <entry key="49ers d/st" value="SF"/>
+        <entry key="sf" value="SF"/>
+
+        <!-- Seahawks -->
+        <entry key="seattle seahawks" value="SEA"/>
+        <entry key="seattle" value="SEA"/>
+        <entry key="seahawks" value="SEA"/>
+        <entry key="seahawks d/st" value="SEA"/>
+        <entry key="sea" value="SEA"/>
+
+        <!-- Bears -->
+        <entry key="chicago bears" value="CHI"/>
+        <entry key="chicago" value="CHI"/>
+        <entry key="bears" value="CHI"/>
+        <entry key="bears d/st" value="CHI"/>
+        <entry key="chi" value="CHI"/>
+
+        <!-- Packers -->
+        <entry key="green bay packers" value="GB"/>
+        <entry key="green bay" value="GB"/>
+        <entry key="packers" value="GB"/>
+        <entry key="packers d/st" value="GB"/>
+        <entry key="gb" value="GB"/>
+
+        <!-- Lions -->
+        <entry key="detroit lions" value="DET"/>
+        <entry key="detroit" value="DET"/>
+        <entry key="lions" value="DET"/>
+        <entry key="lions d/st" value="DET"/>
+        <entry key="det" value="DET"/>
+
+        <!-- Vikings -->
+        <entry key="minnesota vikings" value="MIN"/>
+        <entry key="minesota" value="MIN"/>
+        <entry key="vikings" value="MIN"/>
+        <entry key="vikings d/st" value="MIN"/>
+        <entry key="min" value="MIN"/>
+
+        <!-- Falcons -->
+        <entry key="atlanta falcons" value="ATL"/>
+        <entry key="atlanta" value="ATL"/>
+        <entry key="falcons d/st" value="ATL"/>
+        <entry key="atl" value="ATL"/>
+
+        <!-- Panthers -->
+        <entry key="carolina panthers" value="CAR"/>
+        <entry key="carolina" value="CAR"/>
+        <entry key="panthers" value="CAR"/>
+        <entry key="panthers d/st" value="CAR"/>
+        <entry key="car" value="CAR"/>
+
+        <!-- Saints -->
+        <entry key="new orleans saints" value="NO"/>
+        <entry key="new orleans" value="NO"/>
+        <entry key="saints" value="NO"/>
+        <entry key="saints d/st" value="NO"/>
+        <entry key="no" value="NO"/>
+        <entry key="nor" value="NO"/>
+
+        <!-- Buccaneers -->
+        <entry key="tampa bay buccaneers" value="TB"/>
+        <entry key="tampa bay" value="TB"/>
+        <entry key="buccaneers" value="TB"/>
+        <entry key="tb" value="TB"/>
+
+        <!-- Bills -->
+        <entry key="buffalo bills" value="BUF"/>
+        <entry key="buffalo" value="BUF"/>
+        <entry key="bills" value="BUF"/>
+        <entry key="bills d/st" value="BUF"/>
+        <entry key="buf" value="BUF"/>
+
+        <!-- Dolphins -->
+        <entry key="miami dolphins" value="MIA"/>
+        <entry key="miami" value="MIA"/>
+        <entry key="dolphins" value="MIA"/>
+        <entry key="mia" value="MIA"/>
+
+        <!-- Patriots -->
+        <entry key="new england patriots" value="NE"/>
+        <entry key="new england" value="NE"/>
+        <entry key="patriots" value="NE"/>
+        <entry key="patriots d/st" value="NE"/>
+        <entry key="ne" value="NE"/>
+
+        <!-- Jets -->
+        <entry key="new york jets" value="NYJ"/>
+        <entry key="jets" value="NYJ"/>
+        <entry key="jets d/st" value="NYJ"/>
+        <entry key="nyj" value="NYJ"/>
+
+        <!-- Broncos -->
+        <entry key="denver broncos" value="DEN"/>
+        <entry key="denver" value="DEN"/>
+        <entry key="broncos" value="DEN"/>
+        <entry key="broncos d/st" value="DEN"/>
+        <entry key="den" value="DEN"/>
+
+        <!-- Raiders -->
+        <entry key="oakland raiders" value="OAK"/>
+        <entry key="oakland" value="OAK"/>
+        <entry key="raiders" value="OAK"/>
+        <entry key="raiders d/st" value="OAK"/>
+        <entry key="oak" value="OAK"/>
+
+        <!-- Chargers -->
+        <entry key="san diego chargers" value="SD"/>
+        <entry key="san diego" value="SD"/>
+        <entry key="chargers" value="SD"/>
+        <entry key="chargers d/st" value="SD"/>
+        <entry key="sd" value="SD"/>
+
+        <!-- Ravens -->
+        <entry key="baltimore ravens" value="BAL"/>
+        <entry key="baltimore" value="BAL"/>
+        <entry key="ravens" value="BAL"/>
+        <entry key="ravens d/st" value="BAL"/>
+        <entry key="bal" value="BAL"/>
+
+        <!-- Bengals -->
+        <entry key="cincinnati bengals" value="CIN"/>
+        <entry key="cincinnati" value="CIN"/>
+        <entry key="bengals" value="CIN"/>
+        <entry key="bengals d/st" value="CIN"/>
+        <entry key="cin" value="CIN"/>
+
+        <!-- Browns -->
+        <entry key="cleveland browns" value="CLE"/>
+        <entry key="cleveland" value="CLE"/>
+        <entry key="browns" value="CLE"/>
+        <entry key="browns d/st" value="CLE"/>
+        <entry key="cle" value="CLE"/>
+
+        <!-- Steelers -->
+        <entry key="pittsburgh steelers" value="PIT"/>
+        <entry key="pittsburgh" value="PIT"/>
+        <entry key="steelers" value="PIT"/>
+        <entry key="steelers d/st" value="PIT"/>
+        <entry key="pit" value="PIT"/>
+
+        <!-- Texans -->
+        <entry key="houston texans" value="HOU"/>
+        <entry key="houston" value="HOU"/>
+        <entry key="texans" value="HOU"/>
+        <entry key="texans d/st" value="HOU"/>
+        <entry key="hou" value="HOU"/>
+
+        <!-- Colts -->
+        <entry key="indianapolis colts" value="IND"/>
+        <entry key="indianapolis" value="IND"/>
+        <entry key="colts" value="IND"/>
+        <entry key="colts d/st" value="IND"/>
+        <entry key="ind" value="IND"/>
+
+        <!-- Jaguars -->
+        <entry key="jacksonville jaguars" value="JAX"/>
+        <entry key="jacksonville" value="JAX"/>
+        <entry key="jaguars" value="JAX"/>
+        <entry key="jaguars d/st" value="JAX"/>
+        <entry key="jag" value="JAX"/>
+        <entry key="jax" value="JAX"/>
+
+        <!-- Titans -->
+        <entry key="tennessee titans" value="TEN"/>
+        <entry key="tennessee" value="TEN"/>
+        <entry key="titans" value="TEN"/>
+        <entry key="titans d/st" value="TEN"/>
+        <entry key="ten" value="TEN"/>
+
+        <!-- Free Agents -->
+        <entry key="free agent" value="FA"/>
+        <entry key="fa" value="FA"/>
+
+    </util:map>
+
+</beans>

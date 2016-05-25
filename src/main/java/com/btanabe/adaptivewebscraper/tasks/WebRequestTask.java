@@ -9,6 +9,8 @@ import org.jsoup.nodes.Document;
 import java.net.URL;
 import java.util.concurrent.Callable;
 
+import static com.google.common.base.Charsets.UTF_8;
+
 /**
  * Created by Brian on 4/15/16.
  */
@@ -18,6 +20,6 @@ public class WebRequestTask implements Callable<Document> {
 
     @Override
     public Document call() throws Exception {
-        return Jsoup.parse(HtmlTidier.tidyHtmlAndConvertToXhtml(IOUtils.toString(new URL(urlToDownload).openStream(), "utf-8")));
+        return Jsoup.parse(HtmlTidier.tidyHtmlAndConvertToXhtml(IOUtils.toString(new URL(urlToDownload).openStream(), UTF_8)));
     }
 }

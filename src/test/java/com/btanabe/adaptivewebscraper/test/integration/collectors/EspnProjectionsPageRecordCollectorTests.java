@@ -27,6 +27,14 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
     @Qualifier("espnPlayerProjectionsPageEddieLacy")
     private EspnNflProjectionModel expectedEddieLacyModel;
 
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageJoshFerguson")
+    private EspnNflProjectionModel expectedJoshFergusonModel;
+
+    @Autowired
+    @Qualifier("espnPlayerProjectionsPageSteelersDefense")
+    private EspnNflProjectionModel expectedSteelersTeamDefenseModel;
+
     private List<EspnNflProjectionModel> collectedRecords;
 
     @Before
@@ -45,5 +53,17 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
     public void shouldBeAbleToCorrectlyParseASinglePlayerCorrectly() throws Exception {
         EspnNflProjectionModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedEddieLacyModel.getName())).findFirst().get();
         assertThat(playerFromRecordCollector, is(equalTo(expectedEddieLacyModel)));
+    }
+
+    @Test
+    public void shouldBeAbleToParsePlayersWithoutProjectionsCorrectly() throws Exception {
+        EspnNflProjectionModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedJoshFergusonModel.getName())).findFirst().get();
+        assertThat(playerFromRecordCollector, is(equalTo(expectedJoshFergusonModel)));
+    }
+
+    @Test
+    public void shouldBeAbleToParseTeamDefensesCorrectly() throws Exception {
+        EspnNflProjectionModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedSteelersTeamDefenseModel.getName())).findFirst().get();
+        assertThat(playerFromRecordCollector, is(equalTo(expectedSteelersTeamDefenseModel)));
     }
 }

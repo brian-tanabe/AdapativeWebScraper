@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Application configurations: -->
-    <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/common/team-name-dictionaries.xml"/>
     <import resource="classpath:/spring-configuration/record-collectors/espn-record-collectors-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-transformers/value-transformers-configurations.xml"/>
 
     <!-- Test specific configurations: -->
     <import resource="classpath:/spring-configuration/test-webpages-configuration.xml"/>

@@ -27,7 +27,7 @@
         <property name="playerId" value="18006"/>
         <property name="rank" value="1763"/>
         <property name="name" value="Josh Ferguson"/>
-        <property name="team" value="Ind"/>
+        <property name="team" value="IND"/>
         <property name="position" value="RB"/>
         <property name="passingAttempts" value="0"/>
         <property name="passingCompletions" value="0"/>
@@ -47,7 +47,7 @@
         <property name="playerId" value="60023"/>
         <property name="rank" value="285"/>
         <property name="name" value="Steelers D/ST"/>
-        <property name="team" value="Steelers"/>
+        <property name="team" value="PIT"/>
         <property name="position" value="D/ST"/>
         <property name="passingAttempts" value="0"/>
         <property name="passingCompletions" value="0"/>

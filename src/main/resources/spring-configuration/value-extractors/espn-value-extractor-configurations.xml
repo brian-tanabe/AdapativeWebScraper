@@ -79,10 +79,15 @@
         <property name="xpathSelector" ref="espnProjectionsPageTeamAndPositionSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
-        <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="teamNameIsolatorValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="teamNameIsolatorValueTransformer"/>
+                <ref bean="nflTeamNameValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsPositionValueExtractorFactory"

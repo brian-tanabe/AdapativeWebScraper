@@ -8,6 +8,11 @@ import com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransfo
 import com.btanabe.adaptivewebscraper.transformers.PassThroughValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.TableTagAdderValueTransformer;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.Is.is;
@@ -16,7 +21,13 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Brian on 5/14/16.
  */
+@ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class ValueTransformerTests {
+
+    @Autowired
+    @Qualifier("teamNameIsolatorValueTransformer")
+    private EspnTeamNameValueTransformer teamNameValueTransformer;
 
     @Test
     public void shouldBeAbleToAddTableTagsUsingTheTableTagAdderValueTransformer() {
@@ -30,7 +41,12 @@ public class ValueTransformerTests {
 
     @Test
     public void shouldBeAbleToIsolateTeamNamesUsingTheEspnTeamNameValueTransformer() {
-        assertThat(new EspnTeamNameValueTransformer().apply(", GB RB"), is(equalTo("GB")));
+        assertThat(teamNameValueTransformer.apply(", GB RB"), is(equalTo("GB")));
+    }
+
+    @Test
+    public void shouldBeAbleToIsolateTeamNamesForTeamDefensesUsingTheEspnTeamNameValueTransformer() {
+        assertThat(teamNameValueTransformer.apply("Steelers D/ST"), is(equalTo("Steelers")));
     }
 
     @Test
