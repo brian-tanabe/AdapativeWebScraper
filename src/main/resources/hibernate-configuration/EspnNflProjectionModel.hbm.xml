@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel" table="ESPN_NFL_PROJECTIONS">
+        <meta attribute="class-description">
+            Persitance object representing a NFL player's ESPN season projection
+        </meta>
+        <id name="playerId" type="int" column="ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="rank" column="RANK" type="int"/>
+        <property name="name" column="NAME" type="string"/>
+        <property name="team" column="TEAM" type="string"/>
+        <property name="position" column="POSITION" type="string"/>
+        <property name="passingCompletions" column="PASSING_COMPLETIONS" type="int"/>
+        <property name="passingAttempts" column="PASSING_ATTEMPTS" type="int"/>
+        <property name="passingYards" column="PASSING_YARDS" type="int"/>
+        <property name="passingTouchdowns" column="PASSING_TOUCHDOWNS" type="int"/>
+        <property name="interceptions" column="INTERCEPTIONS" type="int"/>
+        <property name="rushingAttempts" column="RUSHING_ATTEMPTS" type="int"/>
+        <property name="rushingYards" column="RUSHING_YARDS" type="int"/>
+        <property name="rushingTouchdowns" column="RUSHING_TOUCHDOWNS" type="int"/>
+        <property name="receptions" column="RECEPTIONS" type="int"/>
+        <property name="receivingYards" column="RECEIVING_YARDS" type="int"/>
+        <property name="receivingTouchdowns" column="RECEIVING_TOUCHDOWNS" type="int"/>
+        <property name="fantasyPoints" column="FANTASY_POINTS" type="double"/>
+    </class>
+</hibernate-mapping>

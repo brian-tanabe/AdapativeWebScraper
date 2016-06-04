@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="hibernate-configuration:hibernate-production.cfg.xml" />
+          <unit-entry name="hibernate-configuration:hibernate-testing.cfg.xml" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate-configuration/hibernate-production.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/test/resources/hibernate-configuration/hibernate-testing.cfg.xml" />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/classes/main" />
     <output-test url="file://$MODULE_DIR$/build/classes/test" />
@@ -60,6 +73,18 @@
     <orderEntry type="library" scope="TEST" name="Gradle: bsh-2.0b4" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: jcommander-1.27" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-collections4-4.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: hibernate-core-5.0.2.Final" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: postgresql-9.4.1208.jre7" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: jboss-logging-3.3.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: geronimo-jta_1.1_spec-1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: hibernate-jpa-2.1-api-1.0.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: javassist-3.18.1-GA" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: antlr-2.7.7" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: jandex-1.2.2.Final" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: dom4j-1.6.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: hibernate-commons-annotations-5.0.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: xml-apis-1.0.b2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: derby-10.12.1.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-io-2.4" level="project" />
   </component>
 </module>
