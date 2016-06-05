@@ -17,8 +17,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DatabaseInterfaceTests {
 
-    @Autowired
-    @Qualifier("testDatabaseConfiguration")
+    // TODO FIGURE OUT WHY THE TESTCONTEXTLISTENER CLASSES CAN'T HANDLE AUTOWIREING THIS BEAN
+    //    @Autowired
+    //    @Qualifier("testDatabaseConfiguration")
     private DatabaseInterface databaseInterface;
 
     @Autowired
@@ -26,7 +27,8 @@ public class DatabaseInterfaceTests {
     private EspnNflProjectionModel eddieLacyProjectionModel;
 
     @Before
-    public void clearDatabase() {
+    public void clearDatabase() throws Exception {
+        databaseInterface = new DatabaseInterface("./src/test/resources/hibernate-configuration/hibernate-testing.cfg.xml");
         databaseInterface.deleteAllObjectsOfType(EspnNflProjectionModel.class);
     }
 

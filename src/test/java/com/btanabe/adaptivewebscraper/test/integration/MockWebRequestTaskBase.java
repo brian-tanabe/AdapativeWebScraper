@@ -20,11 +20,11 @@ import org.springframework.test.context.TestContextManager;
 @PrepareForTest(WebRequestTaskFactory.class)
 public class MockWebRequestTaskBase {
 
-    private TestContextManager testContextManager;
-
     @Autowired
     @Qualifier("mockStaticWebRequestFactory")
     protected Object mockWebRequestCreation;
+
+    private TestContextManager testContextManager;
 
     @Before
     public void setupSpringAutowiringContexts() throws Exception {
@@ -37,5 +37,4 @@ public class MockWebRequestTaskBase {
     @Ignore
     public void atLeastOneTestIsNeededInThisClassToPreventInitializationErrors() {
     }
-
 }

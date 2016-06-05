@@ -16,7 +16,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class EspnNflProjectionModel {
+public class EspnNflProjectionModel extends Model {
     private Integer playerId;
     private Integer rank;
     private String name;

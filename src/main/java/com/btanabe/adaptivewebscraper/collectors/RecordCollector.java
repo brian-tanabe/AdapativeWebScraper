@@ -4,6 +4,7 @@ import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
 import com.btanabe.adaptivewebscraper.tasks.DocumentParserTask;
 import com.google.common.collect.Lists;
+import com.google.common.eventbus.EventBus;
 import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -30,9 +31,6 @@ import java.util.stream.Stream;
  * 6) Repeat steps 2 through 5 until the next page link is null      (Each its own thread: t[n+1...2n])
  * 5) Join and return
  * <p>
- * TODO I think parsed records should go straight on to an EventBus which the datastore
- * TODO layer listens to and inserts/updates:
- * TODO https://github.com/google/guava/wiki/EventBusExplained
  */
 public class RecordCollector<OutputType> {
 
@@ -60,27 +58,23 @@ public class RecordCollector<OutputType> {
     @Setter(onMethod = @__({@Autowired}))
     private Class<OutputType> outputClassPath;
 
-    public List<OutputType> getAllRecordsAsList() throws ExecutionException, InterruptedException {
-        return gatherAllRecords();
-    }
+    @Setter
+    private EventBus eventBus;
 
-    private List<OutputType> gatherAllRecords() throws ExecutionException, InterruptedException {
+    public void gatherAllRecords() throws ExecutionException, InterruptedException {
         final List<ListenableFuture<OutputType>> downloadParseAndMarshallFutures = Lists.newArrayList();
         String pageUrl = seedWebPage;
         do {
             pageUrl = generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(pageUrl, downloadParseAndMarshallFutures);
         } while (pageUrl != null);
 
-        List<OutputType> outputTypeList = Lists.newArrayListWithExpectedSize(downloadParseAndMarshallFutures.size());
         downloadParseAndMarshallFutures.forEach(future -> {
             try {
-                outputTypeList.add(future.get());
+                eventBus.post(future.get());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
-
-        return outputTypeList;
     }
 
     // Consider making this a recursive function:

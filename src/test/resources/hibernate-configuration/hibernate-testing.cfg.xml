@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</property>
-        <property name="hibernate.connection.url">jdbc:derby:NBA.db;create=true</property>
+        <property name="hibernate.connection.url">jdbc:derby:NFL.db;create=true</property>
 
         <!-- Drop and re-create all database on startup -->
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
