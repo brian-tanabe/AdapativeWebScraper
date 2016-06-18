@@ -9,6 +9,8 @@ import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import org.jsoup.nodes.Document;
@@ -32,6 +34,8 @@ import java.util.stream.Stream;
  * 5) Join and return
  * <p>
  */
+@AllArgsConstructor
+@NoArgsConstructor
 public class RecordCollector<OutputType> {
 
     @NonNull
@@ -58,7 +62,8 @@ public class RecordCollector<OutputType> {
     @Setter(onMethod = @__({@Autowired}))
     private Class<OutputType> outputClassPath;
 
-    @Setter
+    @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private EventBus eventBus;
 
     public void gatherAllRecords() throws ExecutionException, InterruptedException {

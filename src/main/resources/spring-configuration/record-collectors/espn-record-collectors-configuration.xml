@@ -7,6 +7,7 @@
 
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
 
     <util:map id="espnNflPlayerProjectionValueExtractorSetterMethodMap"
               key-type="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory" value-type="java.lang.String">
@@ -31,6 +32,7 @@
 
     <bean id="espnNflPlayerProjectionsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
+        <property name="eventBus" ref="collectedRecordsEventBus"/>
         <property name="executorService" ref="listeningExecutorService"/>
         <property name="nextPageValueExtractorFactory" ref="espnProjectionsPageNextPageValueExtractorFactory"/>
         <property name="recordDocumentExtractorFactory" ref="espnPlayerProjectionRowValueExtractorFactory"/>

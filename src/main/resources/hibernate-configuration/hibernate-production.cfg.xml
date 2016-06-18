@@ -6,7 +6,10 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost/NBA.db</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://192.168.1.118:5432/nbadb.db</property>
+        <property name="hibernate.connection.username">nba_db_user</property>
+        <property name="hibernate.connection.password">admin</property>
+
 
         <!-- Print executed SQL to stdout -->
         <property name="show_sql">true</property>

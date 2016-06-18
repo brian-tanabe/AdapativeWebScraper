@@ -5,6 +5,7 @@
 
     <!-- Application configurations: -->
     <import resource="classpath:/spring-configuration/common/team-name-dictionaries.xml"/>
+    <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
     <import resource="classpath:/spring-configuration/record-collectors/espn-record-collectors-configuration.xml"/>
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/value-transformers/value-transformers-configurations.xml"/>

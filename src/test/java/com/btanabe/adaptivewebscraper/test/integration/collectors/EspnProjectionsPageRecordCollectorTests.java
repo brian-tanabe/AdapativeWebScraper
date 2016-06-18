@@ -42,14 +42,16 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
     @Qualifier("espnPlayerProjectionsPageSteelersDefense")
     private EspnNflProjectionModel expectedSteelersTeamDefenseModel;
 
+    @Autowired
+    @Qualifier("collectedRecordsEventBus")
+    private EventBus eventBus;
+
     private List<EspnNflProjectionModel> collectedRecords;
-    private CollectedRecordsListener recordsListener = new CollectedRecordsListener();
 
     @Before
     public void performRecordCollection() throws Exception {
-        EventBus eventBus = new EventBus();
+        CollectedRecordsListener recordsListener = new CollectedRecordsListener();
         eventBus.register(recordsListener);
-        espnNflProjectionsPageRecordCollector.setEventBus(eventBus);
 
         if (collectedRecords == null) {
             espnNflProjectionsPageRecordCollector.gatherAllRecords();
