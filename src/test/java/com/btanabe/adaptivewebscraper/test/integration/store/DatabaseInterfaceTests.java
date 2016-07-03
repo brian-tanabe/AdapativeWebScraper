@@ -11,7 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
+
 
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
