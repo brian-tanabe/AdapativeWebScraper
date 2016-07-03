@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="../common/class-definitions.xml"/>
+    <import resource="../value-transformers/value-transformers-configurations.xml"/>
+    <import resource="yahoo-stats-page-selector-statement-configuration.xml"/>
+
+    <!--================== YAHOO PLAYER STATS DATA VALUE EXTRACTORS ==================-->
+    <bean id="yahooStatsNameValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageNameSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+</beans>

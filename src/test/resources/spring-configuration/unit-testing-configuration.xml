@@ -8,6 +8,7 @@
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
     <import resource="classpath:/spring-configuration/record-collectors/espn-record-collectors-configuration.xml"/>
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/yahoo-stats-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/value-transformers/value-transformers-configurations.xml"/>
 
     <!-- Test specific configurations: -->
@@ -16,4 +17,5 @@
     <import resource="classpath:/spring-configuration/test-web-requests.xml"/>
     <import resource="classpath:/spring-configuration/test-webpages-configuration.xml"/>
     <import resource="classpath:/spring-configuration/model-configurations/espn-player-projections-page-model-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/model-configurations/yahoo-player-stats-page-model-configurations.xml"/>
 </beans>

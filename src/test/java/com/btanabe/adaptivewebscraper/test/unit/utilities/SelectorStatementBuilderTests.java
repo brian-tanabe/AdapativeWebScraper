@@ -27,6 +27,10 @@ public class SelectorStatementBuilderTests {
     private final String testParentClassName = "some-class";
 
     private final String testTagName = "td";
+
+    private final String testAttributeName = "href";
+    private final String testAttributeValue = "some-website";
+
     private final String testClassName = "playertable";
     private final int testChildElementIndex = 6;
 
@@ -83,6 +87,10 @@ public class SelectorStatementBuilderTests {
     @Autowired
     @Qualifier("espnPlayerProjectionsPageFantasyPointsSelectorStatement")
     private String playerFantasyPointsSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageNameSelectorStatement")
+    private String yahooPlayerStatPageNameSelectorStatement;
 
     //////////////////// statement builder implementation tests: ////////////////////
     @Test
@@ -151,6 +159,24 @@ public class SelectorStatementBuilderTests {
         assertThat(testStatement.getObject(), is(equalTo(String.format("%s:contains(%s)", testTagName, testContainsText))));
     }
 
+    @Test
+    public void shouldBeAbleToBuildStatementsWithAttributeValuesSpecified() throws Exception {
+        SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).attributeName(testAttributeName).attributeNameEqualityOperator(STARTS_WITH).attributeValue(testAttributeValue).build();
+        assertThat(testStatement.getObject(), is(equalTo(String.format("%s[%s ^= %s]", testTagName, testAttributeName, testAttributeValue))));
+    }
+
+    @Test
+    public void shouldBeAbleToBuildStatementsWithAttributeAndClassValuesSpecified() throws Exception {
+        SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).className(testClassName).classnameEqualityOperator(EQUALS).attributeName(testAttributeName).attributeNameEqualityOperator(STARTS_WITH).attributeValue(testAttributeValue).build();
+        assertThat(testStatement.getObject(), is(equalTo(String.format("%s[%s ^= %s].%s", testTagName, testAttributeName, testAttributeValue, testClassName))));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowAnIllegalArgumentExceptionsWhenAttemptingToBuildStatementsWithBothAttributeAndClassEqualityOperators() throws Exception {
+        SelectorStatementBuilder testStatement = SelectorStatementBuilder.builder().tagName(testTagName).className(testClassName).classnameEqualityOperator(STARTS_WITH).attributeName(testAttributeName).attributeNameEqualityOperator(STARTS_WITH).attributeValue(testAttributeValue).build();
+        testStatement.getObject();
+    }
+
     //////////////////// Targeted selector statement builder tests: ////////////////////
     @Test
     public void shouldBeAbleToConstructNameSelectorStatementCorrectly() {
@@ -194,7 +220,7 @@ public class SelectorStatementBuilderTests {
 
     @Test
     public void shouldBeAbleToConstructRushingTouchdownsSelectorStatementCorrectly() {
-        assertThat(playerRushingTouchdownsSelectorStatement,  is(equalTo("td[class = playertableStat]:eq(10)")));
+        assertThat(playerRushingTouchdownsSelectorStatement, is(equalTo("td[class = playertableStat]:eq(10)")));
     }
 
     @Test
@@ -215,5 +241,10 @@ public class SelectorStatementBuilderTests {
     @Test
     public void shouldBeAbleToConstructFantasyPointsSelectorStatementCorrectly() {
         assertThat(playerFantasyPointsSelectorStatement, is(equalTo("td[class = playertableStat appliedPoints]")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooNameSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageNameSelectorStatement, is(equalTo("a[href ^= /nfl/players]")));
     }
 }

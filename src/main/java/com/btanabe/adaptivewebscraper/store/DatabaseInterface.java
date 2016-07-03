@@ -2,6 +2,7 @@ package com.btanabe.adaptivewebscraper.store;
 
 import com.btanabe.adaptivewebscraper.models.Model;
 import com.google.common.eventbus.Subscribe;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * Created by Brian on 6/4/16.
  */
+@Slf4j
 public class DatabaseInterface {
     private final Session session;
     private SessionFactory factory;
@@ -34,6 +36,7 @@ public class DatabaseInterface {
 
     @Subscribe
     public void saveOrUpdate(final Model objectToStore) {
+        log.info(String.format("saving=[%s]", objectToStore));
         session.saveOrUpdate(objectToStore);
     }
 
@@ -43,6 +46,7 @@ public class DatabaseInterface {
     }
 
     public void deleteObject(Model objectToDelete) {
+        log.info(String.format("deleting=[%s]", objectToDelete));
         session.delete(objectToDelete);
     }
 

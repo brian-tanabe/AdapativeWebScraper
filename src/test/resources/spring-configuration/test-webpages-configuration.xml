@@ -3,6 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--================== ESPN TEST WEB PAGES ==================-->
     <bean id="espnNflProjectionsPageOneAsAStringUnformatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
         <property name="inputFile" value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
@@ -35,6 +36,11 @@
 
     <bean id="espnProjectionsPageSteelersDefense" class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile" value="classpath:test-webpages/espn/individual-projection-page-rows/projections-steelers-defense.html"/>
+    </bean>
+
+    <!--================== YAHOO TEST WEB PAGES ==================-->
+    <bean id="yahooStatsPageAdrianPeterson" class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile" value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-rb-adrian-peterson.html"/>
     </bean>
 
 </beans>

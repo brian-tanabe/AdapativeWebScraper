@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="yahooPlayerStatsPageAdrianPeterson"
+          class="com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel">
+        <property name="playerId" value="8261"/>
+        <property name="name" value="Adrian Peterson"/>
+        <property name="team" value="MIN"/>
+        <property name="position" value="RB"/>
+        <property name="gamesPlayed" value="16"/>
+        <property name="passingCompletions" value="0"/>
+        <property name="passingAttempts" value="0"/>
+        <property name="completionPercentage" value="0.0"/>
+        <property name="passingYards" value="0"/>
+        <property name="passingTouchdowns" value="0"/>
+        <property name="interceptions" value="0"/>
+        <property name="rushingAttempts" value="327"/>
+        <property name="rushingYards" value="1485"/>
+        <property name="rushingYardsPerGame" value="92.8"/>
+        <property name="rushingYardsPerAttempt" value="4.5"/>
+        <property name="rushingTouchdowns" value="11"/>
+        <property name="receptions" value="30"/>
+        <property name="targets" value="36"/>
+        <property name="receivingYards" value="222"/>
+        <property name="receivingYardsPerGame" value="13.9"/>
+        <property name="receivingYardsPerReception" value="7.4"/>
+        <property name="receivingYardsAfterContact" value="8.7"/>
+        <property name="receivingTouchdowns" value="0"/>
+        <property name="fumbles" value="7"/>
+        <property name="fumblesLost" value="3"/>
+    </bean>
+</beans>
