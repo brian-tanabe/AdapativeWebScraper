@@ -7,6 +7,7 @@ import com.btanabe.adaptivewebscraper.transformers.NoNumberToZeroValueTransforme
 import com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.PassThroughValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.TableTagAdderValueTransformer;
+import com.btanabe.adaptivewebscraper.transformers.UrlPathExploder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,10 @@ public class ValueTransformerTests {
     @Autowired
     @Qualifier("teamNameIsolatorValueTransformer")
     private EspnTeamNameValueTransformer teamNameValueTransformer;
+
+    @Autowired
+    @Qualifier("yahooPlayerIdIsolatorValueTransformer")
+    private UrlPathExploder yahooPlayerIdIsolator;
 
     @Test
     public void shouldBeAbleToAddTableTagsUsingTheTableTagAdderValueTransformer() {
@@ -72,5 +77,10 @@ public class ValueTransformerTests {
     @Test
     public void shouldBeAbleToTransformFractionsOfHyphenHyphenToZeroOverZeroUsingTheNoNumberToZeroValueTransformer() {
         assertThat(new NoNumberToZeroValueTransformer().apply("--/--"), is(equalTo("0/0")));
+    }
+
+    @Test
+    public void shouldBeAbleToTransformUrlPathsToYahooPlayerIds() {
+        assertThat(yahooPlayerIdIsolator.apply("/nfl/players/8261"), is(equalTo(8261)));
     }
 }

@@ -8,29 +8,50 @@
     <import resource="yahoo-stats-page-selector-statement-configuration.xml"/>
 
     <!--================== YAHOO PLAYER STATS PAGE VALUE EXTRACTORS ==================-->
-    <!--<bean id="yahooPlayerStatsRowValueExtractorFactory"-->
-          <!--class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">-->
-        <!--<property name="xpathSelector" ref="espnPlayerProjectionRowSelectorStatement"/>-->
-        <!--<property name="objectClasspath" ref="documentClass"/>-->
-        <!--<property name="outputClazzFactoryClazz" ref="documentFactoryClass"/>-->
-        <!--<property name="textGetterMethodName" value="html"/>-->
-        <!--<property name="textGetterMethodParameterTypes" ref="emptyList"/>-->
-        <!--<property name="textGetterMethodParameters" ref="emptyList"/>-->
-        <!--<property name="valueTransformers" ref="tableTagAdderValueTransformer"/>-->
-    <!--</bean>-->
+    <bean id="yahooPlayerStatsRowValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPagePlayerRowValueExtractor"/>
+        <property name="objectClasspath" ref="documentClass"/>
+        <property name="outputClazzFactoryClazz" ref="documentFactoryClass"/>
+        <property name="textGetterMethodName" value="html"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers" ref="tableTagAdderValueTransformer"/>
+    </bean>
 
     <!--<bean id="yahooStatsPageNextPageValueExtractorFactory"-->
-          <!--class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">-->
-        <!--<property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>-->
-        <!--<property name="objectClasspath" ref="stringClass"/>-->
-        <!--<property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>-->
-        <!--<property name="textGetterMethodName" value="attr"/>-->
-        <!--<property name="textGetterMethodParameterTypes" ref="stringClass"/>-->
-        <!--<property name="textGetterMethodParameters" value="href"/>-->
-        <!--<property name="valueTransformers" ref="passThroughValueTransformer"/>-->
+    <!--class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">-->
+    <!--<property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>-->
+    <!--<property name="objectClasspath" ref="stringClass"/>-->
+    <!--<property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>-->
+    <!--<property name="textGetterMethodName" value="attr"/>-->
+    <!--<property name="textGetterMethodParameterTypes" ref="stringClass"/>-->
+    <!--<property name="textGetterMethodParameters" value="href"/>-->
+    <!--<property name="valueTransformers" ref="passThroughValueTransformer"/>-->
     <!--</bean>-->
 
     <!--================== YAHOO PLAYER STATS DATA VALUE EXTRACTORS ==================-->
+    <bean id="yahooStatsPlayerIdValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageNameSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="attr"/>
+        <property name="textGetterMethodParameterTypes">
+            <list>
+                <ref bean="stringClass"/>
+            </list>
+        </property>
+        <property name="textGetterMethodParameters">
+            <list>
+                <bean class="java.lang.String">
+                    <constructor-arg value="href"/>
+                </bean>
+            </list>
+        </property>
+        <property name="valueTransformers" ref="yahooPlayerIdIsolatorValueTransformer"/>
+    </bean>
+
     <bean id="yahooStatsNameValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="yahooPlayerStatPageNameSelectorStatement"/>

@@ -6,12 +6,14 @@
     <!--================== ESPN TEST WEB PAGES ==================-->
     <bean id="espnNflProjectionsPageOneAsAStringUnformatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
-        <property name="inputFile" value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+        <property name="inputFile"
+                  value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
     </bean>
 
     <bean id="espnNflProjectionsPageOneAsAStringFormatted"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedStringFactory">
-        <property name="inputFile" value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+        <property name="inputFile"
+                  value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
     </bean>
 
     <bean id="espnNflProjectionsPageOneFormatted"
@@ -22,25 +24,40 @@
 
     <bean id="espnProjectionsPageEddieLacyDocument"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
-        <property name="inputFile" value="classpath:test-webpages/espn/individual-projection-page-rows/projections-eddie-lacy.html"/>
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-eddie-lacy.html"/>
     </bean>
 
     <bean id="espnProjectionsPageEddieLacyString"
           class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
-        <property name="inputFile" value="classpath:test-webpages/espn/individual-projection-page-rows/projections-eddie-lacy.html"/>
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-eddie-lacy.html"/>
     </bean>
 
-    <bean id="espnProjectionsPageJoshFerguson" class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
-        <property name="inputFile" value="classpath:test-webpages/espn/individual-projection-page-rows/projections-josh-ferguson.html"/>
+    <bean id="espnProjectionsPageJoshFerguson"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-josh-ferguson.html"/>
     </bean>
 
-    <bean id="espnProjectionsPageSteelersDefense" class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
-        <property name="inputFile" value="classpath:test-webpages/espn/individual-projection-page-rows/projections-steelers-defense.html"/>
+    <bean id="espnProjectionsPageSteelersDefense"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-steelers-defense.html"/>
     </bean>
 
     <!--================== YAHOO TEST WEB PAGES ==================-->
-    <bean id="yahooStatsPageAdrianPeterson" class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
-        <property name="inputFile" value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-rb-adrian-peterson.html"/>
+    <bean id="yahooStatsPageAdrianPeterson"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-rb-adrian-peterson.html"/>
     </bean>
+
+    <bean id="yahooStatsPageRunningBacks"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-2015-rb.html"/>
+    </bean>
+
 
 </beans>

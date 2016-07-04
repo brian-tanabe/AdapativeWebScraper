@@ -22,6 +22,14 @@ import static org.junit.Assert.assertThat;
 public class YahooValueExtractorTests {
 
     @Autowired
+    @Qualifier("yahooPlayerStatsRowValueExtractorFactory")
+    private ValueExtractorFactory<Document> playerRowValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsPlayerIdValueExtractorFactory")
+    private ValueExtractorFactory<String> playerIdValueExtractor;
+
+    @Autowired
     @Qualifier("yahooStatsNameValueExtractorFactory")
     private ValueExtractorFactory<String> nameValueExtractor;
 
@@ -94,9 +102,22 @@ public class YahooValueExtractorTests {
     private Document yahooStatsPageAdrianPeterson;
 
     @Autowired
+    @Qualifier("yahooStatsPageRunningBacks")
+    private Document yahooStatsPageRunningBacks;
+
+    @Autowired
     @Qualifier("yahooPlayerStatsPageAdrianPeterson")
     private YahooNflHistoricStatsModel expectedAdrianPetersonModel;
 
+    @Test
+    public void shouldBeAbleToExtractPlayerRowsFromPlayerDocument() throws Exception {
+        assertThat(playerRowValueExtractor.createValueExtractor(yahooStatsPageRunningBacks).call().count(), is(equalTo(165L)));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractPlayerIdsFromPlayerDocuments() throws Exception {
+        assertThat(playerIdValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getPlayerId())));
+    }
 
     @Test
     public void shouldBeAbleToExtractNamesFromPlayerDocuments() throws Exception {

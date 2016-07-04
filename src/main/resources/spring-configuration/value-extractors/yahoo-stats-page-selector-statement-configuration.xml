@@ -3,6 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- tr[class ^= ysprow] -->
+    <bean id="yahooPlayerStatPagePlayerRowValueExtractor"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="tr"/>
+        <property name="className" value="ysprow"/>
+        <property name="classnameEqualityOperator" value="STARTS_WITH"/>
+    </bean>
+
     <!-- tr[href ^= /nfl/players] -->
     <bean id="yahooPlayerStatPageNameSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">

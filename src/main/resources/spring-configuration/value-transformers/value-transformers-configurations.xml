@@ -33,4 +33,9 @@
         <constructor-arg name="teamNameDictionary" ref="nflTeamNameDictionary"/>
     </bean>
 
+    <bean id="yahooPlayerIdIsolatorValueTransformer"
+          class="com.btanabe.adaptivewebscraper.transformers.UrlPathExploder">
+        <constructor-arg name="pathIndex" value="2"/>
+    </bean>
+
 </beans>
