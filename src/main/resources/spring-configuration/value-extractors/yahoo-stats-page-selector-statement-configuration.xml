@@ -3,13 +3,155 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- tr[href ^= /nfl/players].yspscores -->
+    <!-- tr[href ^= /nfl/players] -->
     <bean id="yahooPlayerStatPageNameSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="a"/>
         <property name="attributeName" value="href"/>
         <property name="attributeNameEqualityOperator" value="STARTS_WITH"/>
-        <property name="attributeValue" value="/nfl/players"/>
+        <property name="attributeValue" value="/nfl/players/"/>
     </bean>
 
+    <!-- tr[href ^= /nfl/teams] -->
+    <bean id="yahooPlayerStatPageTeamSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="a"/>
+        <property name="attributeName" value="href"/>
+        <property name="attributeNameEqualityOperator" value="STARTS_WITH"/>
+        <property name="attributeValue" value="/nfl/teams/"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(2) -->
+    <bean id="yahooPlayerStatPageGamesPlayedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="2"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(4) -->
+    <bean id="yahooPlayerStatPageRushingAttemptsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="4"/>
+    </bean>
+
+    <!-- span[class = yspscores] -->
+    <bean id="yahooPlayerStatPageRushingYardsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="span"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(6) -->
+    <bean id="yahooPlayerStatPageRushingYardsPerGameSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="6"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(7) -->
+    <bean id="yahooPlayerStatPageRushingYardsPerAttemptSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="7"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(8) -->
+    <bean id="yahooPlayerStatPageRushingTouchdownsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="8"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(10) -->
+    <bean id="yahooPlayerStatPageReceptionsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="10"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(11) -->
+    <bean id="yahooPlayerStatPageTargetsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="11"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(12) -->
+    <bean id="yahooPlayerStatPageReceivingYardsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="12"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(13) -->
+    <bean id="yahooPlayerStatPageReceivingYardsPerGameSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="13"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(14) -->
+    <bean id="yahooPlayerStatPageReceivingYardsPerReceptionSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="14"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(16) -->
+    <bean id="yahooPlayerStatPageYardsAfterCatchSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="16"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(18) -->
+    <bean id="yahooPlayerStatPageReceivingTouchdownsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="18"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(20) -->
+    <bean id="yahooPlayerStatPageFumblesSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="20"/>
+    </bean>
+
+    <!-- td[class = yspscores]:eq(21) -->
+    <bean id="yahooPlayerStatPageFumblesLostSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="className" value="yspscores"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+        <property name="childElementIndex" value="21"/>
+    </bean>
 </beans>

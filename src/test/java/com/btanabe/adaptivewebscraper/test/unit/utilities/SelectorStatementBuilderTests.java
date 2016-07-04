@@ -92,6 +92,38 @@ public class SelectorStatementBuilderTests {
     @Qualifier("yahooPlayerStatPageNameSelectorStatement")
     private String yahooPlayerStatPageNameSelectorStatement;
 
+    @Autowired
+    @Qualifier("yahooPlayerStatPageTeamSelectorStatement")
+    private String yahooPlayerStatPageTeamSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageGamesPlayedSelectorStatement")
+    private String yahooPlayerStatPageGamesPlayedSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageRushingAttemptsSelectorStatement")
+    private String yahooPlayerStatPageRushingAttemptsSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageRushingYardsSelectorStatement")
+    private String yahooPlayerStatPageRushingYardsSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageRushingYardsPerGameSelectorStatement")
+    private String yahooPlayerStatPageRushingYardsPerGameSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageRushingYardsPerAttemptSelectorStatement")
+    private String yahooPlayerStatPageRushingYardsPerAttemptSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageReceivingYardsPerGameSelectorStatement")
+    private String yahooPlayerStatPageReceivingYardsPerGameSelectorStatement;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatPageRushingTouchdownsSelectorStatement")
+    private String yahooPlayerStatPageRushingTouchdownsSelectorStatement;
+
     //////////////////// statement builder implementation tests: ////////////////////
     @Test
     public void shouldBeAbleToBuildStatementsWithoutParentElements() throws Exception {
@@ -245,6 +277,46 @@ public class SelectorStatementBuilderTests {
 
     @Test
     public void shouldBeAbleToConstructYahooNameSelectorStatementCorrectly() {
-        assertThat(yahooPlayerStatPageNameSelectorStatement, is(equalTo("a[href ^= /nfl/players]")));
+        assertThat(yahooPlayerStatPageNameSelectorStatement, is(equalTo("a[href ^= /nfl/players/]")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooTeamSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageTeamSelectorStatement, is(equalTo("a[href ^= /nfl/teams/]")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooGamesPlayedSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageGamesPlayedSelectorStatement, is(equalTo("td[class = yspscores]:eq(2)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooRushingAttemptsSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageRushingAttemptsSelectorStatement, is(equalTo("td[class = yspscores]:eq(4)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooRushingYardsSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageRushingYardsSelectorStatement, is(equalTo("span[class = yspscores]")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooRushingYardsPerAttemptSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageRushingYardsPerAttemptSelectorStatement, is(equalTo("td[class = yspscores]:eq(7)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooRushingYardsPerGameSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageRushingYardsPerGameSelectorStatement, is(equalTo("td[class = yspscores]:eq(6)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooRushingTouchdownsStatementCorrectly() {
+        assertThat(yahooPlayerStatPageRushingTouchdownsSelectorStatement, is(equalTo("td[class = yspscores]:eq(8)")));
+    }
+
+    @Test
+    public void shouldBeAbleToConstructYahooReceivingYardsPerGameSelectorStatementCorrectly() {
+        assertThat(yahooPlayerStatPageReceivingYardsPerGameSelectorStatement, is(equalTo("td[class = yspscores]:eq(13)")));
     }
 }

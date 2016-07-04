@@ -7,6 +7,29 @@
     <import resource="../value-transformers/value-transformers-configurations.xml"/>
     <import resource="yahoo-stats-page-selector-statement-configuration.xml"/>
 
+    <!--================== YAHOO PLAYER STATS PAGE VALUE EXTRACTORS ==================-->
+    <!--<bean id="yahooPlayerStatsRowValueExtractorFactory"-->
+          <!--class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">-->
+        <!--<property name="xpathSelector" ref="espnPlayerProjectionRowSelectorStatement"/>-->
+        <!--<property name="objectClasspath" ref="documentClass"/>-->
+        <!--<property name="outputClazzFactoryClazz" ref="documentFactoryClass"/>-->
+        <!--<property name="textGetterMethodName" value="html"/>-->
+        <!--<property name="textGetterMethodParameterTypes" ref="emptyList"/>-->
+        <!--<property name="textGetterMethodParameters" ref="emptyList"/>-->
+        <!--<property name="valueTransformers" ref="tableTagAdderValueTransformer"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="yahooStatsPageNextPageValueExtractorFactory"-->
+          <!--class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">-->
+        <!--<property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>-->
+        <!--<property name="objectClasspath" ref="stringClass"/>-->
+        <!--<property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>-->
+        <!--<property name="textGetterMethodName" value="attr"/>-->
+        <!--<property name="textGetterMethodParameterTypes" ref="stringClass"/>-->
+        <!--<property name="textGetterMethodParameters" value="href"/>-->
+        <!--<property name="valueTransformers" ref="passThroughValueTransformer"/>-->
+    <!--</bean>-->
+
     <!--================== YAHOO PLAYER STATS DATA VALUE EXTRACTORS ==================-->
     <bean id="yahooStatsNameValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
@@ -14,6 +37,187 @@
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsTeamValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageTeamSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="ownText"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="teamNameIsolatorValueTransformer"/>
+                <ref bean="nflTeamNameValueTransformer"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="yahooStatsGamesPlayedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageGamesPlayedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsRushingAttemptsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageRushingAttemptsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsRushingYardsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageRushingYardsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsRushingYardsPerGameValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageRushingYardsPerGameSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsRushingYardsPerAttemptValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageRushingYardsPerAttemptSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsRushingTouchdownsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageRushingTouchdownsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsReceptionsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageReceptionsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsTargetsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageTargetsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsReceivingYardsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageReceivingYardsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsReceivingYardsPerGameValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageReceivingYardsPerGameSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsReceivingYardsAfterCatchValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageYardsAfterCatchSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsReceivingTouchdownsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageReceivingTouchdownsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsReceivingYardsPerReceptionValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageReceivingYardsPerReceptionSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsFumblesValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageFumblesSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+    </bean>
+
+    <bean id="yahooStatsFumblesLostValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <property name="xpathSelector" ref="yahooPlayerStatPageFumblesLostSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="valueTransformers" ref="passThroughValueTransformer"/>

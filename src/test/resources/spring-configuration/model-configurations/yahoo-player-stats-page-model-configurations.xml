@@ -26,7 +26,7 @@
         <property name="receivingYards" value="222"/>
         <property name="receivingYardsPerGame" value="13.9"/>
         <property name="receivingYardsPerReception" value="7.4"/>
-        <property name="receivingYardsAfterContact" value="8.7"/>
+        <property name="receivingYardsAfterCatch" value="8.7"/>
         <property name="receivingTouchdowns" value="0"/>
         <property name="fumbles" value="7"/>
         <property name="fumblesLost" value="3"/>

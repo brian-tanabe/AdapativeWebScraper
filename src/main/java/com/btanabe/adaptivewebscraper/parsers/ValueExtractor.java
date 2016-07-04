@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.util.ClassUtils;
@@ -53,6 +54,10 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
 
     private OutputClazz[] getAllOccurrencesAsString() throws Exception {
         List<OutputClazz> matchedElements = Lists.newArrayList();
+
+        // TODO REMOVE THIS DEBUGGING STATEMENT:
+        Elements elements = document.select(xpathSelector);
+
         document.select(xpathSelector).stream().forEach(element -> {
 
             try {

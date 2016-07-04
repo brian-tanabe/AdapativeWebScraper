@@ -38,8 +38,13 @@ public class YahooNflHistoricStatsModel extends Model {
     private Integer receivingYards;
     private Double receivingYardsPerGame;
     private Double receivingYardsPerReception;
-    private Double receivingYardsAfterContact;
+    private Double receivingYardsAfterCatch;
     private Integer receivingTouchdowns;
     private Integer fumbles;
     private Integer fumblesLost;
+
+    @Override
+    public String toString() {
+        return String.format("playerId=[%d], name=[%s], team=[%s], position=[%s], gamesPlayed=[%d], passingCompletions=[%d], passingAttempts=[%d], completionPercentage=[%d], passingYards=[%d], passingTouchdowns=[%d], interceptions=[%d], rushingAttempts=[%d], rushingYards=[%d], rushingYardsPerGame=[%d], rushingYardsPerAttempt=[%d], rushingTouchdowns=[%d], receptions=[%d], targets=[%d], receivingYards=[%d], receivingYardsPerGame=[%d], receivingYardsPerReception=[%d], receivingYardsAfterCatch=[%d], receivingTouchdowns=[%d], fumbles=[%d], fumblesLost", playerId, name, team, position, gamesPlayed, passingCompletions, passingAttempts, completionPercentage, passingYards, passingTouchdowns, interceptions, rushingAttempts, rushingYards, rushingYardsPerGame, rushingYardsPerAttempt, rushingTouchdowns, receptions, targets, receivingYards, receivingYardsPerGame, receivingYardsPerReception, receivingYardsAfterCatch, receivingTouchdowns, fumbles, fumblesLost);
+    }
 }
