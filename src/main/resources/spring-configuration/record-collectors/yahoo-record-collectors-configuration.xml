@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="classpath:/spring-configuration/value-extractors/yahoo-stats-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+
+    <util:map id="yahooNflPlayerStatsValueExtractorSetterMethodMap"
+              key-type="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory" value-type="java.lang.String">
+        <entry key-ref="yahooStatsPlayerIdValueExtractorFactory" value="setPlayerId"/>
+        <entry key-ref="yahooStatsNameValueExtractorFactory" value="setName"/>
+        <entry key-ref="yahooStatsTeamValueExtractorFactory" value="setTeam"/>
+    </util:map>
+
+    <bean id="yahooNflRunningBackStatsRecordCollector"
+          class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
+        <property name="eventBus" ref="collectedRecordsEventBus"/>
+        <property name="executorService" ref="listeningExecutorService"/>
+        <property name="nextPageValueExtractorFactory" ref="yahooStatsPageNextPageValueExtractorFactory"/>
+        <property name="nextPageUrlPattern" ref="yahooStatsPageRunningBacksUrlPattern"/>
+        <property name="recordDocumentExtractorFactory" ref="yahooPlayerStatsRowValueExtractorFactory"/>
+        <property name="seedWebPage" value="https://sports.yahoo.com/nfl/stats/byposition?pos=RB"/>
+        <property name="valueExtractorFactoryToSetterMethodNameMap"
+                  ref="yahooNflPlayerStatsValueExtractorSetterMethodMap"/>
+        <property name="outputClassPath" ref="yahooNflStatsModel"/>
+    </bean>
+</beans>

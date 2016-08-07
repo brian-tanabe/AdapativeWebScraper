@@ -26,6 +26,10 @@ public class YahooValueExtractorTests {
     private ValueExtractorFactory<Document> playerRowValueExtractor;
 
     @Autowired
+    @Qualifier("yahooStatsPageNextPageValueExtractorFactory")
+    private ValueExtractorFactory<String> nextPageValueExtractor;
+
+    @Autowired
     @Qualifier("yahooStatsPlayerIdValueExtractorFactory")
     private ValueExtractorFactory<String> playerIdValueExtractor;
 
@@ -102,7 +106,7 @@ public class YahooValueExtractorTests {
     private Document yahooStatsPageAdrianPeterson;
 
     @Autowired
-    @Qualifier("yahooStatsPageRunningBacks")
+    @Qualifier("yahooStatsPageRunningBacks2015")
     private Document yahooStatsPageRunningBacks;
 
     @Autowired
@@ -112,6 +116,11 @@ public class YahooValueExtractorTests {
     @Test
     public void shouldBeAbleToExtractPlayerRowsFromPlayerDocument() throws Exception {
         assertThat(playerRowValueExtractor.createValueExtractor(yahooStatsPageRunningBacks).call().count(), is(equalTo(165L)));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractNextPageUrlFromPlayerDocument() throws Exception {
+        assertThat(nextPageValueExtractor.createValueExtractor(yahooStatsPageRunningBacks).call().findFirst().get(), is(equalTo("season_2014")));
     }
 
     @Test

@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="espnPlayerProjectionsPageEddieLacy" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
-        <property name="rank" value="31"/>
+        <property name="rank" value="22"/>
         <property name="name" value="Eddie Lacy"/>
         <property name="team" value="GB"/>
         <property name="position" value="RB"/>
@@ -13,21 +13,22 @@
         <property name="passingYards" value="0"/>
         <property name="passingTouchdowns" value="0"/>
         <property name="interceptions" value="0"/>
-        <property name="rushingAttempts" value="240"/>
-        <property name="rushingYards" value="1050"/>
-        <property name="rushingTouchdowns" value="7"/>
-        <property name="receptions" value="27"/>
-        <property name="receivingYards" value="277"/>
-        <property name="receivingTouchdowns" value="2"/>
-        <property name="fantasyPoints" value="212"/>
+        <property name="rushingAttempts" value="239.9"/>
+        <property name="rushingYards" value="1058.3"/>
+        <property name="rushingTouchdowns" value="6.6"/>
+        <property name="receptions" value="29.3"/>
+        <property name="receivingYards" value="234.8"/>
+        <property name="receivingTouchdowns" value="1.3"/>
+        <property name="fantasyPoints" value="205.8"/>
         <property name="playerId" value="15848"/>
     </bean>
 
-    <bean id="espnPlayerProjectionsPageJoshFerguson" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
-        <property name="playerId" value="18006"/>
-        <property name="rank" value="1763"/>
-        <property name="name" value="Josh Ferguson"/>
-        <property name="team" value="IND"/>
+    <bean id="espnPlayerProjectionsPageLacheSeastrunk"
+          class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
+        <property name="playerId" value="16885"/>
+        <property name="rank" value="644"/>
+        <property name="name" value="Lache Seastrunk"/>
+        <property name="team" value="DAL"/>
         <property name="position" value="RB"/>
         <property name="passingAttempts" value="0"/>
         <property name="passingCompletions" value="0"/>
@@ -43,7 +44,8 @@
         <property name="fantasyPoints" value="0"/>
     </bean>
 
-    <bean id="espnPlayerProjectionsPageSteelersDefense" class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
+    <bean id="espnPlayerProjectionsPageSteelersDefense"
+          class="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel">
         <property name="playerId" value="60023"/>
         <property name="rank" value="285"/>
         <property name="name" value="Steelers D/ST"/>
@@ -60,6 +62,6 @@
         <property name="receptions" value="0"/>
         <property name="receivingYards" value="0"/>
         <property name="receivingTouchdowns" value="0"/>
-        <property name="fantasyPoints" value="92"/>
+        <property name="fantasyPoints" value="87.3"/>
     </bean>
 </beans>

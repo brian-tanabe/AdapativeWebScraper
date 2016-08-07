@@ -1,8 +1,10 @@
 package com.btanabe.adaptivewebscraper.parsers;
 
 import com.google.common.collect.Lists;
-import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.BeanUtils;
@@ -19,7 +21,8 @@ import java.util.stream.Stream;
 /**
  * Created by Brian on 4/5/16.
  */
-@AllArgsConstructor
+@Slf4j
+@RequiredArgsConstructor
 public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>> {
 
     @NonNull
@@ -58,6 +61,8 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
             try {
                 matchedElements.add(createOutputClassAndSetItsValue(applyTransformations(createFactoryConstructorStringArgument(element))));
             } catch (Exception e) {
+                log.error(ExceptionUtils.getMessage(e));
+                log.error(ExceptionUtils.getStackTrace(e));
                 e.printStackTrace();
             }
         });

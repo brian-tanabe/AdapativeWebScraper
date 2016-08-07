@@ -19,6 +19,11 @@ public class DatabaseInterface {
     private final Session session;
     private SessionFactory factory;
 
+    public DatabaseInterface(final File hibernateConfigurationFile) {
+        factory = new Configuration().configure(hibernateConfigurationFile).buildSessionFactory();
+        session = factory.openSession();
+    }
+
     public DatabaseInterface(final String hibernateConfigurationFilePath) throws MalformedURLException {
         factory = new Configuration().configure(new File(hibernateConfigurationFilePath).toURI().toURL()).buildSessionFactory();
         session = factory.openSession();
@@ -38,6 +43,7 @@ public class DatabaseInterface {
     public void saveOrUpdate(final Model objectToStore) {
         log.info(String.format("saving=[%s]", objectToStore));
         session.saveOrUpdate(objectToStore);
+        log.info(String.format("Successfully saved=[%s]", objectToStore));
     }
 
     public <T extends Model> List<T> getAllObjectsOfType(Class<T> clazz) {
@@ -48,6 +54,7 @@ public class DatabaseInterface {
     public void deleteObject(Model objectToDelete) {
         log.info(String.format("deleting=[%s]", objectToDelete));
         session.delete(objectToDelete);
+        log.info(String.format("Successfully deleted=[%s]", objectToDelete));
     }
 
     public <T extends Model> void deleteAllObjectsOfType(Class<T> clazz) {

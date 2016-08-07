@@ -81,6 +81,6 @@ public class ValueTransformerTests {
 
     @Test
     public void shouldBeAbleToTransformUrlPathsToYahooPlayerIds() {
-        assertThat(yahooPlayerIdIsolator.apply("/nfl/players/8261"), is(equalTo(8261)));
+        assertThat(yahooPlayerIdIsolator.apply("/nfl/players/8261"), is(equalTo("8261")));
     }
 }

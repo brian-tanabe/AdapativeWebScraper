@@ -11,6 +11,16 @@
         <property name="classnameEqualityOperator" value="STARTS_WITH"/>
     </bean>
 
+    <bean id="yahooPlayerStatPageNextPageValueExtractor"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <!--<property name="parentTagName" value="select"/>-->
+        <property name="parentTagName" value="select"/>
+        <property name="tagName" value="option"/>
+        <property name="attributeName" value="name"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="year"/>
+    </bean>
+
     <!-- tr[href ^= /nfl/players] -->
     <bean id="yahooPlayerStatPageNameSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">

@@ -15,17 +15,17 @@
         <property name="name" column="NAME" type="string"/>
         <property name="team" column="TEAM" type="string"/>
         <property name="position" column="POSITION" type="string"/>
-        <property name="passingCompletions" column="PASSING_COMPLETIONS" type="int"/>
-        <property name="passingAttempts" column="PASSING_ATTEMPTS" type="int"/>
-        <property name="passingYards" column="PASSING_YARDS" type="int"/>
-        <property name="passingTouchdowns" column="PASSING_TOUCHDOWNS" type="int"/>
-        <property name="interceptions" column="INTERCEPTIONS" type="int"/>
-        <property name="rushingAttempts" column="RUSHING_ATTEMPTS" type="int"/>
-        <property name="rushingYards" column="RUSHING_YARDS" type="int"/>
-        <property name="rushingTouchdowns" column="RUSHING_TOUCHDOWNS" type="int"/>
-        <property name="receptions" column="RECEPTIONS" type="int"/>
-        <property name="receivingYards" column="RECEIVING_YARDS" type="int"/>
-        <property name="receivingTouchdowns" column="RECEIVING_TOUCHDOWNS" type="int"/>
+        <property name="passingCompletions" column="PASSING_COMPLETIONS" type="double"/>
+        <property name="passingAttempts" column="PASSING_ATTEMPTS" type="double"/>
+        <property name="passingYards" column="PASSING_YARDS" type="double"/>
+        <property name="passingTouchdowns" column="PASSING_TOUCHDOWNS" type="double"/>
+        <property name="interceptions" column="INTERCEPTIONS" type="double"/>
+        <property name="rushingAttempts" column="RUSHING_ATTEMPTS" type="double"/>
+        <property name="rushingYards" column="RUSHING_YARDS" type="double"/>
+        <property name="rushingTouchdowns" column="RUSHING_TOUCHDOWNS" type="double"/>
+        <property name="receptions" column="RECEPTIONS" type="double"/>
+        <property name="receivingYards" column="RECEIVING_YARDS" type="double"/>
+        <property name="receivingTouchdowns" column="RECEIVING_TOUCHDOWNS" type="double"/>
         <property name="fantasyPoints" column="FANTASY_POINTS" type="double"/>
     </class>
 </hibernate-mapping>

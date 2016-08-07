@@ -19,16 +19,19 @@
         <property name="valueTransformers" ref="tableTagAdderValueTransformer"/>
     </bean>
 
-    <!--<bean id="yahooStatsPageNextPageValueExtractorFactory"-->
-    <!--class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">-->
-    <!--<property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>-->
-    <!--<property name="objectClasspath" ref="stringClass"/>-->
-    <!--<property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>-->
-    <!--<property name="textGetterMethodName" value="attr"/>-->
-    <!--<property name="textGetterMethodParameterTypes" ref="stringClass"/>-->
-    <!--<property name="textGetterMethodParameters" value="href"/>-->
-    <!--<property name="valueTransformers" ref="passThroughValueTransformer"/>-->
-    <!--</bean>-->
+    <bean id="yahooStatsPageNextPageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+        <!--<property name="xpathSelector" ref="yahooPlayerStatPageNextPageValueExtractor"/>-->
+        <property name="xpathSelector" value="option[selected]:contains(Season) ~ option:contains(Season)"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="attr"/>
+        <property name="textGetterMethodParameterTypes" ref="stringClass"/>
+        <property name="textGetterMethodParameters" value="value"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
 
     <!--================== YAHOO PLAYER STATS DATA VALUE EXTRACTORS ==================-->
     <bean id="yahooStatsPlayerIdValueExtractorFactory"
@@ -60,7 +63,9 @@
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsTeamValueExtractorFactory"
@@ -87,7 +92,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsRushingAttemptsValueExtractorFactory"
@@ -98,7 +105,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsRushingYardsValueExtractorFactory"
@@ -109,7 +118,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsRushingYardsPerGameValueExtractorFactory"
@@ -120,7 +131,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsRushingYardsPerAttemptValueExtractorFactory"
@@ -131,7 +144,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsRushingTouchdownsValueExtractorFactory"
@@ -142,7 +157,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsReceptionsValueExtractorFactory"
@@ -153,7 +170,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsTargetsValueExtractorFactory"
@@ -164,7 +183,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsReceivingYardsValueExtractorFactory"
@@ -175,7 +196,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsReceivingYardsPerGameValueExtractorFactory"
@@ -186,7 +209,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsReceivingYardsAfterCatchValueExtractorFactory"
@@ -197,7 +222,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsReceivingTouchdownsValueExtractorFactory"
@@ -208,7 +235,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsReceivingYardsPerReceptionValueExtractorFactory"
@@ -219,7 +248,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsFumblesValueExtractorFactory"
@@ -230,7 +261,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="yahooStatsFumblesLostValueExtractorFactory"
@@ -241,7 +274,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
 </beans>

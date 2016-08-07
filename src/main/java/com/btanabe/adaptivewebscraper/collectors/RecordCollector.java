@@ -3,7 +3,7 @@ package com.btanabe.adaptivewebscraper.collectors;
 import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
 import com.btanabe.adaptivewebscraper.tasks.DocumentParserTask;
-import com.google.common.collect.Lists;
+import com.btanabe.adaptivewebscraper.tasks.UrlPatternTransformerTask;
 import com.google.common.eventbus.EventBus;
 import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;
@@ -13,11 +13,15 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
@@ -34,9 +38,10 @@ import java.util.stream.Stream;
  * 5) Join and return
  * <p>
  */
+@Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
-public class RecordCollector<OutputType> {
+public class RecordCollector<OutputType> implements Callable<Void> {
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -49,6 +54,10 @@ public class RecordCollector<OutputType> {
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
     private ValueExtractorFactory<String> nextPageValueExtractorFactory;
+
+    @NonNull
+    @Setter(onMethod = @__({@Autowired}))
+    private String nextPageUrlPattern;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -66,8 +75,16 @@ public class RecordCollector<OutputType> {
     @Setter(onMethod = @__({@Autowired}))
     private EventBus eventBus;
 
-    public void gatherAllRecords() throws ExecutionException, InterruptedException {
-        final List<ListenableFuture<OutputType>> downloadParseAndMarshallFutures = Lists.newArrayList();
+    @Override
+    public Void call() throws Exception {
+        log.info(String.format("RecordCollector for seed URL=[%s] starting!", seedWebPage));
+        gatherAllRecords();
+        log.info(String.format("RecordCollector for seed URL=[%s] complete!", seedWebPage));
+        return null;
+    }
+
+    public void gatherAllRecords() throws Exception {
+        final List<ListenableFuture<OutputType>> downloadParseAndMarshallFutures = new ArrayList<>();
         String pageUrl = seedWebPage;
         do {
             pageUrl = generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(pageUrl, downloadParseAndMarshallFutures);
@@ -77,20 +94,21 @@ public class RecordCollector<OutputType> {
             try {
                 eventBus.post(future.get());
             } catch (Exception e) {
+                log.error(ExceptionUtils.getMessage(e));
+                log.error(ExceptionUtils.getStackTrace(e));
                 e.printStackTrace();
             }
         });
     }
 
     // Consider making this a recursive function:
-    private String generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(final String pageUrl, final List<ListenableFuture<OutputType>> outputTypeFutures) throws ExecutionException, InterruptedException {
+    private String generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(final String pageUrl, final List<ListenableFuture<OutputType>> outputTypeFutures) throws ExecutionException, InterruptedException, Exception {
+
         // Step 1: Download Page HTML
-        ListenableFuture webPageDownloadFuture = executorService.submit(WebRequestTaskFactory.createWebRequestTask(pageUrl));
+        ListenableFuture<Document> webPageDownloadFuture = executorService.submit(WebRequestTaskFactory.createWebRequestTask(pageUrl));
 
         // Step 2: Find the link to the next page:
-        AsyncFunction<Document, Stream<String>> nextPageUrlFunction = input -> {
-            return executorService.submit(nextPageValueExtractorFactory.createValueExtractor(input));
-        };
+        AsyncFunction<Document, Stream<String>> nextPageUrlFunction = input -> executorService.submit(new UrlPatternTransformerTask(nextPageValueExtractorFactory.createValueExtractor(input), nextPageUrlPattern));
 
         ListenableFuture<Stream<String>> nextPageUrlFuture = Futures.transformAsync(webPageDownloadFuture, nextPageUrlFunction);
 
@@ -100,13 +118,10 @@ public class RecordCollector<OutputType> {
         };
 
         // Gather all Documents:
-        Stream<Document> allPlayersInTheirOwnDocumentStream = (Stream<Document>) Futures.transformAsync(webPageDownloadFuture, recordPartitioningFunction, executorService).get();
+        Stream<Document> allPlayersInTheirOwnDocumentStream = Futures.transformAsync(webPageDownloadFuture, recordPartitioningFunction, executorService).get();
 
         // Step 4: Parse each record:
-        allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> {
-            DocumentParserTask<OutputType> task = new DocumentParserTask<OutputType>(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputClassPath);
-            outputTypeFutures.add(executorService.submit(task));
-        });
+        allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> outputTypeFutures.add(executorService.submit(new DocumentParserTask<OutputType>(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputClassPath))));
 
         // Get the next page URL and return:
         return nextPageUrlFuture.get().findFirst().orElse(null);

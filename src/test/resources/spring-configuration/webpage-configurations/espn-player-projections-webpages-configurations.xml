@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978 -->
+    <bean id="espnPlayerProjectionsPageOneMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=40 -->
+    <bean id="espnPlayerProjectionsPageTwoMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-2.dirty.html"/>
+            </bean>
+
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=80 -->
+    <bean id="espnPlayerProjectionsPageThreeMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-3.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=120 -->
+    <bean id="espnPlayerProjectionsPageFourMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-4.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=160 -->
+    <bean id="espnPlayerProjectionsPageFiveMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-5.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=200 -->
+    <bean id="espnPlayerProjectionsPageSixMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-6.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=240 -->
+    <bean id="espnPlayerProjectionsPageSevenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-7.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=280 -->
+    <bean id="espnPlayerProjectionsPageEightMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-8.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=320 -->
+    <bean id="espnPlayerProjectionsPageNineMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-9.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=360 -->
+    <bean id="espnPlayerProjectionsPageTenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-10.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=400 -->
+    <bean id="espnPlayerProjectionsPageElevenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-11.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=440 -->
+    <bean id="espnPlayerProjectionsPageTwelveMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-12.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=480 -->
+    <bean id="espnPlayerProjectionsPageThirteenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-13.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=520 -->
+    <bean id="espnPlayerProjectionsPageFourteenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-14.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=560 -->
+    <bean id="espnPlayerProjectionsPageFifteenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-15.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=600 -->
+    <bean id="espnPlayerProjectionsPageSixteenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-16.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=640 -->
+    <bean id="espnPlayerProjectionsPageSeventeenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-17.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=680 -->
+    <bean id="espnPlayerProjectionsPageEighteenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-18.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=720 -->
+    <bean id="espnPlayerProjectionsPageNineteenMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-19.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=760 -->
+    <bean id="espnPlayerProjectionsPageTwentyMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-20.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=800 -->
+    <bean id="espnPlayerProjectionsPageTwentyOneMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-21.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=840 -->
+    <bean id="espnPlayerProjectionsPageTwentyTwoMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-22.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=880 -->
+    <bean id="espnPlayerProjectionsPageTwentyThreeMockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-23.dirty.html"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

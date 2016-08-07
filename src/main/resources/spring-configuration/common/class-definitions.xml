@@ -26,6 +26,10 @@
         <constructor-arg value="com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel"/>
     </bean>
 
+    <bean id="yahooNflStatsModel" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel"/>
+    </bean>
+
     <!-- Constants -->
     <util:list id="emptyList"></util:list>
 

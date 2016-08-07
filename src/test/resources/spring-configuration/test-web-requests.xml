@@ -5,100 +5,93 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <import resource="espn-player-projections-webpages-configurations.xml"/>
+    <import resource="webpage-configurations/espn-player-projections-webpages-configurations.xml"/>
+    <import resource="webpage-configurations/yahoo-player-stats-webpages-configurations.xml"/>
 
     <util:map id="webRequestTaskToSiteUrlMap" key-type="java.lang.String"
               value-type="com.btanabe.adaptivewebscraper.tasks.WebRequestTask">
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978"
+
+        <!-- ESPN web pages -->
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978"
                value-ref="espnPlayerProjectionsPageOneMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=40"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=40"
                value-ref="espnPlayerProjectionsPageTwoMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=80"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=80"
                value-ref="espnPlayerProjectionsPageThreeMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=120"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=120"
                value-ref="espnPlayerProjectionsPageFourMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=160"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=160"
                value-ref="espnPlayerProjectionsPageFiveMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=200"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=200"
                value-ref="espnPlayerProjectionsPageSixMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=240"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=240"
                value-ref="espnPlayerProjectionsPageSevenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=280"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=280"
                value-ref="espnPlayerProjectionsPageEightMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=320"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=320"
                value-ref="espnPlayerProjectionsPageNineMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=360"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=360"
                value-ref="espnPlayerProjectionsPageTenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=400"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=400"
                value-ref="espnPlayerProjectionsPageElevenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=440"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=440"
                value-ref="espnPlayerProjectionsPageTwelveMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=480"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=480"
                value-ref="espnPlayerProjectionsPageThirteenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=520"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=520"
                value-ref="espnPlayerProjectionsPageFourteenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=560"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=560"
                value-ref="espnPlayerProjectionsPageFifteenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=600"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=600"
                value-ref="espnPlayerProjectionsPageSixteenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=640"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=640"
                value-ref="espnPlayerProjectionsPageSeventeenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=680"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=680"
                value-ref="espnPlayerProjectionsPageEighteenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=720"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=720"
                value-ref="espnPlayerProjectionsPageNineteenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=760"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=760"
                value-ref="espnPlayerProjectionsPageTwentyMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=800"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=800"
                value-ref="espnPlayerProjectionsPageTwentyOneMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=840"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=840"
                value-ref="espnPlayerProjectionsPageTwentyTwoMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=880"
+        <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=880"
                value-ref="espnPlayerProjectionsPageTwentyThreeMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=920"
-               value-ref="espnPlayerProjectionsPageTwentyFourMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=960"
-               value-ref="espnPlayerProjectionsPageTwentyFiveMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1000"
-               value-ref="espnPlayerProjectionsPageTwentySixMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1040"
-               value-ref="espnPlayerProjectionsPageTwentySevenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1080"
-               value-ref="espnPlayerProjectionsPageTwentyEightMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1120"
-               value-ref="espnPlayerProjectionsPageTwentyNineMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1160"
-               value-ref="espnPlayerProjectionsPageThirtyMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1200"
-               value-ref="espnPlayerProjectionsPageThirtyOneMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1240"
-               value-ref="espnPlayerProjectionsPageThirtyTwoMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1280"
-               value-ref="espnPlayerProjectionsPageThirtyThreeMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1320"
-               value-ref="espnPlayerProjectionsPageThirtyFourMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1360"
-               value-ref="espnPlayerProjectionsPageThirtyFiveMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1400"
-               value-ref="espnPlayerProjectionsPageThirtySixMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1440"
-               value-ref="espnPlayerProjectionsPageThirtySevenMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1480"
-               value-ref="espnPlayerProjectionsPageThirtyEightMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1520"
-               value-ref="espnPlayerProjectionsPageThirtyNineMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1560"
-               value-ref="espnPlayerProjectionsPageFortyMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1600"
-               value-ref="espnPlayerProjectionsPageFortyOneMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1640"
-               value-ref="espnPlayerProjectionsPageFortyTwoMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1680"
-               value-ref="espnPlayerProjectionsPageFortyThreeMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1720"
-               value-ref="espnPlayerProjectionsPageFortyFourMockWebRequestTask"/>
-        <entry key="http://games.espn.go.com/ffl/tools/projections?leagueId=84978&amp;startIndex=1760"
-               value-ref="espnPlayerProjectionsPageFortyFiveMockWebRequestTask"/>
+
+        <!-- YAHOO web pages -->
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB"
+               value-ref="yahooPlayerStatsRunningBacks2015MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2014&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2014MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2013&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2013MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2012&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2012MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2011&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2011MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2010&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2010MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2009&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2009MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2008&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2008MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2007&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2007MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2006&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2006MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2005&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2005MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2004&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2004MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2003&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2003MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2002&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2002MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2001&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2001MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2000&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
+               value-ref="yahooPlayerStatsRunningBacks2000MockWebRequestTask"/>
     </util:map>
 
     <bean id="mockStaticWebRequestFactory"

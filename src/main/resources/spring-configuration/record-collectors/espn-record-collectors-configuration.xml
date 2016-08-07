@@ -6,6 +6,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
 
@@ -35,8 +36,9 @@
         <property name="eventBus" ref="collectedRecordsEventBus"/>
         <property name="executorService" ref="listeningExecutorService"/>
         <property name="nextPageValueExtractorFactory" ref="espnProjectionsPageNextPageValueExtractorFactory"/>
+        <property name="nextPageUrlPattern" ref="blankUrlPattern"/>
         <property name="recordDocumentExtractorFactory" ref="espnPlayerProjectionRowValueExtractorFactory"/>
-        <property name="seedWebPage" value="http://games.espn.go.com/ffl/tools/projections?leagueId=84978"/>
+        <property name="seedWebPage" value="http://games.espn.com/ffl/tools/projections?leagueId=84978"/>
         <property name="valueExtractorFactoryToSetterMethodNameMap"
                   ref="espnNflPlayerProjectionValueExtractorSetterMethodMap"/>
         <property name="outputClassPath" ref="espnNflProjectionModel"/>

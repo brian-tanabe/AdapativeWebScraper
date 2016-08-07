@@ -1,7 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = 1.8
+compileJava.setSourceCompatibility('1.8')
+targetCompatibility = '1.8'
+sourceCompatibility = '1.8'
+
 version = '1.0'
 
 repositories {
@@ -26,8 +29,11 @@ dependencies {
     compile 'org.postgresql:postgresql:9.4-1205-jdbc42'
     compile 'org.postgresql:postgresql:9.4.1208.jre7'
 
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'org.slf4j:slf4j-log4j12:1.7.21'
+    compile 'org.apache.logging.log4j:log4j-api:2.6.2'
+    compile 'org.apache.logging.log4j:log4j-core:2.6.2'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.6.2'
+
+    compile 'org.apache.commons:commons-lang3:3.4'
 
     /**
      * Test dependencies:
@@ -42,4 +48,14 @@ dependencies {
     testCompile 'org.powermock:powermock-mockito-release-full:1.6.4'
 
     testCompile 'org.apache.derby:derby:10.12.1.1'
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.btanabe.adaptivewebscraper.application.Application"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }

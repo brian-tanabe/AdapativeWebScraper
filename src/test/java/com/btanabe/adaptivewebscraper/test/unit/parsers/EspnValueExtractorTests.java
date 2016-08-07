@@ -201,6 +201,6 @@ public class EspnValueExtractorTests {
 
     @Test
     public void shouldBeAbleToExtractNextPageLinkFromPlayerProjectionPageDocument() throws Exception {
-        assertThat(nextPageValueExtractorFactory.createValueExtractor(espnProjectionsPageOne).call().findFirst().get(), is(equalTo("http://games.espn.go.com/ffl/tools/projections?leagueId=84978&startIndex=40")));
+        assertThat(nextPageValueExtractorFactory.createValueExtractor(espnProjectionsPageOne).call().findFirst().get(), is(equalTo("http://games.espn.com/ffl/tools/projections?leagueId=84978&startIndex=40")));
     }
 }

@@ -90,7 +90,7 @@ public class EspnErrorCaseValueExtractorTests {
     private ValueExtractorFactory<Double> fantasyPointsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("espnProjectionsPageJoshFerguson")
+    @Qualifier("espnProjectionsPageLacheSeastrunk")
     private Document playerProjectionDocumentWithNoProjections;
 
     @Autowired
@@ -98,7 +98,7 @@ public class EspnErrorCaseValueExtractorTests {
     private Document playerProjectionsDocumentWithNoLastNameOrTeam;
 
     @Autowired
-    @Qualifier("espnPlayerProjectionsPageJoshFerguson")
+    @Qualifier("espnPlayerProjectionsPageLacheSeastrunk")
     private EspnNflProjectionModel expectedJoshFergusonModel;
 
     @Autowired

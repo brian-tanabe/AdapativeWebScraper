@@ -27,7 +27,9 @@
         <property name="textGetterMethodName" value="attr"/>
         <property name="textGetterMethodParameterTypes" ref="stringClass"/>
         <property name="textGetterMethodParameters" value="href"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <!--================== ESPN PLAYER PROJECTION DATA VALUE EXTRACTORS ==================-->
@@ -49,7 +51,11 @@
                 </bean>
             </list>
         </property>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsPageRankValueExtractorFactory"
@@ -60,7 +66,9 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsNameValueExtractorFactory"
@@ -71,7 +79,9 @@
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="passThroughValueTransformer"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsTeamValueExtractorFactory"
@@ -104,8 +114,8 @@
     <bean id="espnProjectionsPassingCompletionsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingCompletionsAndAttemptsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
@@ -120,8 +130,8 @@
     <bean id="espnProjectionsPassingAttemptsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingCompletionsAndAttemptsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
@@ -136,100 +146,136 @@
     <bean id="espnProjectionsPassingYardsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingYardsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsPassingTouchdownsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingTouchdownsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsInterceptionsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageInterceptionsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsRushingAttemptsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageRushingAttemptsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsRushingYardsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRushingYardsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsRushingTouchdownsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRushingTouchdownsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsReceptionsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageReceptionsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsReceivingYardsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageReceivingYardsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsReceivingTouchdownsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageReceivingTouchdownsSelectorStatement"/>
-        <property name="objectClasspath" ref="integerClass"/>
-        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="espnProjectionsFantasyPointsValueExtractorFactory"
@@ -240,7 +286,11 @@
         <property name="textGetterMethodName" value="text"/>
         <property name="textGetterMethodParameterTypes" ref="emptyList"/>
         <property name="textGetterMethodParameters" ref="emptyList"/>
-        <property name="valueTransformers" ref="noNumberToZeroValueTransformer"/>
+        <property name="valueTransformers">
+            <list>
+                <ref bean="noNumberToZeroValueTransformer"/>
+            </list>
+        </property>
     </bean>
 
 </beans>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2015MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2015.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2014&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2014MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2014.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2013&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2013MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2013.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2012&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2012MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2012.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2011&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2011MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2011.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2010&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2010MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2010.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2009&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2009MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2009.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2008&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2008MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2008.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2007&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2007MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2007.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2006&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2006MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2006.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2005&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2005MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2005.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2004&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2004MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2004.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2003&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2003MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2003.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2002&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2002MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2002.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2001&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2001MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2001.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB&conference=NFL&year=season_2000&timeframe=All&sort=17&old_category=RB -->
+    <bean id="yahooPlayerStatsRunningBacks2000MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2000.html"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="blankUrlPattern" class="java.lang.String">
+        <constructor-arg value="%s"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacksUrlPattern" class="java.lang.String">
+        <constructor-arg value="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=%s&amp;timeframe=All&amp;sort=17&amp;old_category=RB"/>
+    </bean>
+
+</beans>

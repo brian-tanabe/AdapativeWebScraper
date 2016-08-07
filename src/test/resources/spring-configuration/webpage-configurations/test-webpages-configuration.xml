@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--================== ESPN TEST WEB PAGES ==================-->
+    <bean id="espnNflProjectionsPageOneAsAStringUnformatted"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
+        <property name="inputFile"
+                  value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+    </bean>
+
+    <bean id="espnNflProjectionsPageOneAsAStringFormatted"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedStringFactory">
+        <property name="inputFile"
+                  value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+    </bean>
+
+    <bean id="espnNflProjectionsPageOneFormatted"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageEddieLacyDocument"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-eddie-lacy.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageEddieLacyString"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileStringFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-eddie-lacy.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageLacheSeastrunk"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-lache-seastrunk.html"/>
+    </bean>
+
+    <bean id="espnProjectionsPageSteelersDefense"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/espn/individual-projection-page-rows/projections-steelers-defense.html"/>
+    </bean>
+
+    <!--================== YAHOO TEST WEB PAGES ==================-->
+    <bean id="yahooStatsPageAdrianPeterson"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-rb-adrian-peterson.html"/>
+    </bean>
+
+
+    <bean id="yahooStatsPageRunningBacks2015"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2015.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2014"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2014.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2013"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2013.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2012"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2012.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2011"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2011.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2010"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2010.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2009"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2009.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2008"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2008.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2007"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2007.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2006"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2006.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2005"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2005.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2004"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2004.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2003"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2003.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2002"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2002.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2001"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2001.html"/>
+    </bean>
+
+    <bean id="yahooStatsPageRunningBacks2000"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2000.html"/>
+    </bean>
+
+</beans>

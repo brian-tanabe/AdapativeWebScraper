@@ -16,27 +16,27 @@ import lombok.Setter;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class EspnNflProjectionModel extends Model {
+public class EspnNflProjectionModel implements Model {
     private Integer playerId;
     private Integer rank;
     private String name;
     private String team;
     private String position;
-    private Integer passingCompletions;
-    private Integer passingAttempts;
-    private Integer passingYards;
-    private Integer passingTouchdowns;
-    private Integer interceptions;
-    private Integer rushingAttempts;
-    private Integer rushingYards;
-    private Integer rushingTouchdowns;
-    private Integer receptions;
-    private Integer receivingYards;
-    private Integer receivingTouchdowns;
+    private Double passingCompletions;
+    private Double passingAttempts;
+    private Double passingYards;
+    private Double passingTouchdowns;
+    private Double interceptions;
+    private Double rushingAttempts;
+    private Double rushingYards;
+    private Double rushingTouchdowns;
+    private Double receptions;
+    private Double receivingYards;
+    private Double receivingTouchdowns;
     private Double fantasyPoints;
 
     @Override
     public String toString() {
-        return String.format("playerId=[%d], rank=[%d], name=[%s], team=[%s], position=[%s], passingCompletions=[%d], passingAttempts=[%d], passingYards=[%d], passingTouchdowns=[%d], interceptions=[%d], rushingAttempts=[%d], rushingYards=[%d], rushingTouchdowns=[%d], receptions=[%d], receivingYards=[%d], receivingTouchdowns=[%d], fantasyPoints=[%f]", playerId, rank, name, team, position, passingCompletions, passingAttempts, passingYards, passingTouchdowns, interceptions, rushingAttempts, rushingYards, rushingTouchdowns, receptions, receivingYards, receivingTouchdowns, fantasyPoints);
+        return String.format("playerId=[%d], rank=[%d], name=[%s], team=[%s], position=[%s], passingCompletions=[%f], passingAttempts=[%f], passingYards=[%f], passingTouchdowns=[%f], interceptions=[%f], rushingAttempts=[%f], rushingYards=[%f], rushingTouchdowns=[%f], receptions=[%f], receivingYards=[%f], receivingTouchdowns=[%f], fantasyPoints=[%f]", playerId, rank, name, team, position, passingCompletions, passingAttempts, passingYards, passingTouchdowns, interceptions, rushingAttempts, rushingYards, rushingTouchdowns, receptions, receivingYards, receivingTouchdowns, fantasyPoints);
     }
 }

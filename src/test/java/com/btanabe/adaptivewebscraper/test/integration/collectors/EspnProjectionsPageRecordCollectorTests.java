@@ -2,18 +2,14 @@ package com.btanabe.adaptivewebscraper.test.integration.collectors;
 
 import com.btanabe.adaptivewebscraper.collectors.RecordCollector;
 import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
-import com.btanabe.adaptivewebscraper.models.Model;
 import com.btanabe.adaptivewebscraper.test.integration.MockWebRequestTaskBase;
 import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
-import lombok.Getter;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -35,8 +31,8 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
     private EspnNflProjectionModel expectedEddieLacyModel;
 
     @Autowired
-    @Qualifier("espnPlayerProjectionsPageJoshFerguson")
-    private EspnNflProjectionModel expectedJoshFergusonModel;
+    @Qualifier("espnPlayerProjectionsPageLacheSeastrunk")
+    private EspnNflProjectionModel expectedLacheSeastrunkModel;
 
     @Autowired
     @Qualifier("espnPlayerProjectionsPageSteelersDefense")
@@ -50,18 +46,18 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
 
     @Before
     public void performRecordCollection() throws Exception {
-        CollectedRecordsListener recordsListener = new CollectedRecordsListener();
-        eventBus.register(recordsListener);
-
         if (collectedRecords == null) {
-            espnNflProjectionsPageRecordCollector.gatherAllRecords();
+            CollectedRecordsListener recordsListener = new CollectedRecordsListener();
+            eventBus.register(recordsListener);
+
+            espnNflProjectionsPageRecordCollector.call();
             collectedRecords = (List<EspnNflProjectionModel>) (List<?>) recordsListener.getCollectedModels();
         }
     }
 
     @Test
-    public void shouldBeAbleToFindOneThousandSevenHundredSeventySixPlayersAcrossFortyFivePages() throws Exception {
-        assertThat(collectedRecords.size(), is(equalTo(1776)));
+    public void shouldBeAbleToFindNineHundredTwoPlayersAcrossFortyFivePages() throws Exception {
+        assertThat(collectedRecords.size(), is(equalTo(902)));
     }
 
     @Test
@@ -72,24 +68,13 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
 
     @Test
     public void shouldBeAbleToParsePlayersWithoutProjectionsCorrectly() throws Exception {
-        EspnNflProjectionModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedJoshFergusonModel.getName())).findFirst().get();
-        assertThat(playerFromRecordCollector, is(equalTo(expectedJoshFergusonModel)));
+        EspnNflProjectionModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedLacheSeastrunkModel.getName())).findFirst().get();
+        assertThat(playerFromRecordCollector, is(equalTo(expectedLacheSeastrunkModel)));
     }
 
     @Test
     public void shouldBeAbleToParseTeamDefensesCorrectly() throws Exception {
         EspnNflProjectionModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedSteelersTeamDefenseModel.getName())).findFirst().get();
         assertThat(playerFromRecordCollector, is(equalTo(expectedSteelersTeamDefenseModel)));
-    }
-
-    @Getter
-    private class CollectedRecordsListener {
-        private List<Model> collectedModels = new ArrayList<>();
-
-        @Subscribe
-        public void collectedRecord(final Model collectedRecord) {
-            collectedModels.add(collectedRecord);
-        }
-
     }
 }
