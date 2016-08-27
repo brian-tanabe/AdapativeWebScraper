@@ -40,6 +40,6 @@ public class ValueExtractorFactory<OutputClazz> {
     private List<Function<String, String>> valueTransformers;
 
     public ValueExtractor createValueExtractor(final Document document) {
-        return new ValueExtractor<OutputClazz>(document, objectClasspath, outputClazzFactoryClazz, xpathSelector, textGetterMethodName, textGetterMethodParameterTypes, textGetterMethodParameters, valueTransformers);
+        return new ValueExtractor(document, objectClasspath, outputClazzFactoryClazz, xpathSelector, textGetterMethodName, textGetterMethodParameterTypes, textGetterMethodParameters, valueTransformers);
     }
 }

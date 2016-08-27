@@ -3,17 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="threadPoolSize" class="java.lang.Integer">
-        <constructor-arg value="100"/>
-    </bean>
-
-    <bean id="executorService" class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
-        <constructor-arg ref="threadPoolSize"/>
-    </bean>
-
-    <bean id="listeningExecutorService" class="com.google.common.util.concurrent.MoreExecutors"
-          factory-method="listeningDecorator">
-        <constructor-arg ref="executorService"/>
-    </bean>
+    <bean id="listeningExecutorService" class="com.btanabe.adaptivewebscraper.factories.ThreadPoolFactory"
+          factory-method="getInstance"/>
 
 </beans>

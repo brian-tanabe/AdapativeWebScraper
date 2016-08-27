@@ -3,6 +3,7 @@ package com.btanabe.adaptivewebscraper.test.integration.collectors;
 import com.btanabe.adaptivewebscraper.collectors.RecordCollector;
 import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
 import com.btanabe.adaptivewebscraper.test.integration.MockWebRequestTaskBase;
+import com.btanabe.adaptivewebscraper.test.utilities.CollectedRecordsListener;
 import com.google.common.eventbus.EventBus;
 import org.junit.Before;
 import org.junit.Test;

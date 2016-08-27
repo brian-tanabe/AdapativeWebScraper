@@ -121,7 +121,7 @@ public class RecordCollector<OutputType> implements Callable<Void> {
         Stream<Document> allPlayersInTheirOwnDocumentStream = Futures.transformAsync(webPageDownloadFuture, recordPartitioningFunction, executorService).get();
 
         // Step 4: Parse each record:
-        allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> outputTypeFutures.add(executorService.submit(new DocumentParserTask<OutputType>(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputClassPath))));
+        allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> outputTypeFutures.add(executorService.submit(new DocumentParserTask(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputClassPath))));
 
         // Get the next page URL and return:
         return nextPageUrlFuture.get().findFirst().orElse(null);

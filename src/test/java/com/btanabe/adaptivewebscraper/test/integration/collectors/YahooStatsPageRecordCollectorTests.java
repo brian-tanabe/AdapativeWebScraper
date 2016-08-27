@@ -3,9 +3,9 @@ package com.btanabe.adaptivewebscraper.test.integration.collectors;
 import com.btanabe.adaptivewebscraper.collectors.RecordCollector;
 import com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel;
 import com.btanabe.adaptivewebscraper.test.integration.MockWebRequestTaskBase;
+import com.btanabe.adaptivewebscraper.test.utilities.CollectedRecordsListener;
 import com.google.common.eventbus.EventBus;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,10 +19,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Created by Brian on 7/9/16.
- *
- * TODO This test class loops forever.  For some reason the mock web request hangs forever. Fix it!
  */
-@Ignore
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
 public class YahooStatsPageRecordCollectorTests extends MockWebRequestTaskBase {
 
@@ -48,7 +45,7 @@ public class YahooStatsPageRecordCollectorTests extends MockWebRequestTaskBase {
     }
 
     @Test
-    public void shouldBeAbleToFindTwoThousandRecords() {
-        assertThat(collectedRecords.size(), is(equalTo(2000)));
+    public void shouldBeAbleToFindTwoThousandSixHundredFortyRecords() {
+        assertThat(collectedRecords.size(), is(equalTo(2640)));
     }
 }
