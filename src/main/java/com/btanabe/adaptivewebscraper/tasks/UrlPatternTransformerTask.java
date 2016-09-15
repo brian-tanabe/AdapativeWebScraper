@@ -1,6 +1,5 @@
 package com.btanabe.adaptivewebscraper.tasks;
 
-import com.btanabe.adaptivewebscraper.parsers.ValueExtractor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class UrlPatternTransformerTask implements Callable<Stream<String>> {
 
-    private final ValueExtractor<String> urlArgumentExtractor;
+    private final Callable<Stream<String>> urlArgumentExtractor;
     private final String urlPattern;
 
     @Override

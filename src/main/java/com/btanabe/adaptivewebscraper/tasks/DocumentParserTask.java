@@ -1,7 +1,8 @@
 package com.btanabe.adaptivewebscraper.tasks;
 
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactoryI;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import lombok.AllArgsConstructor;
@@ -22,25 +23,26 @@ import java.util.stream.Stream;
 public class DocumentParserTask<OutputClazz> implements Callable<OutputClazz> {
     private ListeningExecutorService executorService;
     private Document document;
-    private Map<ValueExtractorFactory, String> outputObjectSetterMethodNameMappedToItsValueExtractorFactory;
+    private Multimap<ValueExtractorFactoryI, String> outputObjectSetterMethodNameMappedToItsValueExtractorFactory;
     private Class<OutputClazz> outputClazzPath;
 
     @Override
     public OutputClazz call() throws Exception {
-        Map<ListenableFuture, String> futures = Maps.newHashMapWithExpectedSize(outputObjectSetterMethodNameMappedToItsValueExtractorFactory.size());
-        outputObjectSetterMethodNameMappedToItsValueExtractorFactory.keySet().forEach(valueExtractorFactory -> {
-            futures.put(executorService.submit(valueExtractorFactory.createValueExtractor(document)), outputObjectSetterMethodNameMappedToItsValueExtractorFactory.get(valueExtractorFactory));
+        OutputClazz outputObject = ClassUtils.getConstructorIfAvailable(outputClazzPath).newInstance();
+
+        Map<ListenableFuture<Stream<OutputClazz>>, String> futures = Maps.newHashMapWithExpectedSize(outputObjectSetterMethodNameMappedToItsValueExtractorFactory.size());
+        outputObjectSetterMethodNameMappedToItsValueExtractorFactory.entries().forEach(valueExtractorFactoryAndSetterMethodName -> {
+            futures.put(executorService.submit(valueExtractorFactoryAndSetterMethodName.getKey().createValueExtractor(document)), valueExtractorFactoryAndSetterMethodName.getValue());
         });
 
-        OutputClazz outputObject = ClassUtils.getConstructorIfAvailable(outputClazzPath).newInstance();
         futures.forEach((future, setterMethodName) -> {
+            Object value = null;
             try {
-                final Object value = ((Stream) future.get()).findFirst().get();
+                value = future.get().findFirst().get();
                 ClassUtils.getMethod(outputClazzPath, setterMethodName, value.getClass()).invoke(outputObject, value);
             } catch (Exception error) {
-                log.error(String.format("OutputObject=[%s] threw an exception when trying to call method=[%s]", outputObject, setterMethodName));
+                log.error(String.format("OutputObject=[%s] threw an exception when trying to call method=[%s] with value=[%s]", outputObject, setterMethodName, value));
                 log.error(ExceptionUtils.getStackTrace(error));
-                error.printStackTrace();
             }
         });
 

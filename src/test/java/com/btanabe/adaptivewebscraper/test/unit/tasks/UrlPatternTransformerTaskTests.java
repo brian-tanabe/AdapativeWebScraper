@@ -1,6 +1,6 @@
 package com.btanabe.adaptivewebscraper.test.unit.tasks;
 
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.tasks.UrlPatternTransformerTask;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class UrlPatternTransformerTaskTests {
 
     @Autowired
     @Qualifier("yahooStatsPageNextPageValueExtractorFactory")
-    private ValueExtractorFactory<String> nextPageValueExtractorFactory;
+    private DynamicValueExtractorFactory<String> nextPageValueExtractorFactory;
 
     @Autowired
     @Qualifier("yahooStatsPageRunningBacks2015")

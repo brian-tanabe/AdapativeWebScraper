@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Constants -->
+    <bean id="doubleZero" class="java.lang.Double">
+        <constructor-arg value="0.0"/>
+    </bean>
+
+    <bean id="integerZero" class="java.lang.Integer">
+        <constructor-arg value="0"/>
+    </bean>
+
+</beans>

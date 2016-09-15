@@ -21,11 +21,15 @@ import static org.junit.Assert.assertThat;
  * Created by Brian on 7/9/16.
  */
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
-public class YahooStatsPageRecordCollectorTests extends MockWebRequestTaskBase {
+public class YahooStatsPageQuarterbacksRecordCollectorTests extends MockWebRequestTaskBase {
 
     @Autowired
-    @Qualifier("yahooNflRunningBackStatsRecordCollector")
-    private RecordCollector<YahooNflHistoricStatsModel> yahooNflStatsPageRecordCollector;
+    @Qualifier("yahooNflQuarterbackStatsRecordCollector")
+    private RecordCollector<YahooNflHistoricStatsModel> yahooQuarterbacksStatsPageRecordCollector;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatsPageRussellWilson")
+    private YahooNflHistoricStatsModel expectedRussellWilson;
 
     @Autowired
     @Qualifier("collectedRecordsEventBus")
@@ -39,13 +43,19 @@ public class YahooStatsPageRecordCollectorTests extends MockWebRequestTaskBase {
         eventBus.register(recordsListener);
 
         if (collectedRecords == null) {
-            yahooNflStatsPageRecordCollector.gatherAllRecords();
+            yahooQuarterbacksStatsPageRecordCollector.gatherAllRecords();
             collectedRecords = (List<YahooNflHistoricStatsModel>) (List<?>) recordsListener.getCollectedModels();
         }
     }
 
     @Test
-    public void shouldBeAbleToFindTwoThousandSixHundredFortyRecords() {
-        assertThat(collectedRecords.size(), is(equalTo(2640)));
+    public void shouldBeAbleToFindOneThousandOneHundredEightyFiveRecords() {
+        assertThat(collectedRecords.size(), is(equalTo(1185)));
+    }
+
+    @Test
+    public void shouldBeAbleToParseASingleQuarterbackCorrectly() {
+        YahooNflHistoricStatsModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedRussellWilson.getName())).findFirst().get();
+        assertThat(playerFromRecordCollector, is(equalTo(expectedRussellWilson)));
     }
 }

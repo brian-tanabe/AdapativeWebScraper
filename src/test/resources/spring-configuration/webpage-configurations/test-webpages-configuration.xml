@@ -53,101 +53,107 @@
                   value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-rb-adrian-peterson.html"/>
     </bean>
 
+    <bean id="yahooStatsPageRussellWilson"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-qb-russell-wilson.html"/>
+    </bean>
 
     <bean id="yahooStatsPageRunningBacks2015"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2015.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2015.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2014"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2014.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2014.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2013"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2013.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2013.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2012"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2012.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2012.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2011"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2011.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2011.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2010"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2010.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2010.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2009"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2009.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2009.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2008"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2008.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2008.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2007"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2007.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2007.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2006"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2006.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2006.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2005"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2005.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2005.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2004"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2004.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2004.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2003"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2003.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2003.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2002"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2002.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2002.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2001"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2001.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2001.html"/>
     </bean>
 
     <bean id="yahooStatsPageRunningBacks2000"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"
-                  value="classpath:test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2000.html"/>
+                  value="classpath:test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2000.html"/>
     </bean>
+
 
 </beans>

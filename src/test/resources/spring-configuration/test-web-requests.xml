@@ -59,7 +59,7 @@
         <entry key="http://games.espn.com/ffl/tools/projections?leagueId=84978&amp;startIndex=880"
                value-ref="espnPlayerProjectionsPageTwentyThreeMockWebRequestTask"/>
 
-        <!-- YAHOO web pages -->
+        <!-- YAHOO RB web pages -->
         <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB"
                value-ref="yahooPlayerStatsRunningBacks2015MockWebRequestTask"/>
         <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2014&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
@@ -92,6 +92,40 @@
                value-ref="yahooPlayerStatsRunningBacks2001MockWebRequestTask"/>
         <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=season_2000&amp;timeframe=All&amp;sort=17&amp;old_category=RB"
                value-ref="yahooPlayerStatsRunningBacks2000MockWebRequestTask"/>
+
+        <!-- YAHOO QB web pages -->
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2015MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2014&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2014MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2013&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2013MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2012&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2012MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2011&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2011MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2010&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2010MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2009&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2009MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2008&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2008MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2007&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2007MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2006&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2006MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2005&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2005MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2004&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2004MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2003&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2003MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2002&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2002MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2001&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2001MockWebRequestTask"/>
+        <entry key="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=season_2000&amp;timeframe=All&amp;sort=17&amp;old_category=QB"
+               value-ref="yahooPlayerStatsQuarterbacks2000MockWebRequestTask"/>
     </util:map>
 
     <bean id="mockStaticWebRequestFactory"

@@ -1,6 +1,5 @@
 package com.btanabe.adaptivewebscraper.parsers;
 
-import com.google.common.collect.Lists;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +12,7 @@ import org.springframework.util.ClassUtils;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
@@ -55,7 +55,7 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
     }
 
     private OutputClazz[] getAllOccurrencesAsString() throws Exception {
-        List<OutputClazz> matchedElements = Lists.newArrayList();
+        List<OutputClazz> matchedElements = new ArrayList<>();
         document.select(xpathSelector).stream().forEach(element -> {
 
             try {
@@ -63,7 +63,6 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
             } catch (Exception e) {
                 log.error(ExceptionUtils.getMessage(e));
                 log.error(ExceptionUtils.getStackTrace(e));
-                e.printStackTrace();
             }
         });
 
@@ -79,6 +78,7 @@ public class ValueExtractor<OutputClazz> implements Callable<Stream<OutputClazz>
         for (Function<String, String> transformer : valueTransformers) {
             transformedString = transformer.apply(transformedString);
         }
+
         return transformedString;
     }
 

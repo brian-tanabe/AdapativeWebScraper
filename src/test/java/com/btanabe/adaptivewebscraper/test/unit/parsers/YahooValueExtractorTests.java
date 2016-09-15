@@ -1,6 +1,6 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactoryI;
 import com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
@@ -23,83 +23,163 @@ public class YahooValueExtractorTests {
 
     @Autowired
     @Qualifier("yahooPlayerStatsRowValueExtractorFactory")
-    private ValueExtractorFactory<Document> playerRowValueExtractor;
+    private ValueExtractorFactoryI<Document> playerRowValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsPageNextPageValueExtractorFactory")
-    private ValueExtractorFactory<String> nextPageValueExtractor;
+    private ValueExtractorFactoryI<String> nextPageValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsPlayerIdValueExtractorFactory")
-    private ValueExtractorFactory<String> playerIdValueExtractor;
+    private ValueExtractorFactoryI<String> playerIdValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsNameValueExtractorFactory")
-    private ValueExtractorFactory<String> nameValueExtractor;
+    private ValueExtractorFactoryI<String> nameValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsTeamValueExtractorFactory")
-    private ValueExtractorFactory<String> teamValueExtractor;
+    private ValueExtractorFactoryI<String> teamValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsGamesPlayedValueExtractorFactory")
-    private ValueExtractorFactory<Integer> gamesPlayedValueExtractor;
+    private ValueExtractorFactoryI<Integer> gamesPlayedValueExtractor;
 
     @Autowired
-    @Qualifier("yahooStatsRushingAttemptsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rushingAttemptsValueExtractor;
+    @Qualifier("yahooStatsPassingCompletionsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> passingCompletionsValueExtractor;
 
     @Autowired
-    @Qualifier("yahooStatsRushingYardsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rushingYardsValueExtractor;
+    @Qualifier("yahooStatsRunningBacksRushingAttemptsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> rushingAttemptsRunningBacksValueExtractor;
 
     @Autowired
-    @Qualifier("yahooStatsRushingYardsPerGameValueExtractorFactory")
-    private ValueExtractorFactory<Double> rushingYardsPerGameValueExtractor;
+    @Qualifier("yahooStatsQuarterbacksRushingAttemptsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> rushingAttemptsQuarterbacksValueExtractor;
 
     @Autowired
-    @Qualifier("yahooStatsRushingYardsPerAttemptValueExtractorFactory")
-    private ValueExtractorFactory<Double> rushingYardsPerAttemptValueExtractor;
+    @Qualifier("yahooStatsRunningBacksRushingYardsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> yahooStatsRunningBacksRushingYardsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("yahooStatsRushingTouchdownsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rushingTouchdownsValueExtractor;
+    @Qualifier("yahooStatsQuarterbacksRushingYardsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> yahooStatsQuarterbacksRushingYardsValueExtractorFactory;
+
+    @Autowired
+    @Qualifier("yahooStatsRunningBacksRushingYardsPerGameValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> rushingYardsPerGameRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsQuarterbacksRushingYardsPerGameValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> rushingYardsPerGameQuarterbackValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsRushingYardsPerAttemptRunningBacksValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> rushingYardsPerAttemptRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsRushingYardsPerAttemptQuarterbacksValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> rushingYardsPerAttemptQuarterbackValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsRunningBacksRushingTouchdownsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> rushingTouchdownsRunningBacksValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsQuarterbacksRushingTouchdownsValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> rushingTouchdownsQuarterbacksValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsReceptionsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> receptionsValueExtractor;
+    private ValueExtractorFactoryI<Integer> receptionsRunningBacksValueExtractor;
+
+    @Autowired
+    @Qualifier("zeroIntegerValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> receptionsQuarterbackValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsTargetsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> targetsValueExtractor;
+    private ValueExtractorFactoryI<Integer> targetsRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("zeroIntegerValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> targetsQuarterbackValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsReceivingYardsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> receivingYardsValueExtractor;
+    private ValueExtractorFactoryI<Integer> receivingYardsRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("zeroIntegerValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> receivingYardsQuarterbackValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsReceivingYardsAfterCatchValueExtractorFactory")
-    private ValueExtractorFactory<Double> yardsAfterCatchValueExtractor;
+    private ValueExtractorFactoryI<Double> yardsAfterCatchRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("zeroDoubleValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> yardsAfterCatchQuarterbackValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsReceivingYardsPerGameValueExtractorFactory")
-    private ValueExtractorFactory<Double> receivingYardsPerGameValueExtractor;
+    private ValueExtractorFactoryI<Double> receivingYardsPerGameRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("zeroDoubleValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> receivingYardsPerGameQuarterbackValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsReceivingYardsPerReceptionValueExtractorFactory")
-    private ValueExtractorFactory<Double> receivingYardsPerReceptionValueExtractor;
+    private ValueExtractorFactoryI<Double> receivingYardsPerReceptionRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("zeroDoubleValueExtractorFactory")
+    private ValueExtractorFactoryI<Double> receivingYardsPerReceptionQuarterbackValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsReceivingTouchdownsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> receivingTouchdownsValueExtractor;
+    private ValueExtractorFactoryI<Integer> receivingTouchdownsRunningBackValueExtractor;
 
     @Autowired
-    @Qualifier("yahooStatsFumblesValueExtractorFactory")
-    private ValueExtractorFactory<Integer> fumblesValueExtractor;
+    @Qualifier("zeroIntegerValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> receivingTouchdownsQuarterbackValueExtractor;
 
     @Autowired
-    @Qualifier("yahooStatsFumblesLostValueExtractorFactory")
-    private ValueExtractorFactory<Integer> fumblesLostValueExtractor;
+    @Qualifier("yahooStatsRunningBacksFumblesValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> fumblesRunningBacksValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsQuarterbacksFumblesValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> fumblesQuarterbacksValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsRunningBacksFumblesLostValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> fumblesLostRunningBacksValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsQuarterbacksFumblesLostValueExtractorFactory")
+    private ValueExtractorFactoryI<Integer> fumblesLostQuarterbacksValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsQuarterbackPositionValueExtractorFactory")
+    private ValueExtractorFactoryI<String> positionQuarterbackValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsRunningBackPositionValueExtractorFactory")
+    private ValueExtractorFactoryI<String> positionRunningBackValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsWideReceiverPositionValueExtractorFactory")
+    private ValueExtractorFactoryI<String> positionWideReceiverValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsTightEndPositionValueExtractorFactory")
+    private ValueExtractorFactoryI<String> positionTightEndValueExtractor;
+
+    @Autowired
+    @Qualifier("yahooStatsKickerPositionValueExtractorFactory")
+    private ValueExtractorFactoryI<String> positionKickerValueExtractor;
 
     @Autowired
     @Qualifier("yahooStatsPageAdrianPeterson")
@@ -110,8 +190,16 @@ public class YahooValueExtractorTests {
     private Document yahooStatsPageRunningBacks;
 
     @Autowired
+    @Qualifier("yahooStatsPageRussellWilson")
+    private Document yahooStatsPageRussellWilson;
+
+    @Autowired
     @Qualifier("yahooPlayerStatsPageAdrianPeterson")
     private YahooNflHistoricStatsModel expectedAdrianPetersonModel;
+
+    @Autowired
+    @Qualifier("yahooPlayerStatsPageRussellWilson")
+    private YahooNflHistoricStatsModel expectedRussellWilson;
 
     @Test
     public void shouldBeAbleToExtractPlayerRowsFromPlayerDocument() throws Exception {
@@ -124,92 +212,197 @@ public class YahooValueExtractorTests {
     }
 
     @Test
-    public void shouldBeAbleToExtractPlayerIdsFromPlayerDocuments() throws Exception {
+    public void shouldBeAbleToExtractPlayerIdsFromRunningBacksPlayerDocuments() throws Exception {
         assertThat(playerIdValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getPlayerId())));
     }
 
     @Test
-    public void shouldBeAbleToExtractNamesFromPlayerDocuments() throws Exception {
+    public void shouldBeAbleToExtractPlayerIdsFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(playerIdValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getPlayerId())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractNamesFromRunningBacksPlayerDocuments() throws Exception {
         assertThat(nameValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getName())));
     }
 
     @Test
-    public void shouldBeAbleToExtractTeamNamesFromPlayerDocuments() throws Exception {
+    public void shouldBeAbleToExtractNamesFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(nameValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getName())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractTeamNamesFromRunningBacksPlayerDocuments() throws Exception {
         assertThat(teamValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getTeam())));
     }
 
     @Test
-    public void shouldBeAbleToExtractGamesPlayedFromPlayerDocuments() throws Exception {
+    public void shouldBeAbleToExtractTeamNamesFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(teamValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getTeam())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractGamesPlayedFromRunningBacksPlayerDocuments() throws Exception {
         assertThat(gamesPlayedValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getGamesPlayed())));
     }
 
     @Test
-    public void shouldBeAbleToExtractRushingAttemptsFromPlayerDocuments() throws Exception {
-        assertThat(rushingAttemptsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingAttempts())));
+    public void shouldBeAbleToExtractGamesPlayedFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(gamesPlayedValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getGamesPlayed())));
     }
 
     @Test
-    public void shouldBeAbleToExtractRushingYardsFromPlayerDocuments() throws Exception {
-        assertThat(rushingYardsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingYards())));
+    public void shouldBeAbleToExtractPassingCompletionsFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(passingCompletionsValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getPassingCompletions())));
     }
 
     @Test
-    public void shouldBeAbleToExtractRushingYardsPerGameFromPlayerDocuments() throws Exception {
-        assertThat(rushingYardsPerGameValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingYardsPerGame())));
+    public void shouldBeAbleToExtractRushingAttemptsFromRunningBacksPlayerDocuments() throws Exception {
+        assertThat(rushingAttemptsRunningBacksValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingAttempts())));
     }
 
     @Test
-    public void shouldBeAbleToExtractAverageYardsPerRushingAttemptFromPlayerDocuments() throws Exception {
-        assertThat(rushingYardsPerAttemptValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingYardsPerAttempt())));
+    public void shouldBeAbleToExtractRushingAttemptsFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(rushingAttemptsQuarterbacksValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getRushingAttempts())));
     }
 
     @Test
-    public void shouldBeAbleToExtractRushingTouchdownsFromPlayerDocuments() throws Exception {
-        assertThat(rushingTouchdownsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingTouchdowns())));
+    public void shouldBeAbleToExtractRushingYardsFromRunningBacksPlayerDocuments() throws Exception {
+        assertThat(yahooStatsRunningBacksRushingYardsValueExtractorFactory.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingYards())));
     }
 
     @Test
-    public void shouldBeAbleToExtractReceptionsFromPlayerDocuments() throws Exception {
-        assertThat(receptionsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceptions())));
+    public void shouldBeAbleToExtractRushingYardsFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(yahooStatsQuarterbacksRushingYardsValueExtractorFactory.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getRushingYards())));
     }
 
     @Test
-    public void shouldBeAbleToExtractTargetsFromPlayerDocument() throws Exception {
-        assertThat(targetsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getTargets())));
+    public void shouldBeAbleToExtractRushingYardsPerGameFromRunningBacksPlayerDocuments() throws Exception {
+        assertThat(rushingYardsPerGameRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingYardsPerGame())));
     }
 
     @Test
-    public void shouldBeAbleToExtractReceivingYardsFromPlayerDocument() throws Exception {
-        assertThat(receivingYardsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYards())));
+    public void shouldBeAbleToExtractRushingYardsPerGameFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(rushingYardsPerGameQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getRushingYardsPerGame())));
     }
 
     @Test
-    public void shouldBeAbleToExtractReceivingYardsPerGameFromPlayerDocument() throws Exception {
-        assertThat(receivingYardsPerGameValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYardsPerGame())));
+    public void shouldBeAbleToExtractAverageYardsPerRushingAttemptFromRunningBacksPlayerDocuments() throws Exception {
+        assertThat(rushingYardsPerAttemptRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingYardsPerAttempt())));
     }
 
     @Test
-    public void shouldBeAbleToExtractYardsAfterCatchFromPlayerDocument() throws Exception {
-        assertThat(yardsAfterCatchValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYardsAfterCatch())));
+    public void shouldBeAbleToExtractAverageYardsPerRushingAttemptFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(rushingYardsPerAttemptQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getRushingYardsPerAttempt())));
     }
 
     @Test
-    public void shouldBeAbleToExtractReceivingYardsPerReceptionFromPlayerDocument() throws Exception {
-        assertThat(receivingYardsPerReceptionValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYardsPerReception())));
+    public void shouldBeAbleToExtractRushingTouchdownsFromRunningBacksPlayerDocuments() throws Exception {
+        assertThat(rushingTouchdownsRunningBacksValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getRushingTouchdowns())));
     }
 
     @Test
-    public void shouldBeAbleToExtractReceivingTouchdownsFromPlayerDocument() throws Exception {
-        assertThat(receivingTouchdownsValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingTouchdowns())));
+    public void shouldBeAbleToExtractRushingTouchdownsFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(rushingTouchdownsQuarterbacksValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getRushingTouchdowns())));
     }
 
     @Test
-    public void shouldBeAbleToExtractFumblesFromPlayerDocument() throws Exception {
-        assertThat(fumblesValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getFumbles())));
+    public void shouldBeAbleToExtractReceptionsFromRunningBacksPlayerDocuments() throws Exception {
+        assertThat(receptionsRunningBacksValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceptions())));
     }
 
     @Test
-    public void shouldBeAbleToExtractFumblesLostFromPlayerDocument() throws Exception {
-        assertThat(fumblesLostValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getFumblesLost())));
+    public void shouldBeAbleToExtractReceptionsFromQuarterbacksPlayerDocuments() throws Exception {
+        assertThat(receptionsQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getReceptions())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractTargetsFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(targetsRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getTargets())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractTargetsFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(targetsQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getTargets())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingYardsFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(receivingYardsRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYards())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingYardsFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(receivingYardsQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getReceivingYards())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingYardsPerGameFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(receivingYardsPerGameRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYardsPerGame())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingYardsPerGameFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(receivingYardsPerGameQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getReceivingYardsPerGame())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractYardsAfterCatchFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(yardsAfterCatchRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYardsAfterCatch())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractYardsAfterCatchFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(yardsAfterCatchQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getReceivingYardsAfterCatch())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingYardsPerReceptionFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(receivingYardsPerReceptionRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingYardsPerReception())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingYardsPerReceptionFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(receivingYardsPerReceptionQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getReceivingYardsPerReception())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingTouchdownsFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(receivingTouchdownsRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getReceivingTouchdowns())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractReceivingTouchdownsFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(receivingTouchdownsQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getReceivingTouchdowns())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractFumblesFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(fumblesRunningBacksValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getFumbles())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractFumblesFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(fumblesQuarterbacksValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getFumbles())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractFumblesLostFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(fumblesLostRunningBacksValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getFumblesLost())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractFumblesLostFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(fumblesLostQuarterbacksValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getFumblesLost())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractPositionFromQuarterbacksPlayerDocument() throws Exception {
+        assertThat(positionQuarterbackValueExtractor.createValueExtractor(yahooStatsPageRussellWilson).call().findFirst().get(), is(equalTo(expectedRussellWilson.getPosition())));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractPositionFromRunningBacksPlayerDocument() throws Exception {
+        assertThat(positionRunningBackValueExtractor.createValueExtractor(yahooStatsPageAdrianPeterson).call().findFirst().get(), is(equalTo(expectedAdrianPetersonModel.getPosition())));
     }
 }

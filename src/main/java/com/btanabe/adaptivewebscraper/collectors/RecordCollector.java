@@ -1,9 +1,11 @@
 package com.btanabe.adaptivewebscraper.collectors;
 
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactoryI;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
 import com.btanabe.adaptivewebscraper.tasks.DocumentParserTask;
 import com.btanabe.adaptivewebscraper.tasks.UrlPatternTransformerTask;
+import com.google.common.collect.Multimap;
 import com.google.common.eventbus.EventBus;
 import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.Futures;
@@ -20,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
@@ -53,7 +54,7 @@ public class RecordCollector<OutputType> implements Callable<Void> {
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private ValueExtractorFactory<String> nextPageValueExtractorFactory;
+    private ValueExtractorFactoryI<String> nextPageValueExtractorFactory;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -61,11 +62,11 @@ public class RecordCollector<OutputType> implements Callable<Void> {
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private ValueExtractorFactory<Document> recordDocumentExtractorFactory;
+    private DynamicValueExtractorFactory<Document> recordDocumentExtractorFactory;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private Map<ValueExtractorFactory, String> valueExtractorFactoryToSetterMethodNameMap;
+    private Multimap<ValueExtractorFactoryI, String> valueExtractorFactoryToSetterMethodNameMap;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -77,9 +78,13 @@ public class RecordCollector<OutputType> implements Callable<Void> {
 
     @Override
     public Void call() throws Exception {
+
         log.info(String.format("RecordCollector for seed URL=[%s] starting!", seedWebPage));
+
         gatherAllRecords();
+
         log.info(String.format("RecordCollector for seed URL=[%s] complete!", seedWebPage));
+
         return null;
     }
 

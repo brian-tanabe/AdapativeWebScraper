@@ -5,6 +5,7 @@
 
     <bean id="yahooPlayerStatsPageAdrianPeterson"
           class="com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel">
+        <property name="season" value="2015"/>
         <property name="playerId" value="8261"/>
         <property name="name" value="Adrian Peterson"/>
         <property name="team" value="MIN"/>
@@ -14,6 +15,8 @@
         <property name="passingAttempts" value="0"/>
         <property name="completionPercentage" value="0.0"/>
         <property name="passingYards" value="0"/>
+        <property name="passingYardsPerGame" value="0.0"/>
+        <property name="passingYardsPerAttempt" value="0.0"/>
         <property name="passingTouchdowns" value="0"/>
         <property name="interceptions" value="0"/>
         <property name="rushingAttempts" value="327"/>
@@ -28,7 +31,44 @@
         <property name="receivingYardsPerReception" value="7.4"/>
         <property name="receivingYardsAfterCatch" value="8.7"/>
         <property name="receivingTouchdowns" value="0"/>
+        <property name="sacksTaken" value="45"/>
+        <property name="sackYardsLost" value="265"/>
         <property name="fumbles" value="7"/>
         <property name="fumblesLost" value="3"/>
     </bean>
+
+    <bean id="yahooPlayerStatsPageRussellWilson"
+          class="com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel">
+        <property name="season" value="2015"/>
+        <property name="playerId" value="25785"/>
+        <property name="name" value="Russell Wilson"/>
+        <property name="team" value="SEA"/>
+        <property name="position" value="QB"/>
+        <property name="gamesPlayed" value="16"/>
+        <property name="passingCompletions" value="329"/>
+        <property name="passingAttempts" value="483"/>
+        <property name="completionPercentage" value="68.1"/>
+        <property name="passingYards" value="4024"/>
+        <property name="passingYardsPerGame" value="251.5"/>
+        <property name="passingYardsPerAttempt" value="8.3"/>
+        <property name="passingTouchdowns" value="34"/>
+        <property name="interceptions" value="8"/>
+        <property name="rushingAttempts" value="103"/>
+        <property name="rushingYards" value="553"/>
+        <property name="rushingYardsPerGame" value="34.6"/>
+        <property name="rushingYardsPerAttempt" value="5.4"/>
+        <property name="rushingTouchdowns" value="1"/>
+        <property name="receptions" value="0"/>
+        <property name="targets" value="0"/>
+        <property name="receivingYards" value="0"/>
+        <property name="receivingYardsPerGame" value="0.0"/>
+        <property name="receivingYardsPerReception" value="0.0"/>
+        <property name="receivingYardsAfterCatch" value="0.0"/>
+        <property name="receivingTouchdowns" value="0"/>
+        <property name="sacksTaken" value="45"/>
+        <property name="sackYardsLost" value="265"/>
+        <property name="fumbles" value="7"/>
+        <property name="fumblesLost" value="3"/>
+    </bean>
+
 </beans>

@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- tr[class ^= pncPlayerRow] -->
+    <!-- TESTED -->
     <bean id="espnPlayerProjectionRowSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="tr"/>
@@ -12,6 +13,7 @@
     </bean>
 
     <!-- a:contains(NEXT) -->
+    <!-- TESTED -->
     <bean id="espnPlayerProjectionsPageNextPageSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="a"/>
@@ -19,6 +21,7 @@
     </bean>
 
     <!-- td[class = playertableData] -->
+    <!-- TESTED -->
     <bean id="espnPlayerProjectionsPageRankSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="td"/>
@@ -33,9 +36,11 @@
         <property name="tagName" value="a"/>
         <property name="classnameEqualityOperator" value="EQUALS"/>
         <property name="className" value="flexpop"/>
-        <property name="parentTagName" value="td"/>
-        <property name="parentClassnameEqualityOperator" value="EQUALS"/>
-        <property name="parentClassname" value="playertablePlayerName"/>
+        <property name="tagRelationship" value="DIRECT_CHILD"/>
+        <property name="otherTagName" value="td"/>
+        <property name="otherAttributeName" value="class"/>
+        <property name="otherAttributeEqualityOperator" value="EQUALS"/>
+        <property name="otherAttributeValue" value="playertablePlayerName"/>
     </bean>
 
     <!-- a[class = flexpop] -->
@@ -89,7 +94,7 @@
 
     <!-- td[class = playertableStat]:eq(8) -->
     <!-- TESTED -->
-    <bean id="espnProjectionsPageRushingAttemptsSelectorStatement"
+    <bean id="espnProjectionsPageRunningBacksRushingAttemptsSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
         <property name="tagName" value="td"/>
         <property name="classnameEqualityOperator" value="EQUALS"/>

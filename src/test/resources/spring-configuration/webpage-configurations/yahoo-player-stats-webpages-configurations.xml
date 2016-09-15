@@ -3,13 +3,19 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- **************************************************************************** -->
+    <!--                                                                              -->
+    <!--                                 RBs                                          -->
+    <!--                                                                              -->
+    <!-- **************************************************************************** -->
+
     <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=RB -->
     <bean id="yahooPlayerStatsRunningBacks2015MockWebRequestTask"
           class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2015.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2015.html"/>
             </bean>
         </property>
     </bean>
@@ -20,7 +26,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2014.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2014.html"/>
             </bean>
         </property>
     </bean>
@@ -31,7 +37,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2013.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2013.html"/>
             </bean>
         </property>
     </bean>
@@ -42,7 +48,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2012.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2012.html"/>
             </bean>
         </property>
     </bean>
@@ -53,7 +59,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2011.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2011.html"/>
             </bean>
         </property>
     </bean>
@@ -64,7 +70,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2010.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2010.html"/>
             </bean>
         </property>
     </bean>
@@ -75,7 +81,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2009.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2009.html"/>
             </bean>
         </property>
     </bean>
@@ -86,7 +92,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2008.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2008.html"/>
             </bean>
         </property>
     </bean>
@@ -97,7 +103,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2007.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2007.html"/>
             </bean>
         </property>
     </bean>
@@ -108,7 +114,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2006.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2006.html"/>
             </bean>
         </property>
     </bean>
@@ -119,7 +125,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2005.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2005.html"/>
             </bean>
         </property>
     </bean>
@@ -130,7 +136,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2004.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2004.html"/>
             </bean>
         </property>
     </bean>
@@ -141,7 +147,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2003.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2003.html"/>
             </bean>
         </property>
     </bean>
@@ -152,7 +158,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2002.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2002.html"/>
             </bean>
         </property>
     </bean>
@@ -163,7 +169,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2001.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2001.html"/>
             </bean>
         </property>
     </bean>
@@ -174,9 +180,209 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/yahoo/stat-pages/yahoo-player-stats-rb-2000.html"/>
+                          value="classpath:/test-webpages/yahoo/stat-pages/rb/yahoo-player-stats-rb-2000.html"/>
             </bean>
         </property>
     </bean>
+
+    <!-- **************************************************************************** -->
+    <!--                                                                              -->
+    <!--                                 QBs                                          -->
+    <!--                                                                              -->
+    <!-- **************************************************************************** -->
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2015MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2015.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2014&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2014MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2014.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2013&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2013MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2013.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2012&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2012MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2012.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2011&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2011MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2011.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2010&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2010MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2010.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2009&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2009MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2009.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2008&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2008MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2008.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2007&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2007MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2007.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2006&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2006MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2006.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2005&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2005MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2005.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2004&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2004MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2004.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2003&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2003MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2003.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2002&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2002MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2002.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2001&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2001MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2001.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- https://sports.yahoo.com/nfl/stats/byposition?pos=QB&conference=NFL&year=season_2000&timeframe=All&sort=17&old_category=QB -->
+    <bean id="yahooPlayerStatsQuarterbacks2000MockWebRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2000.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- **************************************************************************** -->
+    <!--                                                                              -->
+    <!--                                 WRs                                          -->
+    <!--                                                                              -->
+    <!-- **************************************************************************** -->
+
+    <!-- **************************************************************************** -->
+    <!--                                                                              -->
+    <!--                                 TEs                                          -->
+    <!--                                                                              -->
+    <!-- **************************************************************************** -->
+
+    <!-- **************************************************************************** -->
+    <!--                                                                              -->
+    <!--                                 Ks                                           -->
+    <!--                                                                              -->
+    <!-- **************************************************************************** -->
 
 </beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath*:spring-configuration/record-collectors/yahoo-record-collectors-configuration.xml"/>
+    <import resource="classpath*:spring-configuration/webpage-configurations/test-webpages-configuration.xml"/>
+    <import resource="classpath*:spring-configuration/common/thread-pool-configuration.xml"/>
+
+    <bean id="russellWilsonDocumentParserTask" class="com.btanabe.adaptivewebscraper.tasks.DocumentParserTask">
+        <constructor-arg name="document" ref="yahooStatsPageRussellWilson"/>
+        <constructor-arg name="executorService" ref="listeningExecutorService"/>
+        <constructor-arg name="outputClazzPath" ref="yahooNflStatsModel"/>
+        <constructor-arg name="outputObjectSetterMethodNameMappedToItsValueExtractorFactory"
+                         ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
+    </bean>
+</beans>

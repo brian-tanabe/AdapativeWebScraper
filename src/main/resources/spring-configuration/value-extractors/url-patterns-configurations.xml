@@ -11,4 +11,8 @@
         <constructor-arg value="https://sports.yahoo.com/nfl/stats/byposition?pos=RB&amp;conference=NFL&amp;year=%s&amp;timeframe=All&amp;sort=17&amp;old_category=RB"/>
     </bean>
 
+    <bean id="yahooStatsPageQuarterbacksUrlPattern" class="java.lang.String">
+        <constructor-arg value="https://sports.yahoo.com/nfl/stats/byposition?pos=QB&amp;conference=NFL&amp;year=%s&amp;timeframe=All&amp;sort=17&amp;old_category=QB"/>
+    </bean>
+
 </beans>

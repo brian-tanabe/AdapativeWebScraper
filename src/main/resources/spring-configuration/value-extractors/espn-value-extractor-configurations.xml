@@ -9,7 +9,7 @@
 
     <!--================== ESPN PLAYER PROJECTION PAGE VALUE EXTRACTORS ==================-->
     <bean id="espnPlayerProjectionRowValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionRowSelectorStatement"/>
         <property name="objectClasspath" ref="documentClass"/>
         <property name="outputClazzFactoryClazz" ref="documentFactoryClass"/>
@@ -20,7 +20,7 @@
     </bean>
 
     <bean id="espnProjectionsPageNextPageValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageNextPageSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
@@ -34,7 +34,7 @@
 
     <!--================== ESPN PLAYER PROJECTION DATA VALUE EXTRACTORS ==================-->
     <bean id="espnProjectionsPlayerIdValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageNameSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
         <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
@@ -59,7 +59,7 @@
     </bean>
 
     <bean id="espnProjectionsPageRankValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRankSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
         <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
@@ -72,7 +72,7 @@
     </bean>
 
     <bean id="espnProjectionsNameValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageNameSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
@@ -85,7 +85,7 @@
     </bean>
 
     <bean id="espnProjectionsTeamValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageTeamAndPositionSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
@@ -101,7 +101,7 @@
     </bean>
 
     <bean id="espnProjectionsPositionValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageTeamAndPositionSelectorStatement"/>
         <property name="objectClasspath" ref="stringClass"/>
         <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
@@ -112,7 +112,7 @@
     </bean>
 
     <bean id="espnProjectionsPassingCompletionsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingCompletionsAndAttemptsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -128,7 +128,7 @@
     </bean>
 
     <bean id="espnProjectionsPassingAttemptsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingCompletionsAndAttemptsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -144,7 +144,7 @@
     </bean>
 
     <bean id="espnProjectionsPassingYardsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingYardsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -159,7 +159,7 @@
     </bean>
 
     <bean id="espnProjectionsPassingTouchdownsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPagePassingTouchdownsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -174,7 +174,7 @@
     </bean>
 
     <bean id="espnProjectionsInterceptionsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnProjectionsPageInterceptionsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -189,8 +189,8 @@
     </bean>
 
     <bean id="espnProjectionsRushingAttemptsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
-        <property name="xpathSelector" ref="espnProjectionsPageRushingAttemptsSelectorStatement"/>
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="espnProjectionsPageRunningBacksRushingAttemptsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
         <property name="textGetterMethodName" value="ownText"/>
@@ -204,7 +204,7 @@
     </bean>
 
     <bean id="espnProjectionsRushingYardsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRushingYardsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -219,7 +219,7 @@
     </bean>
 
     <bean id="espnProjectionsRushingTouchdownsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageRushingTouchdownsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -234,7 +234,7 @@
     </bean>
 
     <bean id="espnProjectionsReceptionsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageReceptionsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -249,7 +249,7 @@
     </bean>
 
     <bean id="espnProjectionsReceivingYardsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageReceivingYardsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -264,7 +264,7 @@
     </bean>
 
     <bean id="espnProjectionsReceivingTouchdownsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageReceivingTouchdownsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
@@ -279,7 +279,7 @@
     </bean>
 
     <bean id="espnProjectionsFantasyPointsValueExtractorFactory"
-          class="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory">
+          class="com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="espnPlayerProjectionsPageFantasyPointsSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
         <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>

@@ -13,16 +13,16 @@ import java.util.concurrent.TimeUnit;
  */
 @Setter
 public class ThreadPoolFactory {
-    private Integer queueCapacity = 1000;
-    private Integer corePoolSize = 100;
-    private Integer maximumPoolSize = 1000;
+    private Integer queueCapacity = 100;
+    private Integer corePoolSize = 200;
+    private Integer maximumPoolSize = 300;
     private Integer keepAliveTime = 60;
     private ListeningExecutorService executorService;
 
     private static ThreadPoolFactory instance;
 
     private ThreadPoolFactory() {
-        ArrayBlockingQueue queue = new ArrayBlockingQueue(queueCapacity, true);
+        ArrayBlockingQueue<Runnable> queue = new ArrayBlockingQueue(queueCapacity, true);
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, queue, new ThreadPoolExecutor.CallerRunsPolicy());
         executor.prestartAllCoreThreads();
 

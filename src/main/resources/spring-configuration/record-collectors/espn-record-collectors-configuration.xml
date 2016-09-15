@@ -1,35 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
 
-    <util:map id="espnNflPlayerProjectionValueExtractorSetterMethodMap"
-              key-type="com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory" value-type="java.lang.String">
-        <entry key-ref="espnProjectionsPlayerIdValueExtractorFactory" value="setPlayerId"/>
-        <entry key-ref="espnProjectionsPageRankValueExtractorFactory" value="setRank"/>
-        <entry key-ref="espnProjectionsNameValueExtractorFactory" value="setName"/>
-        <entry key-ref="espnProjectionsTeamValueExtractorFactory" value="setTeam"/>
-        <entry key-ref="espnProjectionsPositionValueExtractorFactory" value="setPosition"/>
-        <entry key-ref="espnProjectionsPassingCompletionsValueExtractorFactory" value="setPassingCompletions"/>
-        <entry key-ref="espnProjectionsPassingAttemptsValueExtractorFactory" value="setPassingAttempts"/>
-        <entry key-ref="espnProjectionsPassingYardsValueExtractorFactory" value="setPassingYards"/>
-        <entry key-ref="espnProjectionsPassingTouchdownsValueExtractorFactory" value="setPassingTouchdowns"/>
-        <entry key-ref="espnProjectionsInterceptionsValueExtractorFactory" value="setInterceptions"/>
-        <entry key-ref="espnProjectionsRushingAttemptsValueExtractorFactory" value="setRushingAttempts"/>
-        <entry key-ref="espnProjectionsRushingYardsValueExtractorFactory" value="setRushingYards"/>
-        <entry key-ref="espnProjectionsRushingTouchdownsValueExtractorFactory" value="setRushingTouchdowns"/>
-        <entry key-ref="espnProjectionsReceptionsValueExtractorFactory" value="setReceptions"/>
-        <entry key-ref="espnProjectionsReceivingYardsValueExtractorFactory" value="setReceivingYards"/>
-        <entry key-ref="espnProjectionsReceivingTouchdownsValueExtractorFactory" value="setReceivingTouchdowns"/>
-        <entry key-ref="espnProjectionsFantasyPointsValueExtractorFactory" value="setFantasyPoints"/>
-    </util:map>
+    <bean id="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"
+          class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPlayerIdValueExtractorFactory"/>
+                <value>setPlayerId</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPageRankValueExtractorFactory"/>
+                <value>setRank</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsNameValueExtractorFactory"/>
+                <value>setName</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsTeamValueExtractorFactory"/>
+                <value>setTeam</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPositionValueExtractorFactory"/>
+                <value>setPosition</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPassingCompletionsValueExtractorFactory"/>
+                <value>setPassingCompletions</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPassingAttemptsValueExtractorFactory"/>
+                <value>setPassingAttempts</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPassingYardsValueExtractorFactory"/>
+                <value>setPassingYards</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsPassingTouchdownsValueExtractorFactory"/>
+                <value>setPassingTouchdowns</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsInterceptionsValueExtractorFactory"/>
+                <value>setInterceptions</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsRushingAttemptsValueExtractorFactory"/>
+                <value>setRushingAttempts</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsRushingYardsValueExtractorFactory"/>
+                <value>setRushingYards</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsRushingTouchdownsValueExtractorFactory"/>
+                <value>setRushingTouchdowns</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsReceptionsValueExtractorFactory"/>
+                <value>setReceptions</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsReceivingYardsValueExtractorFactory"/>
+                <value>setReceivingYards</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsReceivingTouchdownsValueExtractorFactory"/>
+                <value>setReceivingTouchdowns</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="espnProjectionsFantasyPointsValueExtractorFactory"/>
+                <value>setFantasyPoints</value>
+            </list>
+        </property>
+    </bean>
 
     <bean id="espnNflPlayerProjectionsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
@@ -40,7 +190,7 @@
         <property name="recordDocumentExtractorFactory" ref="espnPlayerProjectionRowValueExtractorFactory"/>
         <property name="seedWebPage" value="http://games.espn.com/ffl/tools/projections?leagueId=84978"/>
         <property name="valueExtractorFactoryToSetterMethodNameMap"
-                  ref="espnNflPlayerProjectionValueExtractorSetterMethodMap"/>
+                  ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
         <property name="outputClassPath" ref="espnNflProjectionModel"/>
     </bean>
 </beans>

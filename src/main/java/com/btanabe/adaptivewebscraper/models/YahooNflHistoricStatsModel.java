@@ -27,6 +27,8 @@ public class YahooNflHistoricStatsModel implements Model {
     private Integer passingAttempts;
     private Double completionPercentage;
     private Integer passingYards;
+    private Double passingYardsPerGame;
+    private Double passingYardsPerAttempt;
     private Integer passingTouchdowns;
     private Integer interceptions;
     private Integer rushingAttempts;
@@ -41,11 +43,13 @@ public class YahooNflHistoricStatsModel implements Model {
     private Double receivingYardsPerReception;
     private Double receivingYardsAfterCatch;
     private Integer receivingTouchdowns;
+    private Integer sacksTaken;
+    private Integer sackYardsLost;
     private Integer fumbles;
     private Integer fumblesLost;
 
     @Override
     public String toString() {
-        return String.format("season=[%d], playerId=[%d], name=[%s], team=[%s], position=[%s], gamesPlayed=[%d], passingCompletions=[%d], passingAttempts=[%d], completionPercentage=[%d], passingYards=[%d], passingTouchdowns=[%d], interceptions=[%d], rushingAttempts=[%d], rushingYards=[%d], rushingYardsPerGame=[%d], rushingYardsPerAttempt=[%d], rushingTouchdowns=[%d], receptions=[%d], targets=[%d], receivingYards=[%d], receivingYardsPerGame=[%d], receivingYardsPerReception=[%d], receivingYardsAfterCatch=[%d], receivingTouchdowns=[%d], fumbles=[%d], fumblesLost", season, playerId, name, team, position, gamesPlayed, passingCompletions, passingAttempts, completionPercentage, passingYards, passingTouchdowns, interceptions, rushingAttempts, rushingYards, rushingYardsPerGame, rushingYardsPerAttempt, rushingTouchdowns, receptions, targets, receivingYards, receivingYardsPerGame, receivingYardsPerReception, receivingYardsAfterCatch, receivingTouchdowns, fumbles, fumblesLost);
+        return String.format("season=[%s], playerId=[%s], name=[%s], team=[%s], position=[%s], gamesPlayed=[%s], passingCompletions=[%s], passingAttempts=[%s], completionPercentage=[%s], passingYards=[%s], passingYardsPerGame=[%s], passingYardsPerAttempt=[%s], passingTouchdowns=[%s], interceptions=[%s], rushingAttempts=[%s], rushingYards=[%s], rushingYardsPerGame=[%s], rushingYardsPerAttempt=[%s], rushingTouchdowns=[%s], receptions=[%s], targets=[%s], receivingYards=[%s], receivingYardsPerGame=[%s], receivingYardsPerReception=[%s], receivingYardsAfterCatch=[%s], receivingTouchdowns=[%s], sacksTaken=[%s], sackYardsTaken=[%s], fumbles=[%s], fumblesLost=[%s]", season, playerId, name, team, position, gamesPlayed, passingCompletions, passingAttempts, completionPercentage, passingYards, passingYardsPerGame, passingYardsPerAttempt, passingTouchdowns, interceptions, rushingAttempts, rushingYards, rushingYardsPerGame, rushingYardsPerAttempt, rushingTouchdowns, receptions, targets, receivingYards, receivingYardsPerGame, receivingYardsPerReception, receivingYardsAfterCatch, receivingTouchdowns, sacksTaken, sackYardsLost, fumbles, fumblesLost);
     }
 }

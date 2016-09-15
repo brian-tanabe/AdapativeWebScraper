@@ -1,6 +1,6 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
@@ -23,79 +23,79 @@ public class EspnValueExtractorTests {
 
     @Autowired
     @Qualifier("espnProjectionsPlayerIdValueExtractorFactory")
-    private ValueExtractorFactory<String> playerIdValueExtractorFactory;
+    private DynamicValueExtractorFactory<String> playerIdValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPageRankValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rankValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> rankValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsNameValueExtractorFactory")
-    private ValueExtractorFactory<String> nameValueExtractorFactory;
+    private DynamicValueExtractorFactory<String> nameValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsTeamValueExtractorFactory")
-    private ValueExtractorFactory<String> teamValueExtractorFactory;
+    private DynamicValueExtractorFactory<String> teamValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPositionValueExtractorFactory")
-    private ValueExtractorFactory<String> positionValueExtractorFactory;
+    private DynamicValueExtractorFactory<String> positionValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPassingCompletionsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> passingCompletionsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> passingCompletionsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPassingAttemptsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> passingAttemptsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> passingAttemptsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPassingYardsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> passingYardsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> passingYardsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPassingTouchdownsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> passingTouchdownsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> passingTouchdownsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsInterceptionsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> interceptionsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> interceptionsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsRushingAttemptsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rushingAttemptsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> rushingAttemptsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsRushingYardsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rushingYardsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> rushingYardsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsRushingTouchdownsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> rushingTouchdownsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> rushingTouchdownsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsReceptionsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> receptionsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> receptionsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsReceivingYardsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> receivingYardsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> receivingYardsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsReceivingTouchdownsValueExtractorFactory")
-    private ValueExtractorFactory<Integer> receivingTouchdownsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Integer> receivingTouchdownsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsFantasyPointsValueExtractorFactory")
-    private ValueExtractorFactory<Double> fantasyPointsValueExtractorFactory;
+    private DynamicValueExtractorFactory<Double> fantasyPointsValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnPlayerProjectionRowValueExtractorFactory")
-    private ValueExtractorFactory<Document> playerProjectionRowValueExtractorFactory;
+    private DynamicValueExtractorFactory<Document> playerProjectionRowValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPageNextPageValueExtractorFactory")
-    private ValueExtractorFactory<String> nextPageValueExtractorFactory;
+    private DynamicValueExtractorFactory<String> nextPageValueExtractorFactory;
 
     @Autowired
     @Qualifier("espnProjectionsPageEddieLacyDocument")
