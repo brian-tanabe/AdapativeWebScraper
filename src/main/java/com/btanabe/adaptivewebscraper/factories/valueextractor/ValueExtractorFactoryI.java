@@ -1,4 +1,4 @@
-package com.btanabe.adaptivewebscraper.factories;
+package com.btanabe.adaptivewebscraper.factories.valueextractor;
 
 import org.jsoup.nodes.Document;
 

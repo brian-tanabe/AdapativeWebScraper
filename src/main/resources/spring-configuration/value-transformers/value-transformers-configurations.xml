@@ -35,4 +35,7 @@
         <constructor-arg name="pathIndex" value="2"/>
     </bean>
 
+    <bean id="yahooSeasonYearIsolatorValueTransformer"
+          class="com.btanabe.adaptivewebscraper.transformers.OnlyNumbersValueTransformer"/>
+
 </beans>

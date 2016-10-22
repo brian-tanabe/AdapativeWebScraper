@@ -1,6 +1,6 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactoryI;
+import com.btanabe.adaptivewebscraper.factories.valueextractor.ValueExtractorFactoryI;
 import com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel;
 import org.jsoup.nodes.Document;
 import org.junit.Test;
@@ -20,6 +20,10 @@ import static org.junit.Assert.assertThat;
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class YahooValueExtractorTests {
+
+    @Autowired
+    @Qualifier("yahooStatsSeasonValueExtractorFactory")
+    private ValueExtractorFactoryI<String> seasonYearValueExtractor;
 
     @Autowired
     @Qualifier("yahooPlayerStatsRowValueExtractorFactory")
@@ -186,6 +190,10 @@ public class YahooValueExtractorTests {
     private Document yahooStatsPageAdrianPeterson;
 
     @Autowired
+    @Qualifier("yahooStatsPageQuarterbacks2015")
+    private Document yahooStatsPageQuarterbacks;
+
+    @Autowired
     @Qualifier("yahooStatsPageRunningBacks2015")
     private Document yahooStatsPageRunningBacks;
 
@@ -200,6 +208,11 @@ public class YahooValueExtractorTests {
     @Autowired
     @Qualifier("yahooPlayerStatsPageRussellWilson")
     private YahooNflHistoricStatsModel expectedRussellWilson;
+
+    @Test
+    public void shouldBeAbleToExtractSeasonYearFromPageDocument() throws Exception {
+        assertThat(seasonYearValueExtractor.createValueExtractor(yahooStatsPageQuarterbacks).call().findFirst().get(), is(equalTo((Integer) 2015)));
+    }
 
     @Test
     public void shouldBeAbleToExtractPlayerRowsFromPlayerDocument() throws Exception {

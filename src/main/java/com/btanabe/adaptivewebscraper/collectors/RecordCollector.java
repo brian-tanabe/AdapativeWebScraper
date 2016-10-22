@@ -1,10 +1,15 @@
 package com.btanabe.adaptivewebscraper.collectors;
 
-import com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory;
-import com.btanabe.adaptivewebscraper.factories.ValueExtractorFactoryI;
 import com.btanabe.adaptivewebscraper.factories.WebRequestTaskFactory;
+import com.btanabe.adaptivewebscraper.factories.outputobject.MultimapObjectSetter;
+import com.btanabe.adaptivewebscraper.factories.outputobject.MultimapOutputObjectConstructor;
+import com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectConstructorI;
+import com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetterI;
+import com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.valueextractor.ValueExtractorFactoryI;
 import com.btanabe.adaptivewebscraper.tasks.DocumentParserTask;
 import com.btanabe.adaptivewebscraper.tasks.UrlPatternTransformerTask;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.eventbus.EventBus;
 import com.google.common.util.concurrent.AsyncFunction;
@@ -23,7 +28,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
 /**
@@ -64,13 +68,20 @@ public class RecordCollector<OutputType> implements Callable<Void> {
     @Setter(onMethod = @__({@Autowired}))
     private DynamicValueExtractorFactory<Document> recordDocumentExtractorFactory;
 
+    @Setter(onMethod = @__({@Autowired}))
+    private Multimap<ValueExtractorFactoryI, String> globalValueExtractorFactoryToSetterMethodNameMap;
+
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
     private Multimap<ValueExtractorFactoryI, String> valueExtractorFactoryToSetterMethodNameMap;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
-    private Class<OutputType> outputClassPath;
+    private OutputObjectConstructorI<OutputType> outputObjectConstructor;
+
+    @NonNull
+    @Setter(onMethod = @__({@Autowired}))
+    private OutputObjectSetterI<OutputType> outputObjectSetter;
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
@@ -107,26 +118,36 @@ public class RecordCollector<OutputType> implements Callable<Void> {
     }
 
     // Consider making this a recursive function:
-    private String generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(final String pageUrl, final List<ListenableFuture<OutputType>> outputTypeFutures) throws ExecutionException, InterruptedException, Exception {
+    private String generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(final String pageUrl, final List<ListenableFuture<OutputType>> outputTypeFutures) throws Exception {
+
+        // Make a copy of the ValueExtractor -> setter method name map.  The global ValueExtractors are added to this new map for each page:
+        Multimap<ValueExtractorFactoryI, String> valueExtractorFactoryToSetterMethodNameMap = LinkedHashMultimap.create(this.valueExtractorFactoryToSetterMethodNameMap);
 
         // Step 1: Download Page HTML
         ListenableFuture<Document> webPageDownloadFuture = executorService.submit(WebRequestTaskFactory.createWebRequestTask(pageUrl));
 
         // Step 2: Find the link to the next page:
         AsyncFunction<Document, Stream<String>> nextPageUrlFunction = input -> executorService.submit(new UrlPatternTransformerTask(nextPageValueExtractorFactory.createValueExtractor(input), nextPageUrlPattern));
-
         ListenableFuture<Stream<String>> nextPageUrlFuture = Futures.transformAsync(webPageDownloadFuture, nextPageUrlFunction);
 
-        // Step 3: Extract all Elements into their own Document:
+        // Step 2: Parse the entire document and create the global ValueExtractors:
+        AsyncFunction<Document, Multimap<ValueExtractorFactoryI<String>, String>> globalValueExtractorFunction = input -> executorService.submit(new DocumentParserTask<Multimap<ValueExtractorFactoryI<String>, String>>(executorService, input, globalValueExtractorFactoryToSetterMethodNameMap, new MultimapOutputObjectConstructor<ValueExtractorFactoryI, String>(ValueExtractorFactoryI.class, String.class), new MultimapObjectSetter()));
+        ListenableFuture<Multimap<ValueExtractorFactoryI<String>, String>> globalValueExtractorsFuture = Futures.transformAsync(webPageDownloadFuture, globalValueExtractorFunction, executorService);
+
+        // Step 2: Extract all Elements into their own Document:
         AsyncFunction<Document, Stream<Document>> recordPartitioningFunction = input -> {
             return executorService.submit(recordDocumentExtractorFactory.createValueExtractor(input));
         };
 
-        // Gather all Documents:
+        // Step 3: Gather all Documents:
         Stream<Document> allPlayersInTheirOwnDocumentStream = Futures.transformAsync(webPageDownloadFuture, recordPartitioningFunction, executorService).get();
 
-        // Step 4: Parse each record:
-        allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> outputTypeFutures.add(executorService.submit(new DocumentParserTask(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputClassPath))));
+        // Step 4: Add the global value extractors to the ValueExtractor map:
+        Multimap<ValueExtractorFactoryI<String>, String> globalValues = globalValueExtractorsFuture.get();
+        valueExtractorFactoryToSetterMethodNameMap.putAll(globalValues);
+
+        // Step 5: Parse each record:
+        allPlayersInTheirOwnDocumentStream.forEach(recordDocument -> outputTypeFutures.add(executorService.submit(new DocumentParserTask(executorService, recordDocument, valueExtractorFactoryToSetterMethodNameMap, outputObjectConstructor, outputObjectSetter))));
 
         // Get the next page URL and return:
         return nextPageUrlFuture.get().findFirst().orElse(null);

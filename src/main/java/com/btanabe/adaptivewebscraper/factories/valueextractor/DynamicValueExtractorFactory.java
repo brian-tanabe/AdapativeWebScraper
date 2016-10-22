@@ -1,4 +1,4 @@
-package com.btanabe.adaptivewebscraper.factories;
+package com.btanabe.adaptivewebscraper.factories.valueextractor;
 
 import com.btanabe.adaptivewebscraper.parsers.ValueExtractor;
 import lombok.NonNull;

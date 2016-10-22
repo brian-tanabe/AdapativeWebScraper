@@ -1,7 +1,15 @@
 package com.btanabe.adaptivewebscraper.test.integration.tasks;
 
+import com.btanabe.adaptivewebscraper.factories.outputobject.MultimapObjectSetter;
+import com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectConstructorI;
+import com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetterI;
+import com.btanabe.adaptivewebscraper.factories.valueextractor.ValueExtractorFactoryI;
 import com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel;
 import com.btanabe.adaptivewebscraper.tasks.DocumentParserTask;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.util.concurrent.ListeningExecutorService;
+import org.jsoup.nodes.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +33,36 @@ public class DocumentParserTaskTests {
     private DocumentParserTask<YahooNflHistoricStatsModel> russellWilsonDocumentParser;
 
     @Autowired
+    @Qualifier("yahooStatsPageQuarterbacks2015")
+    private Document yahooQuarterbacksStatsPage2015;
+
+    @Autowired
+    @Qualifier("yahooStatsSeasonValueExtractorFactory")
+    private ValueExtractorFactoryI<String> seasonYearValueExtractor;
+
+    @Autowired
+    @Qualifier("listeningExecutorService")
+    private ListeningExecutorService executorService;
+
+    @Autowired
+    @Qualifier("multimapOutputObjectConstructor")
+    private OutputObjectConstructorI<Multimap<ValueExtractorFactoryI<String>, String>> multimapOutputObjectConstructor;
+
+    @Autowired
     @Qualifier("yahooPlayerStatsPageRussellWilson")
     private YahooNflHistoricStatsModel expectedRussellWilson;
+
+    @Autowired
+    @Qualifier("valueExtractorIClass")
+    private Class<ValueExtractorFactoryI> valueExtractorClass;
 
     @Test
     public void shouldBeAbleToParseRussellWilsonsYahooStatsPageEntry() throws Exception {
         YahooNflHistoricStatsModel russellWilsonFromCall = russellWilsonDocumentParser.call();
+
+        // This is set by the RecordCollector's global ValueExtractors.  Fake it here:
+        russellWilsonFromCall.setSeason(2015);
+
         assertThat(russellWilsonFromCall, is(equalTo(expectedRussellWilson)));
     }
 
@@ -56,5 +88,17 @@ public class DocumentParserTaskTests {
     public void shouldBeABleToParseRussellWilsonsReceivingYardsAfterCatchCorrectly() throws Exception {
         YahooNflHistoricStatsModel russellWilsonFromCall = russellWilsonDocumentParser.call();
         assertThat(russellWilsonFromCall.getReceivingYardsAfterCatch(), is(equalTo(expectedRussellWilson.getReceivingYardsAfterCatch())));
+    }
+
+    @Test
+    public void shouldBeAbleToReturnTheProperDefaultableValueExtractorToSetterMethodMultiMapFromStatsPage() throws Exception {
+        OutputObjectSetterI objectSetter = new MultimapObjectSetter();
+
+        Multimap<ValueExtractorFactoryI, String> valueExtractorFactoryIToStringMultimap = LinkedHashMultimap.create();
+        valueExtractorFactoryIToStringMultimap.put(seasonYearValueExtractor, "setSeason");
+
+        DocumentParserTask<Multimap<ValueExtractorFactoryI<String>, String>> seasonDocumentParserTask = new DocumentParserTask<Multimap<ValueExtractorFactoryI<String>, String>>(executorService, yahooQuarterbacksStatsPage2015, valueExtractorFactoryIToStringMultimap, multimapOutputObjectConstructor, objectSetter);
+        Multimap<ValueExtractorFactoryI<String>, String> yearValueExtractorAndSetterMethodMap = seasonDocumentParserTask.call();
+        assertThat(yearValueExtractorAndSetterMethodMap.keys().stream().findFirst().get().createValueExtractor(yahooQuarterbacksStatsPage2015).call().findFirst().get(), is(equalTo((Object) 2015)));
     }
 }

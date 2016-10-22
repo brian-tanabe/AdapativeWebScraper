@@ -8,10 +8,12 @@
     <import resource="classpath*:spring-configuration/common/thread-pool-configuration.xml"/>
 
     <bean id="russellWilsonDocumentParserTask" class="com.btanabe.adaptivewebscraper.tasks.DocumentParserTask">
-        <constructor-arg name="document" ref="yahooStatsPageRussellWilson"/>
+
         <constructor-arg name="executorService" ref="listeningExecutorService"/>
-        <constructor-arg name="outputClazzPath" ref="yahooNflStatsModel"/>
+        <constructor-arg name="document" ref="yahooStatsPageRussellWilson"/>
         <constructor-arg name="outputObjectSetterMethodNameMappedToItsValueExtractorFactory"
                          ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
+        <constructor-arg name="outputClassConstructor" ref="yahooNflHistoricStatsModelOutputObjectConstructor"/>
+        <constructor-arg name="outputObjectSetter" ref="yahooNflHistoricStatsModelOutputObjectSetter"/>
     </bean>
 </beans>

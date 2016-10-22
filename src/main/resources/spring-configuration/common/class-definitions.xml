@@ -30,6 +30,14 @@
         <constructor-arg value="com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel"/>
     </bean>
 
+    <bean id="multimapClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.google.common.collect.Multimap"/>
+    </bean>
+
+    <bean id="valueExtractorIClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.valueextractor.ValueExtractorFactoryI"/>
+    </bean>
+
     <!-- Constants -->
     <util:list id="emptyList"></util:list>
 
@@ -48,6 +56,10 @@
 
     <bean id="documentFactoryClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="com.btanabe.adaptivewebscraper.factories.DocumentFactory"/>
+    </bean>
+
+    <bean id="multimapFactoryClass" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.factories.MultimapFactory"/>
     </bean>
 
 </beans>

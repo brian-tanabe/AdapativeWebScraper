@@ -59,6 +59,12 @@
                   value="classpath:test-webpages/yahoo/individual-stat-page-rows/yahoo-player-stats-2015-qb-russell-wilson.html"/>
     </bean>
 
+    <bean id="yahooStatsPageQuarterbacks2015"
+          class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+        <property name="inputFile"
+                  value="classpath:test-webpages/yahoo/stat-pages/qb/yahoo-player-stats-qb-2015.html"/>
+    </bean>
+
     <bean id="yahooStatsPageRunningBacks2015"
           class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
         <property name="inputFile"

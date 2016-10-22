@@ -1,6 +1,6 @@
 package com.btanabe.adaptivewebscraper.test.unit.parsers;
 
-import com.btanabe.adaptivewebscraper.factories.DynamicValueExtractorFactory;
+import com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory;
 import com.btanabe.adaptivewebscraper.models.EspnNflProjectionModel;
 import org.jsoup.nodes.Document;
 import org.junit.Test;

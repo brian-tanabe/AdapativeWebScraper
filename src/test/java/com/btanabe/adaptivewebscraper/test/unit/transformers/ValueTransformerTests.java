@@ -5,6 +5,7 @@ import com.btanabe.adaptivewebscraper.transformers.EspnPositionValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.EspnTeamNameValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.NoNumberToZeroValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.NumeratorSelectorValueTransformer;
+import com.btanabe.adaptivewebscraper.transformers.OnlyNumbersValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.PassThroughValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.TableTagAdderValueTransformer;
 import com.btanabe.adaptivewebscraper.transformers.UrlPathExploder;
@@ -82,5 +83,10 @@ public class ValueTransformerTests {
     @Test
     public void shouldBeAbleToTransformUrlPathsToYahooPlayerIds() {
         assertThat(yahooPlayerIdIsolator.apply("/nfl/players/8261"), is(equalTo("8261")));
+    }
+
+    @Test
+    public void shouldBeABleToTransformAlphanumericStringsToNumericStrings() {
+        assertThat(new OnlyNumbersValueTransformer().apply("season_2015"), is(equalTo("2015")));
     }
 }

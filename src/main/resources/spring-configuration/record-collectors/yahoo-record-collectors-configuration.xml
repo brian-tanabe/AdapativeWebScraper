@@ -7,6 +7,321 @@
     <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/factories/factory-configuration.xml"/>
+
+    <!--
+    It's more efficient to use a multimap so the defaultable ValueExtractors may be shared
+    amongst the fields.  Populating multimaps in SPeL is pretty gross though.
+    -->
+    <bean id="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"
+          class="com.google.common.collect.ImmutableMultimap$Builder"/>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPlayerIdValueExtractorFactory"/>
+                <value>setPlayerId</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsNameValueExtractorFactory"/>
+                <value>setName</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsTeamValueExtractorFactory"/>
+                <value>setTeam</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbackPositionValueExtractorFactory"/>
+                <value>setPosition</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsGamesPlayedValueExtractorFactory"/>
+                <value>setGamesPlayed</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPassingCompletionsValueExtractorFactory"/>
+                <value>setPassingCompletions</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPassingAttemptsValueExtractorFactory"/>
+                <value>setPassingAttempts</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsCompletionPercentageValueExtractorFactory"/>
+                <value>setCompletionPercentage</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPassingYardsValueExtractorFactory"/>
+                <value>setPassingYards</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPassingYardsPerGameValueExtractorFactory"/>
+                <value>setPassingYardsPerGame</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPassingYardsPerAttemptValueExtractorFactory"/>
+                <value>setPassingYardsPerAttempt</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsPassingTouchdownsValueExtractorFactory"/>
+                <value>setPassingTouchdowns</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsInterceptionsValueExtractorFactory"/>
+                <value>setInterceptions</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsSacksTakenValueExtractorFactory"/>
+                <value>setSacksTaken</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsSacksYardsLostValueExtractorFactory"/>
+                <value>setSackYardsLost</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbacksRushingAttemptsValueExtractorFactory"/>
+                <value>setRushingAttempts</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbacksRushingYardsValueExtractorFactory"/>
+                <value>setRushingYards</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbacksRushingYardsPerGameValueExtractorFactory"/>
+                <value>setRushingYardsPerGame</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsRushingYardsPerAttemptQuarterbacksValueExtractorFactory"/>
+                <value>setRushingYardsPerAttempt</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbacksRushingTouchdownsValueExtractorFactory"/>
+                <value>setRushingTouchdowns</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroIntegerValueExtractorFactory"/>
+                <value>setReceptions</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroIntegerValueExtractorFactory"/>
+                <value>setTargets</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroIntegerValueExtractorFactory"/>
+                <value>setReceivingYards</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroDoubleValueExtractorFactory"/>
+                <value>setReceivingYardsPerGame</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroDoubleValueExtractorFactory"/>
+                <value>setReceivingYardsAfterCatch</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroIntegerValueExtractorFactory"/>
+                <value>setReceivingTouchdowns</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroDoubleValueExtractorFactory"/>
+                <value>setReceivingYardsPerReception</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbacksFumblesValueExtractorFactory"/>
+                <value>setFumbles</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsQuarterbacksFumblesLostValueExtractorFactory"/>
+                <value>setFumblesLost</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap" class="com.google.common.collect.ImmutableMultimap"
+          factory-bean="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder" factory-method="build"/>
+
+    <bean id="yahooGlobalValueExtractorSetterMethodMultiMap"
+          class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooGlobalValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="yahooStatsSeasonValueExtractorFactory"/>
+                <value>setSeason</value>
+            </list>
+        </property>
+    </bean>
 
     <bean id="yahooNflRunningBackStatsValueExtractorSetterMethodMultiMap"
           class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
@@ -281,304 +596,6 @@
         </property>
     </bean>
 
-    <!--
-    It's more efficient to use a multimap so the defaultable ValueExtractors may be shared
-    amongst the fields.  Populating multimaps in SPeL is pretty gross though.
-    -->
-    <bean id="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"
-          class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPlayerIdValueExtractorFactory"/>
-                <value>setPlayerId</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsNameValueExtractorFactory"/>
-                <value>setName</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsTeamValueExtractorFactory"/>
-                <value>setTeam</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbackPositionValueExtractorFactory"/>
-                <value>setPosition</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsGamesPlayedValueExtractorFactory"/>
-                <value>setGamesPlayed</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPassingCompletionsValueExtractorFactory"/>
-                <value>setPassingCompletions</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPassingAttemptsValueExtractorFactory"/>
-                <value>setPassingAttempts</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsCompletionPercentageValueExtractorFactory"/>
-                <value>setCompletionPercentage</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPassingYardsValueExtractorFactory"/>
-                <value>setPassingYards</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPassingYardsPerGameValueExtractorFactory"/>
-                <value>setPassingYardsPerGame</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPassingYardsPerAttemptValueExtractorFactory"/>
-                <value>setPassingYardsPerAttempt</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsPassingTouchdownsValueExtractorFactory"/>
-                <value>setPassingTouchdowns</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsInterceptionsValueExtractorFactory"/>
-                <value>setInterceptions</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsSacksTakenValueExtractorFactory"/>
-                <value>setSacksTaken</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsSacksYardsLostValueExtractorFactory"/>
-                <value>setSackYardsLost</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbacksRushingAttemptsValueExtractorFactory"/>
-                <value>setRushingAttempts</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbacksRushingYardsValueExtractorFactory"/>
-                <value>setRushingYards</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbacksRushingYardsPerGameValueExtractorFactory"/>
-                <value>setRushingYardsPerGame</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsRushingYardsPerAttemptQuarterbacksValueExtractorFactory"/>
-                <value>setRushingYardsPerAttempt</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbacksRushingTouchdownsValueExtractorFactory"/>
-                <value>setRushingTouchdowns</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setReceptions</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setTargets</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setReceivingYards</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroDoubleValueExtractorFactory"/>
-                <value>setReceivingYardsPerGame</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroDoubleValueExtractorFactory"/>
-                <value>setReceivingYardsAfterCatch</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setReceivingTouchdowns</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="zeroDoubleValueExtractorFactory"/>
-                <value>setReceivingYardsPerReception</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbacksFumblesValueExtractorFactory"/>
-                <value>setFumbles</value>
-            </list>
-        </property>
-    </bean>
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetObject" ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="targetMethod" value="put"/>
-        <property name="arguments">
-            <list>
-                <ref bean="yahooStatsQuarterbacksFumblesLostValueExtractorFactory"/>
-                <value>setFumblesLost</value>
-            </list>
-        </property>
-    </bean>
-
-
     <bean id="yahooNflRunningBackStatsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
         <property name="eventBus" ref="collectedRecordsEventBus"/>
@@ -587,9 +604,12 @@
         <property name="nextPageUrlPattern" ref="yahooStatsPageRunningBacksUrlPattern"/>
         <property name="recordDocumentExtractorFactory" ref="yahooPlayerStatsRowValueExtractorFactory"/>
         <property name="seedWebPage" value="https://sports.yahoo.com/nfl/stats/byposition?pos=RB"/>
+        <property name="globalValueExtractorFactoryToSetterMethodNameMap"
+                  ref="yahooGlobalValueExtractorSetterMethodMultiMap"/>
         <property name="valueExtractorFactoryToSetterMethodNameMap"
                   ref="yahooNflRunningBackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="outputClassPath" ref="yahooNflStatsModel"/>
+        <property name="outputObjectConstructor" ref="yahooNflHistoricStatsModelOutputObjectConstructor"/>
+        <property name="outputObjectSetter" ref="yahooNflHistoricStatsModelOutputObjectSetter"/>
     </bean>
 
     <bean id="yahooNflQuarterbackStatsRecordCollector"
@@ -600,9 +620,12 @@
         <property name="nextPageUrlPattern" ref="yahooStatsPageQuarterbacksUrlPattern"/>
         <property name="recordDocumentExtractorFactory" ref="yahooPlayerStatsRowValueExtractorFactory"/>
         <property name="seedWebPage" value="https://sports.yahoo.com/nfl/stats/byposition?pos=QB"/>
+        <property name="globalValueExtractorFactoryToSetterMethodNameMap"
+                  ref="yahooGlobalValueExtractorSetterMethodMultiMap"/>
         <property name="valueExtractorFactoryToSetterMethodNameMap"
                   ref="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"/>
-        <property name="outputClassPath" ref="yahooNflStatsModel"/>
+        <property name="outputObjectConstructor" ref="yahooNflHistoricStatsModelOutputObjectConstructor"/>
+        <property name="outputObjectSetter" ref="yahooNflHistoricStatsModelOutputObjectSetter"/>
     </bean>
 
 </beans>

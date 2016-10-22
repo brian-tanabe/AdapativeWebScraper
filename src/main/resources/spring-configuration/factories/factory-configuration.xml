@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath*:/spring-configuration/common/class-definitions.xml"/>
+
+    <!-- Object Constructors: -->
+    <bean id="multimapOutputObjectConstructor"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.MultimapOutputObjectConstructor">
+        <constructor-arg name="keyClass" ref="valueExtractorIClass"/>
+        <constructor-arg name="valueClass" ref="stringClass"/>
+    </bean>
+
+    <bean id="yahooNflHistoricStatsModelOutputObjectConstructor"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.ClassWithConstructorOutputObjectConstructor">
+        <constructor-arg name="outputClazzPath" ref="yahooNflStatsModel"/>
+    </bean>
+
+    <bean id="espnNflHistoricStatsModelOutputObjectConstructor"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.ClassWithConstructorOutputObjectConstructor">
+        <constructor-arg name="outputClazzPath" ref="espnNflProjectionModel"/>
+    </bean>
+
+    <!-- Object Setters: -->
+    <bean id="yahooNflHistoricStatsModelOutputObjectSetter"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetter">
+        <constructor-arg name="outputObjectClazzPath" ref="yahooNflStatsModel"/>
+    </bean>
+
+    <bean id="espnNflHistoricStatsModelOutputObjectSetter"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetter">
+        <constructor-arg name="outputObjectClazzPath" ref="espnNflProjectionModel"/>
+    </bean>
+
+</beans>
