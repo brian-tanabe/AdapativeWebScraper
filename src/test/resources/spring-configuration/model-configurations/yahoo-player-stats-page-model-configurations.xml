@@ -31,8 +31,8 @@
         <property name="receivingYardsPerReception" value="7.4"/>
         <property name="receivingYardsAfterCatch" value="8.7"/>
         <property name="receivingTouchdowns" value="0"/>
-        <property name="sacksTaken" value="45"/>
-        <property name="sackYardsLost" value="265"/>
+        <property name="sacksTaken" value="0"/>
+        <property name="sackYardsLost" value="0"/>
         <property name="fumbles" value="7"/>
         <property name="fumblesLost" value="3"/>
     </bean>

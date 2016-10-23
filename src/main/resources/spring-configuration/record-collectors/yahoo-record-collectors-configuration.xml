@@ -596,6 +596,26 @@
             </list>
         </property>
     </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflRunningBackStatsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroIntegerValueExtractorFactory"/>
+                <value>setSacksTaken</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="yahooNflRunningBackStatsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="zeroIntegerValueExtractorFactory"/>
+                <value>setSackYardsLost</value>
+            </list>
+        </property>
+    </bean>
 
     <bean id="yahooNflRunningBackStatsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
