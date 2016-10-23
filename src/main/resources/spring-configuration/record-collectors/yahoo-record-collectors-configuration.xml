@@ -307,7 +307,8 @@
         </property>
     </bean>
 
-    <bean id="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap" class="com.google.common.collect.ImmutableMultimap"
+    <bean id="yahooNflQuarterbackStatsValueExtractorSetterMethodMultiMap"
+          class="com.google.common.collect.ImmutableMultimap"
           factory-bean="yahooNflQuarterbackStatsValueExtractorSetterImmutableMultimapBuilder" factory-method="build"/>
 
     <bean id="yahooGlobalValueExtractorSetterMethodMultiMap"
@@ -331,7 +332,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsPlayerIdValueExtractorFactory"/>
-                <value>setPlayerId"</value>
+                <value>setPlayerId</value>
             </list>
         </property>
     </bean>
@@ -341,7 +342,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsNameValueExtractorFactory"/>
-                <value>setName"</value>
+                <value>setName</value>
             </list>
         </property>
     </bean>
@@ -351,7 +352,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsTeamValueExtractorFactory"/>
-                <value>setTeam"</value>
+                <value>setTeam</value>
             </list>
         </property>
     </bean>
@@ -361,7 +362,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBackPositionValueExtractorFactory"/>
-                <value>setPosition"</value>
+                <value>setPosition</value>
             </list>
         </property>
     </bean>
@@ -371,7 +372,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsGamesPlayedValueExtractorFactory"/>
-                <value>setGamesPlayed"</value>
+                <value>setGamesPlayed</value>
             </list>
         </property>
     </bean>
@@ -381,7 +382,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBacksRushingAttemptsValueExtractorFactory"/>
-                <value>setRushingAttempts"</value>
+                <value>setRushingAttempts</value>
             </list>
         </property>
     </bean>
@@ -391,7 +392,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBacksRushingYardsValueExtractorFactory"/>
-                <value>setRushingYards"</value>
+                <value>setRushingYards</value>
             </list>
         </property>
     </bean>
@@ -401,7 +402,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBacksRushingYardsPerGameValueExtractorFactory"/>
-                <value>setRushingYardsPerGame"</value>
+                <value>setRushingYardsPerGame</value>
             </list>
         </property>
     </bean>
@@ -411,7 +412,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRushingYardsPerAttemptRunningBacksValueExtractorFactory"/>
-                <value>setRushingYardsPerAttempt"</value>
+                <value>setRushingYardsPerAttempt</value>
             </list>
         </property>
     </bean>
@@ -421,7 +422,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBacksRushingTouchdownsValueExtractorFactory"/>
-                <value>setRushingTouchdowns"</value>
+                <value>setRushingTouchdowns</value>
             </list>
         </property>
     </bean>
@@ -431,7 +432,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsReceptionsValueExtractorFactory"/>
-                <value>setReceptions"</value>
+                <value>setReceptions</value>
             </list>
         </property>
     </bean>
@@ -441,7 +442,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsTargetsValueExtractorFactory"/>
-                <value>setTargets"</value>
+                <value>setTargets</value>
             </list>
         </property>
     </bean>
@@ -451,7 +452,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsReceivingYardsValueExtractorFactory"/>
-                <value>setReceivingYards"</value>
+                <value>setReceivingYards</value>
             </list>
         </property>
     </bean>
@@ -461,7 +462,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsReceivingYardsPerGameValueExtractorFactory"/>
-                <value>setReceivingYardsPerGame"</value>
+                <value>setReceivingYardsPerGame</value>
             </list>
         </property>
     </bean>
@@ -471,7 +472,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsReceivingYardsAfterCatchValueExtractorFactory"/>
-                <value>setReceivingYardsAfterCatch"</value>
+                <value>setReceivingYardsAfterCatch</value>
             </list>
         </property>
     </bean>
@@ -481,7 +482,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsReceivingTouchdownsValueExtractorFactory"/>
-                <value>setReceivingTouchdowns"</value>
+                <value>setReceivingTouchdowns</value>
             </list>
         </property>
     </bean>
@@ -491,7 +492,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsReceivingYardsPerReceptionValueExtractorFactory"/>
-                <value>setReceivingYardsPerReception"</value>
+                <value>setReceivingYardsPerReception</value>
             </list>
         </property>
     </bean>
@@ -501,7 +502,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBacksFumblesValueExtractorFactory"/>
-                <value>setFumbles"</value>
+                <value>setFumbles</value>
             </list>
         </property>
     </bean>
@@ -511,7 +512,7 @@
         <property name="arguments">
             <list>
                 <ref bean="yahooStatsRunningBacksFumblesLostValueExtractorFactory"/>
-                <value>setFumblesLost"</value>
+                <value>setFumblesLost</value>
             </list>
         </property>
     </bean>
@@ -521,7 +522,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setPassingCompletions"</value>
+                <value>setPassingCompletions</value>
             </list>
         </property>
     </bean>
@@ -531,7 +532,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setPassingAttempts"</value>
+                <value>setPassingAttempts</value>
             </list>
         </property>
     </bean>
@@ -541,7 +542,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroDoubleValueExtractorFactory"/>
-                <value>setCompletionPercentage"</value>
+                <value>setCompletionPercentage</value>
             </list>
         </property>
     </bean>
@@ -551,7 +552,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setPassingYards"</value>
+                <value>setPassingYards</value>
             </list>
         </property>
     </bean>
@@ -561,7 +562,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroDoubleValueExtractorFactory"/>
-                <value>setPassingYardsPerGame"</value>
+                <value>setPassingYardsPerGame</value>
             </list>
         </property>
     </bean>
@@ -571,7 +572,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroDoubleValueExtractorFactory"/>
-                <value>setPassingYardsPerAttempt"</value>
+                <value>setPassingYardsPerAttempt</value>
             </list>
         </property>
     </bean>
@@ -581,7 +582,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setPassingTouchdowns"</value>
+                <value>setPassingTouchdowns</value>
             </list>
         </property>
     </bean>
@@ -591,7 +592,7 @@
         <property name="arguments">
             <list>
                 <ref bean="zeroIntegerValueExtractorFactory"/>
-                <value>setInterceptions"</value>
+                <value>setInterceptions</value>
             </list>
         </property>
     </bean>

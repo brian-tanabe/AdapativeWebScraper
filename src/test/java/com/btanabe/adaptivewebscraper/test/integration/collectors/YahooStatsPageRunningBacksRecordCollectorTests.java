@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -53,20 +51,11 @@ public class YahooStatsPageRunningBacksRecordCollectorTests extends MockWebReque
     @Test
     public void shouldBeAbleToFindTwoThousandSixHundredFortyRecords() {
         assertThat(collectedRecords.size(), is(equalTo(2640)));
-
-        collectedRecords.forEach(player -> System.out.println(player));
-    }
-
-    @Test
-    public void printAllPlayerNames() {
-        Set<String> playerNames = collectedRecords.stream().map(player -> player.getName()).distinct().sorted().collect(Collectors.toSet());
-        playerNames.forEach(System.out::println);
     }
 
     @Test
     public void shouldBeAbleToParseASingleRunningBackCorrectly() {
-        String expectedName = expectedAdrianPeterson.getName();
-        YahooNflHistoricStatsModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedName)).findFirst().get();
+        YahooNflHistoricStatsModel playerFromRecordCollector = collectedRecords.stream().filter(player -> player.getName().equals(expectedAdrianPeterson.getName())).findFirst().get();
         assertThat(playerFromRecordCollector, is(equalTo(expectedAdrianPeterson)));
     }
 }
