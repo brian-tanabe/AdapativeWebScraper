@@ -6,6 +6,7 @@
     <import resource="classpath:/spring-configuration/application/file-loader-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/team-name-dictionaries.xml"/>
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/basketball-reference-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/record-collectors/record-collectors-configuration.xml"/>
     <import resource="classpath:/spring-configuration/value-transformers/value-transformers-configurations.xml"/>
 

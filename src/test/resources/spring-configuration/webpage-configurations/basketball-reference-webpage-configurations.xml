@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2017_totals.html -->
+    <bean id="basketballReference2017SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2017.html"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

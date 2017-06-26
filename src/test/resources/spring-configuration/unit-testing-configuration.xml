@@ -7,17 +7,20 @@
     <import resource="classpath:/spring-configuration/common/team-name-dictionaries.xml"/>
     <import resource="classpath:/spring-configuration/record-collectors/record-collectors-configuration.xml"/>
     <import resource="classpath:/spring-configuration/value-extractors/espn-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/basketball-reference-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/value-extractors/yahoo-stats-value-extractor-configurations.xml"/>
     <import resource="classpath:/spring-configuration/value-transformers/value-transformers-configurations.xml"/>
 
     <!-- Test specific configurations: -->
     <!--<import resource="classpath:/spring-configuration/database-configuration.xml"/>-->
     <import resource="classpath:/spring-configuration/webpage-configurations/espn-player-projections-webpages-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/webpage-configurations/basketball-reference-webpage-configurations.xml"/>
     <import resource="classpath:/spring-configuration/test-event-bus-configuration.xml"/>
     <import resource="classpath:/spring-configuration/test-web-requests.xml"/>
     <import resource="classpath:/spring-configuration/webpage-configurations/test-webpages-configuration.xml"/>
     <import resource="classpath:/spring-configuration/model-configurations/espn-player-projections-page-model-configurations.xml"/>
     <import resource="classpath:/spring-configuration/model-configurations/yahoo-player-stats-page-model-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/model-configurations/basketball-reference-2017-season-totals-model-configurations.xml"/>
     <import resource="classpath*:/spring-configuration/document-parser-configurations/yahoo-stats-page-document-parser-configuration.xml"/>
 
 </beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="../common/class-definitions.xml"/>
+    <import resource="../value-transformers/value-transformers-configurations.xml"/>
+    <import resource="basetkabll-reference-selector-statement-configurations.xml"/>
+
+    <!--================== BASKETBALL REFERENCE SEASON TOTALS PAGE VALUE EXTRACTORS ==================-->
+    <bean id="basketballReferenceSeasonTotalsNameValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsNameSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+</beans>

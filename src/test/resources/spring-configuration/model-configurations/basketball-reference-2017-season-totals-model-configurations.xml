@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="basketballReferenceSeasonTotals2017NikolaJokic"
+          class="com.btanabe.adaptivewebscraper.models.BasketballReferenceSeasonTotalsModel">
+        <property name="age" value="21"/>
+        <property name="assists" value="359"/>
+        <property name="blocks" value="56"/>
+        <property name="defensiveRebounds" value="506"/>
+        <property name="effectiveFieldGoalPercentage" value="0.605"/>
+        <property name="fieldGoalPercentage" value="0.578"/>
+        <property name="fieldGoalsAttempted" value="854"/>
+        <property name="fieldGoalsMade" value="494"/>
+        <property name="freeThrowPercentage" value="0.825"/>
+        <property name="freeThrowsAttempted" value="228"/>
+        <property name="freeThrowsMade" value="188"/>
+        <property name="gamesPlayed" value="73"/>
+        <property name="gamesStarted" value="59"/>
+        <property name="minutesPlayed" value="2038"/>
+        <property name="name" value="Nikola Jokic"/>
+        <property name="offensiveRebounds" value="212"/>
+        <property name="personalFouls" value="214"/>
+        <property name="points" value="1221"/>
+        <property name="position" value="C"/>
+        <property name="steals" value="61"/>
+        <property name="team" value="DEN"/>
+        <property name="threePointersAttempted" value="139"/>
+        <property name="threePointersMade" value="45"/>
+        <property name="threePointPercentage" value="0.324"/>
+        <property name="totalRebounds" value="718"/>
+        <property name="turnovers" value="171"/>
+        <property name="twoPointFieldGoalPercentage" value="0.628"/>
+        <property name="twoPointFieldGoalsAttempted" value="715"/>
+        <property name="twoPointFieldGoalsMade" value="449"/>
+    </bean>
+</beans>
