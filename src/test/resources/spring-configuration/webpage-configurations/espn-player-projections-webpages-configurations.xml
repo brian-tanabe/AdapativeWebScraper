@@ -9,7 +9,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-1.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-1.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -20,7 +20,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-2.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-2.dirty.html"/>
             </bean>
 
         </property>
@@ -32,7 +32,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-3.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-3.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -43,7 +43,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-4.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-4.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -54,7 +54,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-5.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-5.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -65,7 +65,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-6.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-6.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -76,7 +76,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-7.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-7.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -87,7 +87,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-8.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-8.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -98,7 +98,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-9.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-9.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -109,7 +109,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-10.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-10.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -120,7 +120,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-11.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-11.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -131,7 +131,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-12.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-12.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -142,7 +142,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-13.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-13.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -153,7 +153,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-14.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-14.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -164,7 +164,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-15.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-15.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -175,7 +175,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-16.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-16.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -186,7 +186,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-17.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-17.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -197,7 +197,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-18.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-18.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -208,7 +208,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-19.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-19.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -219,7 +219,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-20.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-20.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -230,7 +230,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-21.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-21.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -241,7 +241,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-22.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-22.dirty.html"/>
             </bean>
         </property>
     </bean>
@@ -252,7 +252,7 @@
         <property name="pageDocument">
             <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
                 <property name="inputFile"
-                          value="classpath:/test-webpages/espn/projection-pages/espn-player-projections-page-23.dirty.html"/>
+                          value="classpath:/test-webpages/espn/nfl/projection-pages/espn-player-projections-page-23.dirty.html"/>
             </bean>
         </property>
     </bean>

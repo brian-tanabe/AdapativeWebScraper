@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static com.btanabe.adaptivewebscraper.utilities.SelectorStatementEqualityOperators.*;
+import static com.btanabe.adaptivewebscraper.utilities.SelectorStatementEqualityOperators.CONTAINS;
+import static com.btanabe.adaptivewebscraper.utilities.SelectorStatementEqualityOperators.ENDS_WITH;
+import static com.btanabe.adaptivewebscraper.utilities.SelectorStatementEqualityOperators.EQUALS;
+import static com.btanabe.adaptivewebscraper.utilities.SelectorStatementEqualityOperators.STARTS_WITH;
 import static com.btanabe.adaptivewebscraper.utilities.SelectorStatementRelationshipOperators.DIRECT_CHILD;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
