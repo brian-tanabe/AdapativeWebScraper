@@ -8,6 +8,19 @@
     <import resource="basetkabll-reference-selector-statement-configurations.xml"/>
 
     <!--================== BASKETBALL REFERENCE SEASON TOTALS PAGE VALUE EXTRACTORS ==================-->
+    <bean id="basketballReferenceSeasonTotalsPlayerRowValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPlayerRowSelectorStatement"/>
+        <property name="objectClasspath" ref="documentClass"/>
+        <property name="outputClazzFactoryClazz" ref="documentFactoryClass"/>
+        <property name="textGetterMethodName" value="html"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
     <bean id="basketballReferenceSeasonTotalsNameValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsNameSelectorStatement"/>
@@ -21,4 +34,358 @@
         </property>
     </bean>
 
+    <bean id="basketballReferenceSeasonTotalsPositionValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPositionSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="basketballReferenceSeasonTotalsTeamValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTeamSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="basketballReferenceSeasonTotalsGamesPlayedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsGamesPlayedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="gamesStartedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsGamesStartedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="minutesPlayedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsMinutesPlayedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="fieldGoalsMadeValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFieldGoalsMadeSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="fieldGoalsAttemptedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFieldGoalsAttemptedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="fieldGoalPercentageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFieldGoalPercentSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="threePointersMadeValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsThreePointersMadeSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="threePointersAttemptedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsThreePointersAttemptedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="threePointerPercentageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsThreePointerPercentageSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="twoPointerFieldGoalsMadeValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTwoPointFieldGoalsMadeSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="twoPointerFieldGoalsAttemptedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector"
+                  ref="basketballReferenceSeasonTotalsTwoPointFieldGoalsAttemptedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="twoPointerFieldGoalPercentageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector"
+                  ref="basketballReferenceSeasonTotalsTwoPointFieldGoalPercentageSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="effectiveFieldGoalPercentageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector"
+                  ref="basketballReferenceSeasonTotalsEffectiveFieldGoalPercentageSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="freeThrowsMadeValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFreeThrowsMadeSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="freeThrowsAttemptedValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFreeThrowsAttemptedSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="freeThrowPercentageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFreeThrowPercentageSelectorStatement"/>
+        <property name="objectClasspath" ref="doubleClass"/>
+        <property name="outputClazzFactoryClazz" ref="doubleFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="offensiveReboundsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsOffensiveReboundsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="defensiveReboundsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsDefensiveReboundsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="totalReboundsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTotalReboundsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="assistsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsAssistsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="stealsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsStealsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="blocksValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsBlocksSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="turnoversValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTurnoversSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="personalFoulsValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPersonalFoulsSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
+    <bean id="pointsScoredValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPointsScoredSelectorStatement"/>
+        <property name="objectClasspath" ref="integerClass"/>
+        <property name="outputClazzFactoryClazz" ref="integerFactoryClass"/>
+        <property name="textGetterMethodName" value="text"/>
+        <property name="textGetterMethodParameters" ref="emptyList"/>
+        <property name="textGetterMethodParameterTypes" ref="emptyList"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
 </beans>
+

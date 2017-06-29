@@ -3,6 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- th[scope = row] -->
+    <bean id="basketballReferenceSeasonTotalsPlayerRowSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="th"/>
+        <property name="attributeName" value="scope"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="row"/>
+    </bean>
+
     <!-- a[href ^= /players/] -->
     <bean id="basketballReferenceSeasonTotalsNameSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
@@ -11,4 +20,257 @@
         <property name="attributeNameEqualityOperator" value="STARTS_WITH"/>
         <property name="attributeValue" value="/players/"/>
     </bean>
+
+    <!-- td[data-stat = pos] -->
+    <bean id="basketballReferenceSeasonTotalsPositionSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="pos"/>
+    </bean>
+
+    <!-- td[data-stat = age] -->
+    <bean id="basketballReferenceSeasonTotalsAgeSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="age"/>
+    </bean>
+
+    <!-- a[href ^= /teams/] -->
+    <bean id="basketballReferenceSeasonTotalsTeamSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="a"/>
+        <property name="attributeName" value="href"/>
+        <property name="attributeNameEqualityOperator" value="STARTS_WITH"/>
+        <property name="attributeValue" value="/teams/"/>
+    </bean>
+
+    <!-- td[data-stat = g] -->
+    <bean id="basketballReferenceSeasonTotalsGamesPlayedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="g"/>
+    </bean>
+
+    <!-- td[data-stat = gs] -->
+    <bean id="basketballReferenceSeasonTotalsGamesStartedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="gs"/>
+    </bean>
+
+    <!-- td[data-stat = mp] -->
+    <bean id="basketballReferenceSeasonTotalsMinutesPlayedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="mp"/>
+    </bean>
+
+    <!-- td[data-stat = fg] -->
+    <bean id="basketballReferenceSeasonTotalsFieldGoalsMadeSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg"/>
+    </bean>
+
+    <!-- td[data-stat = fga] -->
+    <bean id="basketballReferenceSeasonTotalsFieldGoalsAttemptedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fga"/>
+    </bean>
+
+    <!-- td[data-stat = fg_pct] -->
+    <bean id="basketballReferenceSeasonTotalsFieldGoalPercentSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg_pct"/>
+    </bean>
+
+    <!-- td[data-stat = fg3] -->
+    <bean id="basketballReferenceSeasonTotalsThreePointersMadeSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg3"/>
+    </bean>
+
+    <!-- td[data-stat = fg3a] -->
+    <bean id="basketballReferenceSeasonTotalsThreePointersAttemptedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg3a"/>
+    </bean>
+
+    <!-- td[data-stat = fg3_pct] -->
+    <bean id="basketballReferenceSeasonTotalsThreePointerPercentageSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg3_pct"/>
+    </bean>
+
+    <!-- td[data-stat = fg2] -->
+    <bean id="basketballReferenceSeasonTotalsTwoPointFieldGoalsMadeSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg2"/>
+    </bean>
+
+    <!-- td[data-stat = fg2a] -->
+    <bean id="basketballReferenceSeasonTotalsTwoPointFieldGoalsAttemptedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg2a"/>
+    </bean>
+
+    <!-- td[data-stat = fg2_pct] -->
+    <bean id="basketballReferenceSeasonTotalsTwoPointFieldGoalPercentageSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fg2_pct"/>
+    </bean>
+
+    <!-- td[data-stat = efg_pct] -->
+    <bean id="basketballReferenceSeasonTotalsEffectiveFieldGoalPercentageSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="efg_pct"/>
+    </bean>
+
+    <!-- td[data-stat = ft] -->
+    <bean id="basketballReferenceSeasonTotalsFreeThrowsMadeSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="ft"/>
+    </bean>
+
+    <!-- td[data-stat = fta] -->
+    <bean id="basketballReferenceSeasonTotalsFreeThrowsAttemptedSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="fta"/>
+    </bean>
+
+    <!-- td[data-stat = ft_pct] -->
+    <bean id="basketballReferenceSeasonTotalsFreeThrowPercentageSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="ft_pct"/>
+    </bean>
+
+    <!-- td[data-stat = orb] -->
+    <bean id="basketballReferenceSeasonTotalsOffensiveReboundsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="orb"/>
+    </bean>
+
+    <!-- td[data-stat = drb] -->
+    <bean id="basketballReferenceSeasonTotalsDefensiveReboundsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="drb"/>
+    </bean>
+
+    <!-- td[data-stat = trb] -->
+    <bean id="basketballReferenceSeasonTotalsTotalReboundsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="trb"/>
+    </bean>
+
+    <!-- td[data-stat = ast] -->
+    <bean id="basketballReferenceSeasonTotalsAssistsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="ast"/>
+    </bean>
+
+    <!-- td[data-stat = stl] -->
+    <bean id="basketballReferenceSeasonTotalsStealsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="stl"/>
+    </bean>
+
+    <!-- td[data-stat = blk] -->
+    <bean id="basketballReferenceSeasonTotalsBlocksSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="blk"/>
+    </bean>
+
+    <!-- td[data-stat = tov] -->
+    <bean id="basketballReferenceSeasonTotalsTurnoversSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="tov"/>
+    </bean>
+
+    <!-- td[data-stat = pf] -->
+    <bean id="basketballReferenceSeasonTotalsPersonalFoulsSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="pf"/>
+    </bean>
+
+    <!-- td[data-stat = pts] -->
+    <bean id="basketballReferenceSeasonTotalsPointsScoredSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="td"/>
+        <property name="attributeName" value="data-stat"/>
+        <property name="attributeNameEqualityOperator" value="EQUALS"/>
+        <property name="attributeValue" value="pts"/>
+    </bean>
+
 </beans>
