@@ -23,6 +23,10 @@ public class BasketballReferenceValueExtractorTests {
     private DynamicValueExtractorFactory<Document> playerRowValueExtractorFactory;
 
     @Autowired
+    @Qualifier("basketballReferenceSeasonTotalsNextPageValueExtractorFactory")
+    private DynamicValueExtractorFactory<String> nextPageUrlValueExtractorFactory;
+
+    @Autowired
     @Qualifier("basketballReferenceSeasonTotalsNameValueExtractorFactory")
     private DynamicValueExtractorFactory<String> nameValueExtractorFactory;
 
@@ -39,99 +43,99 @@ public class BasketballReferenceValueExtractorTests {
     private DynamicValueExtractorFactory<String> gamesPlayedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("gamesStartedValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsGamesStartedValueExtractorFactory")
     private DynamicValueExtractorFactory<String> gamesStartedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("minutesPlayedValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsMinutesPlayedValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> minutesPlayedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("fieldGoalsMadeValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsFieldGoalsMadeValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> fieldGoalsMadeValueExtractorFactory;
 
     @Autowired
-    @Qualifier("fieldGoalsAttemptedValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsFieldGoalsAttemptedValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> fieldGoalsAttemptedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("fieldGoalPercentageValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsFieldGoalPercentageValueExtractorFactory")
     private DynamicValueExtractorFactory<Double> fieldGoalPercentageValueExtractorFactory;
 
     @Autowired
-    @Qualifier("threePointersMadeValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsThreePointersMadeValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> threePointersMadeValueExtractorFactory;
 
     @Autowired
-    @Qualifier("threePointersAttemptedValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsThreePointersAttemptedValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> threePointersAttemptedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("threePointerPercentageValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsThreePointerPercentageValueExtractorFactory")
     private DynamicValueExtractorFactory<Double> threePointerPercentageValueExtractorFactory;
 
     @Autowired
-    @Qualifier("twoPointerFieldGoalsMadeValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsTwoPointerFieldGoalsMadeValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> twoPointerFieldGoalsMadeValueExtractorFactory;
 
     @Autowired
-    @Qualifier("twoPointerFieldGoalsAttemptedValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsTwoPointerFieldGoalsAttemptedValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> twoPointerFieldGoalsAttemptedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("twoPointerFieldGoalPercentageValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsTwoPointerFieldGoalPercentageValueExtractorFactory")
     private DynamicValueExtractorFactory<Double> twoPointerFieldGoalPercentageValueExtractorFactory;
 
     @Autowired
-    @Qualifier("effectiveFieldGoalPercentageValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsEffectiveFieldGoalPercentageValueExtractorFactory")
     private DynamicValueExtractorFactory<Double> effectiveFieldGoalPercentageValueExtractorFactory;
 
     @Autowired
-    @Qualifier("freeThrowsMadeValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsFreeThrowsMadeValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> freeThrowsMadeValueExtractorFactory;
 
     @Autowired
-    @Qualifier("freeThrowsAttemptedValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsFreeThrowsAttemptedValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> freeThrowsAttemptedValueExtractorFactory;
 
     @Autowired
-    @Qualifier("freeThrowPercentageValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsFreeThrowPercentageValueExtractorFactory")
     private DynamicValueExtractorFactory<Double> freeThrowPercentageValueExtractorFactory;
 
     @Autowired
-    @Qualifier("offensiveReboundsValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsOffensiveReboundsValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> offensiveReboundsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("defensiveReboundsValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsDefensiveReboundsValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> defensiveReboundsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("totalReboundsValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsTotalReboundsValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> totalReboundsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("assistsValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsAssistsValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> assistsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("stealsValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsStealsValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> stealsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("blocksValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsBlocksValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> blocksValueExtractorFactory;
 
     @Autowired
-    @Qualifier("turnoversValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsTurnoversValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> turnoversValueExtractorFactory;
 
     @Autowired
-    @Qualifier("personalFoulsValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsPersonalFoulsValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> personalFoulsValueExtractorFactory;
 
     @Autowired
-    @Qualifier("pointsScoredValueExtractorFactory")
+    @Qualifier("basketballReferenceSeasonTotalsPointsScoredValueExtractorFactory")
     private DynamicValueExtractorFactory<Integer> pointsScoredValueExtractorFactory;
 
     @Autowired
@@ -149,6 +153,11 @@ public class BasketballReferenceValueExtractorTests {
     @Test
     public void shouldBeAbleToExtractPlayerRowsFromPlayerDocuments() throws Exception {
         assertThat(playerRowValueExtractorFactory.createValueExtractor(basketballReferenceSeasonTotals).call().count(), is(equalTo(595L)));
+    }
+
+    @Test
+    public void shouldBeAbleToExtractNextPageUrlFromPlayerDocuments() throws Exception {
+        assertThat(nextPageUrlValueExtractorFactory.createValueExtractor(basketballReferenceSeasonTotals).call().findFirst().get(), is(equalTo("/leagues/NBA_2016_totals.html")));
     }
 
     @Test

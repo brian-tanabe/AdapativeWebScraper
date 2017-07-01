@@ -3,6 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- div[class = prevnext] -->
+    <bean id="basketballReferenceSeasonTotalsNextPageSelectorStatement"
+          class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">
+        <property name="tagName" value="a"/>
+        <property name="className" value="button2 prev"/>
+        <property name="classnameEqualityOperator" value="EQUALS"/>
+    </bean>
+
     <!-- th[scope = row] -->
     <bean id="basketballReferenceSeasonTotalsPlayerRowSelectorStatement"
           class="com.btanabe.adaptivewebscraper.utilities.SelectorStatementBuilder">

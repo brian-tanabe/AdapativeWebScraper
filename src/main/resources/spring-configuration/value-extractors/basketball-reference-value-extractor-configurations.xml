@@ -8,6 +8,19 @@
     <import resource="basetkabll-reference-selector-statement-configurations.xml"/>
 
     <!--================== BASKETBALL REFERENCE SEASON TOTALS PAGE VALUE EXTRACTORS ==================-->
+    <bean id="basketballReferenceSeasonTotalsNextPageValueExtractorFactory"
+          class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
+        <property name="xpathSelector" ref="basketballReferenceSeasonTotalsNextPageSelectorStatement"/>
+        <property name="objectClasspath" ref="stringClass"/>
+        <property name="outputClazzFactoryClazz" ref="stringFactoryClass"/>
+        <property name="textGetterMethodName" value="attr"/>
+        <property name="textGetterMethodParameterTypes" ref="stringClass"/>
+        <property name="textGetterMethodParameters" value="href"/>
+        <property name="valueTransformers">
+            <list></list>
+        </property>
+    </bean>
+
     <bean id="basketballReferenceSeasonTotalsPlayerRowValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPlayerRowSelectorStatement"/>
@@ -73,7 +86,7 @@
         </property>
     </bean>
 
-    <bean id="gamesStartedValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsGamesStartedValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsGamesStartedSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -86,7 +99,7 @@
         </property>
     </bean>
 
-    <bean id="minutesPlayedValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsMinutesPlayedValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsMinutesPlayedSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -99,7 +112,7 @@
         </property>
     </bean>
 
-    <bean id="fieldGoalsMadeValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsFieldGoalsMadeValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFieldGoalsMadeSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -112,7 +125,7 @@
         </property>
     </bean>
 
-    <bean id="fieldGoalsAttemptedValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsFieldGoalsAttemptedValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFieldGoalsAttemptedSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -125,7 +138,7 @@
         </property>
     </bean>
 
-    <bean id="fieldGoalPercentageValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsFieldGoalPercentageValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFieldGoalPercentSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
@@ -138,7 +151,7 @@
         </property>
     </bean>
 
-    <bean id="threePointersMadeValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsThreePointersMadeValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsThreePointersMadeSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -151,7 +164,7 @@
         </property>
     </bean>
 
-    <bean id="threePointersAttemptedValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsThreePointersAttemptedValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsThreePointersAttemptedSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -164,7 +177,7 @@
         </property>
     </bean>
 
-    <bean id="threePointerPercentageValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsThreePointerPercentageValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsThreePointerPercentageSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
@@ -177,7 +190,7 @@
         </property>
     </bean>
 
-    <bean id="twoPointerFieldGoalsMadeValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsTwoPointerFieldGoalsMadeValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTwoPointFieldGoalsMadeSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -190,7 +203,7 @@
         </property>
     </bean>
 
-    <bean id="twoPointerFieldGoalsAttemptedValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsTwoPointerFieldGoalsAttemptedValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector"
                   ref="basketballReferenceSeasonTotalsTwoPointFieldGoalsAttemptedSelectorStatement"/>
@@ -204,7 +217,7 @@
         </property>
     </bean>
 
-    <bean id="twoPointerFieldGoalPercentageValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsTwoPointerFieldGoalPercentageValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector"
                   ref="basketballReferenceSeasonTotalsTwoPointFieldGoalPercentageSelectorStatement"/>
@@ -218,7 +231,7 @@
         </property>
     </bean>
 
-    <bean id="effectiveFieldGoalPercentageValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsEffectiveFieldGoalPercentageValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector"
                   ref="basketballReferenceSeasonTotalsEffectiveFieldGoalPercentageSelectorStatement"/>
@@ -232,7 +245,7 @@
         </property>
     </bean>
 
-    <bean id="freeThrowsMadeValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsFreeThrowsMadeValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFreeThrowsMadeSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -245,7 +258,7 @@
         </property>
     </bean>
 
-    <bean id="freeThrowsAttemptedValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsFreeThrowsAttemptedValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFreeThrowsAttemptedSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -258,7 +271,7 @@
         </property>
     </bean>
 
-    <bean id="freeThrowPercentageValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsFreeThrowPercentageValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsFreeThrowPercentageSelectorStatement"/>
         <property name="objectClasspath" ref="doubleClass"/>
@@ -271,7 +284,7 @@
         </property>
     </bean>
 
-    <bean id="offensiveReboundsValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsOffensiveReboundsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsOffensiveReboundsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -284,7 +297,7 @@
         </property>
     </bean>
 
-    <bean id="defensiveReboundsValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsDefensiveReboundsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsDefensiveReboundsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -297,7 +310,7 @@
         </property>
     </bean>
 
-    <bean id="totalReboundsValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsTotalReboundsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTotalReboundsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -310,7 +323,7 @@
         </property>
     </bean>
 
-    <bean id="assistsValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsAssistsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsAssistsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -323,7 +336,7 @@
         </property>
     </bean>
 
-    <bean id="stealsValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsStealsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsStealsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -336,7 +349,7 @@
         </property>
     </bean>
 
-    <bean id="blocksValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsBlocksValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsBlocksSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -349,7 +362,7 @@
         </property>
     </bean>
 
-    <bean id="turnoversValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsTurnoversValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsTurnoversSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -362,7 +375,7 @@
         </property>
     </bean>
 
-    <bean id="personalFoulsValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsPersonalFoulsValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPersonalFoulsSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
@@ -375,7 +388,7 @@
         </property>
     </bean>
 
-    <bean id="pointsScoredValueExtractorFactory"
+    <bean id="basketballReferenceSeasonTotalsPointsScoredValueExtractorFactory"
           class="com.btanabe.adaptivewebscraper.factories.valueextractor.DynamicValueExtractorFactory">
         <property name="xpathSelector" ref="basketballReferenceSeasonTotalsPointsScoredSelectorStatement"/>
         <property name="objectClasspath" ref="integerClass"/>
