@@ -5,7 +5,7 @@
 
     <import resource="../common/class-definitions.xml"/>
     <import resource="../value-transformers/value-transformers-configurations.xml"/>
-    <import resource="espn-projection-page-selector-statment-configurations.xml"/>
+    <import resource="../selector-statements/espn-projection-page-selector-statment-configurations.xml"/>
 
     <!--================== ESPN PLAYER PROJECTION PAGE VALUE EXTRACTORS ==================-->
     <bean id="espnPlayerProjectionRowValueExtractorFactory"

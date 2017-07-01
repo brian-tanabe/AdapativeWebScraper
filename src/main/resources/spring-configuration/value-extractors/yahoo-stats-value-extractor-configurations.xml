@@ -6,7 +6,7 @@
     <import resource="../common/class-definitions.xml"/>
     <import resource="../common/default-values.xml"/>
     <import resource="../value-transformers/value-transformers-configurations.xml"/>
-    <import resource="yahoo-stats-page-selector-statement-configuration.xml"/>
+    <import resource="../selector-statements/yahoo-stats-page-selector-statement-configuration.xml"/>
 
     <!--================== YAHOO PLAYER STATS PAGE VALUE EXTRACTORS ==================-->
     <bean id="yahooPlayerStatsRowValueExtractorFactory"

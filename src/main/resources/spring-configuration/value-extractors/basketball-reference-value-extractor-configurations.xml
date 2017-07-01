@@ -5,7 +5,7 @@
 
     <import resource="../common/class-definitions.xml"/>
     <import resource="../value-transformers/value-transformers-configurations.xml"/>
-    <import resource="basetkabll-reference-selector-statement-configurations.xml"/>
+    <import resource="../selector-statements/basetkabll-reference-selector-statement-configurations.xml"/>
 
     <!--================== BASKETBALL REFERENCE SEASON TOTALS PAGE VALUE EXTRACTORS ==================-->
     <bean id="basketballReferenceSeasonTotalsNextPageValueExtractorFactory"
