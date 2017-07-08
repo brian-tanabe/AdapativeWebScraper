@@ -38,4 +38,6 @@
     <bean id="yahooSeasonYearIsolatorValueTransformer"
           class="com.btanabe.adaptivewebscraper.transformers.OnlyNumbersValueTransformer"/>
 
+    <bean id="basketballReferenceUrlPrefixAppender"
+          class="com.btanabe.adaptivewebscraper.transformers.BasketballReferenceUrlPrefixAppender"/>
 </beans>

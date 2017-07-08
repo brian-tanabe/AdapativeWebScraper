@@ -90,11 +90,11 @@ public class RecordCollector<OutputType> implements Callable<Void> {
     @Override
     public Void call() throws Exception {
 
-        log.info(String.format("RecordCollector for seed URL=[%s] starting!", seedWebPage));
+        log.info(String.format("RecordCollector for seed URL=[%s] starting", seedWebPage));
 
         gatherAllRecords();
 
-        log.info(String.format("RecordCollector for seed URL=[%s] complete!", seedWebPage));
+        log.info(String.format("RecordCollector for seed URL=[%s] complete", seedWebPage));
 
         return null;
     }
@@ -103,6 +103,7 @@ public class RecordCollector<OutputType> implements Callable<Void> {
         final List<ListenableFuture<OutputType>> downloadParseAndMarshallFutures = new ArrayList<>();
         String pageUrl = seedWebPage;
         do {
+            log.info(String.format("Collecting records for URL=[%s]", pageUrl));
             pageUrl = generateAllDownloadParseAndMarshallTasksForPageAndReturnTheUrlToTheNextPage(pageUrl, downloadParseAndMarshallFutures);
         } while (pageUrl != null);
 
@@ -131,7 +132,7 @@ public class RecordCollector<OutputType> implements Callable<Void> {
         ListenableFuture<Stream<String>> nextPageUrlFuture = Futures.transformAsync(webPageDownloadFuture, nextPageUrlFunction);
 
         // Step 2: Parse the entire document and create the global ValueExtractors:
-        AsyncFunction<Document, Multimap<ValueExtractorFactoryI<String>, String>> globalValueExtractorFunction = input -> executorService.submit(new DocumentParserTask<Multimap<ValueExtractorFactoryI<String>, String>>(executorService, input, globalValueExtractorFactoryToSetterMethodNameMap, new MultimapOutputObjectConstructor<ValueExtractorFactoryI, String>(ValueExtractorFactoryI.class, String.class), new MultimapObjectSetter()));
+        AsyncFunction<Document, Multimap<ValueExtractorFactoryI<String>, String>> globalValueExtractorFunction = input -> executorService.submit(new DocumentParserTask<>(executorService, input, globalValueExtractorFactoryToSetterMethodNameMap, new MultimapOutputObjectConstructor<ValueExtractorFactoryI, String>(ValueExtractorFactoryI.class, String.class), new MultimapObjectSetter()));
         ListenableFuture<Multimap<ValueExtractorFactoryI<String>, String>> globalValueExtractorsFuture = Futures.transformAsync(webPageDownloadFuture, globalValueExtractorFunction, executorService);
 
         // Step 2: Extract all Elements into their own Document:

@@ -22,6 +22,11 @@
         <constructor-arg name="outputClazzPath" ref="espnNflProjectionModel"/>
     </bean>
 
+    <bean id="basketballReferenceSeasonTotalsModelOutputObjectConstructor"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.ClassWithConstructorOutputObjectConstructor">
+        <constructor-arg name="outputClazzPath" ref="basketballReferenceSeasonTotalsModel"/>
+    </bean>
+
     <!-- Object Setters: -->
     <bean id="yahooNflHistoricStatsModelOutputObjectSetter"
           class="com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetter">
@@ -31,6 +36,11 @@
     <bean id="espnNflHistoricStatsModelOutputObjectSetter"
           class="com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetter">
         <constructor-arg name="outputObjectClazzPath" ref="espnNflProjectionModel"/>
+    </bean>
+
+    <bean id="basketballReferenceSeasonTotalsModelOutputObjectSetter"
+          class="com.btanabe.adaptivewebscraper.factories.outputobject.OutputObjectSetter">
+        <constructor-arg name="outputObjectClazzPath" ref="basketballReferenceSeasonTotalsModel"/>
     </bean>
 
 </beans>

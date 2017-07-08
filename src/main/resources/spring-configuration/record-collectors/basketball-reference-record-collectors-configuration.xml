@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath:/spring-configuration/value-extractors/basketball-reference-value-extractor-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
+    <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/factories/factory-configuration.xml"/>
+
+    <!-- Intentionally left empty -->
+    <bean id="basketballReferenceSeasonTotalsGlobalValueExtractorSetterMethodMultiMap"
+          class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
+
+    <bean id="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"
+          class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsNameValueExtractorFactory"/>
+                <value>setName</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsPositionValueExtractorFactory"/>
+                <value>setPosition</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsTeamValueExtractorFactory"/>
+                <value>setTeam</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsGamesPlayedValueExtractorFactory"/>
+                <value>setGamesPlayed</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsGamesStartedValueExtractorFactory"/>
+                <value>setGamesStarted</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsMinutesPlayedValueExtractorFactory"/>
+                <value>setMinutesPlayed</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsFieldGoalsMadeValueExtractorFactory"/>
+                <value>setFieldGoalsMade</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsFieldGoalsAttemptedValueExtractorFactory"/>
+                <value>setFieldGoalsAttempted</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsFieldGoalPercentageValueExtractorFactory"/>
+                <value>setFieldGoalPercentage</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsThreePointersMadeValueExtractorFactory"/>
+                <value>setThreePointersMade</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsThreePointersAttemptedValueExtractorFactory"/>
+                <value>setThreePointersAttempted</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsThreePointerPercentageValueExtractorFactory"/>
+                <value>setThreePointerPercentage</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsTwoPointerFieldGoalsMadeValueExtractorFactory"/>
+                <value>setTwoPointerFieldGoalsMade</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsTwoPointerFieldGoalsAttemptedValueExtractorFactory"/>
+                <value>setTwoPointerFieldGoalsAttempted</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsTwoPointerFieldGoalPercentageValueExtractorFactory"/>
+                <value>setTwoPointerFieldGoalPercentage</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsEffectiveFieldGoalPercentageValueExtractorFactory"/>
+                <value>setEffectiveFieldGoalPercentage</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsFreeThrowsMadeValueExtractorFactory"/>
+                <value>setFreeThrowsMade</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsFreeThrowsAttemptedValueExtractorFactory"/>
+                <value>setFreeThrowsAttempted</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsFreeThrowPercentageValueExtractorFactory"/>
+                <value>setFreeThrowPercentage</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsOffensiveReboundsValueExtractorFactory"/>
+                <value>setOffensiveRebounds</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsDefensiveReboundsValueExtractorFactory"/>
+                <value>setDefensiveRebounds</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsTotalReboundsValueExtractorFactory"/>
+                <value>setTotalRebounds</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsAssistsValueExtractorFactory"/>
+                <value>setAssists</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsStealsValueExtractorFactory"/>
+                <value>setSteals</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsBlocksValueExtractorFactory"/>
+                <value>setBlocks</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsTurnoversValueExtractorFactory"/>
+                <value>setTurnovers</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsPersonalFoulsValueExtractorFactory"/>
+                <value>setPersonalFouls</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <ref bean="basketballReferenceSeasonTotalsPointsScoredValueExtractorFactory"/>
+                <value>setPointsScored</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="basketballReferenceSeasonTotalsRecordCollector"
+          class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
+        <property name="executorService" ref="listeningExecutorService"/>
+        <property name="seedWebPage" value="http://www.basketball-reference.com/leagues/NBA_2017_totals.html"/>
+        <property name="nextPageValueExtractorFactory"
+                  ref="basketballReferenceSeasonTotalsNextPageValueExtractorFactory"/>
+        <property name="nextPageUrlPattern" ref="blankUrlPattern"/>
+        <property name="recordDocumentExtractorFactory"
+                  ref="basketballReferenceSeasonTotalsPlayerRowValueExtractorFactory"/>
+        <property name="globalValueExtractorFactoryToSetterMethodNameMap"
+                  ref="basketballReferenceSeasonTotalsGlobalValueExtractorSetterMethodMultiMap"/>
+        <property name="valueExtractorFactoryToSetterMethodNameMap"
+                  ref="basketballReferenceSeasonTotalsValueExtractorSetterMethodMultiMap"/>
+        <property name="outputObjectConstructor" ref="basketballReferenceSeasonTotalsModelOutputObjectConstructor"/>
+        <property name="outputObjectSetter" ref="basketballReferenceSeasonTotalsModelOutputObjectSetter"/>
+        <property name="eventBus" ref="collectedRecordsEventBus"/>
+    </bean>
+
+</beans>

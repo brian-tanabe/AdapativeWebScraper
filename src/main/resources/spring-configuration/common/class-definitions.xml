@@ -30,6 +30,10 @@
         <constructor-arg value="com.btanabe.adaptivewebscraper.models.YahooNflHistoricStatsModel"/>
     </bean>
 
+    <bean id="basketballReferenceSeasonTotalsModel" class="java.lang.Class" factory-method="forName">
+        <constructor-arg value="com.btanabe.adaptivewebscraper.models.BasketballReferenceSeasonTotalsModel"/>
+    </bean>
+
     <bean id="multimapClass" class="java.lang.Class" factory-method="forName">
         <constructor-arg value="com.google.common.collect.Multimap"/>
     </bean>

@@ -7,6 +7,11 @@
     <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/factories/factory-configuration.xml"/>
+
+    <!-- Intentionally left empty -->
+    <bean id="espnGlobalValueExtractorSetterMethodMultiMap"
+          class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
 
     <bean id="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"
           class="com.google.common.collect.LinkedHashMultimap" factory-method="create"/>
@@ -188,7 +193,8 @@
         <property name="nextPageValueExtractorFactory" ref="espnProjectionsPageNextPageValueExtractorFactory"/>
         <property name="nextPageUrlPattern" ref="blankUrlPattern"/>
         <property name="recordDocumentExtractorFactory" ref="espnPlayerProjectionRowValueExtractorFactory"/>
-        <property name="globalValueExtractorFactoryToSetterMethodNameMap" ref="yahooGlobalValueExtractorSetterMethodMultiMap"/>
+        <property name="globalValueExtractorFactoryToSetterMethodNameMap"
+                  ref="espnGlobalValueExtractorSetterMethodMultiMap"/>
         <property name="valueExtractorFactoryToSetterMethodNameMap"
                   ref="espnNflPlayerProjectionValueExtractorSetterMethodMultiMap"/>
         <property name="outputObjectConstructor" ref="espnNflHistoricStatsModelOutputObjectConstructor"/>

@@ -17,7 +17,9 @@
         <property name="textGetterMethodParameterTypes" ref="stringClass"/>
         <property name="textGetterMethodParameters" value="href"/>
         <property name="valueTransformers">
-            <list></list>
+            <list>
+                <ref bean="basketballReferenceUrlPrefixAppender"/>
+            </list>
         </property>
     </bean>
 
