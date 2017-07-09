@@ -15,6 +15,6 @@ public class BasketballReferenceUrlPrefixAppender implements Function<String, St
             return null;
         }
 
-        return "http://www.basketball-reference.com/" + urlSuffix;
+        return "http://www.basketball-reference.com" + urlSuffix;
     }
 }

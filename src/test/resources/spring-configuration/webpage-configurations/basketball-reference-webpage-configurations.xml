@@ -13,4 +13,202 @@
             </bean>
         </property>
     </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2016_totals.html -->
+    <bean id="basketballReference2016SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2016.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2015_totals.html -->
+    <bean id="basketballReference2015SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2015.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2014_totals.html -->
+    <bean id="basketballReference2014SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2014.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2013_totals.html -->
+    <bean id="basketballReference2013SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2013.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2012_totals.html -->
+    <bean id="basketballReference2012SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2012.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2011_totals.html -->
+    <bean id="basketballReference2011SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2011.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2010_totals.html -->
+    <bean id="basketballReference2010SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2010.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2009_totals.html -->
+    <bean id="basketballReference2009SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2009.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2008_totals.html -->
+    <bean id="basketballReference2008SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2008.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2007_totals.html -->
+    <bean id="basketballReference2007SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2007.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2006_totals.html -->
+    <bean id="basketballReference2006SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2006.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2005_totals.html -->
+    <bean id="basketballReference2005SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2005.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2004_totals.html -->
+    <bean id="basketballReference2004SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2004.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2003_totals.html -->
+    <bean id="basketballReference2003SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2003.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2002_totals.html -->
+    <bean id="basketballReference2002SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2002.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2001_totals.html -->
+    <bean id="basketballReference2001SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2001.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_2000_totals.html -->
+    <bean id="basketballReference2000SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-2000.html"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- http://www.basketball-reference.com/leagues/NBA_1999_totals.html -->
+    <bean id="basketballReference1999SeasonTotalsMockWeRequestTask"
+          class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactory">
+        <property name="pageDocument">
+            <bean class="com.btanabe.adaptivewebscraper.test.factories.FileTidiedDocumentFactory">
+                <property name="inputFile"
+                          value="classpath:/test-webpages/bastketball-reference/totals/season/totals-1999.html"/>
+            </bean>
+        </property>
+    </bean>
 </beans>

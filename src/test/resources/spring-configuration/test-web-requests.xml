@@ -131,6 +131,42 @@
         <!-- basketball-reference season totals web pages -->
         <entry key="http://www.basketball-reference.com/leagues/NBA_2017_totals.html"
                value-ref="basketballReference2017SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2016_totals.html"
+               value-ref="basketballReference2016SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2015_totals.html"
+               value-ref="basketballReference2015SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2014_totals.html"
+               value-ref="basketballReference2014SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2013_totals.html"
+               value-ref="basketballReference2013SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2012_totals.html"
+               value-ref="basketballReference2012SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2011_totals.html"
+               value-ref="basketballReference2011SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2010_totals.html"
+               value-ref="basketballReference2010SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2009_totals.html"
+               value-ref="basketballReference2009SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2008_totals.html"
+               value-ref="basketballReference2008SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2007_totals.html"
+               value-ref="basketballReference2007SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2006_totals.html"
+               value-ref="basketballReference2006SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2005_totals.html"
+               value-ref="basketballReference2005SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2004_totals.html"
+               value-ref="basketballReference2004SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2003_totals.html"
+               value-ref="basketballReference2003SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2002_totals.html"
+               value-ref="basketballReference2002SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2001_totals.html"
+               value-ref="basketballReference2001SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_2000_totals.html"
+               value-ref="basketballReference2000SeasonTotalsMockWeRequestTask"/>
+        <entry key="http://www.basketball-reference.com/leagues/NBA_1999_totals.html"
+               value-ref="basketballReference1999SeasonTotalsMockWeRequestTask"/>
     </util:map>
 
     <bean id="mockStaticWebRequestFactory"
