@@ -14,4 +14,8 @@
         <ref bean="espnNflPlayerProjectionsRecordCollector"/>
     </util:list>
 
+    <util:list id="nbaRecordCollectorList" value-type="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
+        <ref bean="basketballReferenceSeasonTotalsRecordCollector"/>
+    </util:list>
+
 </beans>
