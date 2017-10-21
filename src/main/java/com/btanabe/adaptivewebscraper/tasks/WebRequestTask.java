@@ -16,7 +16,7 @@ import static com.google.common.base.Charsets.UTF_8;
  */
 @AllArgsConstructor
 public class WebRequestTask implements Callable<Document> {
-    private final String urlToDownload;
+    protected final String urlToDownload;
 
     @Override
     public Document call() throws Exception {

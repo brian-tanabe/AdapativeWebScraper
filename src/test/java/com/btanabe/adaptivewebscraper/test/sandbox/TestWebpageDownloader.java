@@ -16,7 +16,7 @@ import java.io.File;
 import java.net.URL;
 
 import static com.google.common.base.Charsets.UTF_8;
-import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
 
 /**
