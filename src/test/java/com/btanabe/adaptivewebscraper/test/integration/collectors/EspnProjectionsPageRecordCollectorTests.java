@@ -7,9 +7,11 @@ import com.btanabe.adaptivewebscraper.test.utilities.CollectedRecordsListener;
 import com.google.common.eventbus.EventBus;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by Brian on 5/1/16.
  */
 @ContextConfiguration("classpath:spring-configuration/unit-testing-configuration.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskBase {
 
     @Autowired
