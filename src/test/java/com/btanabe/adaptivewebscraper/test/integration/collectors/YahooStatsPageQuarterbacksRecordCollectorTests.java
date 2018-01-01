@@ -39,6 +39,10 @@ public class YahooStatsPageQuarterbacksRecordCollectorTests extends MockWebReque
 
     @Before
     public void performRecordCollection() throws Exception {
+
+        // This must be done to use the mocked WebRequestTaskFactory:
+        yahooQuarterbacksStatsPageRecordCollector.setWebRequestTaskFactory(mockWebRequestTaskFactory);
+
         CollectedRecordsListener recordsListener = new CollectedRecordsListener();
         eventBus.register(recordsListener);
 

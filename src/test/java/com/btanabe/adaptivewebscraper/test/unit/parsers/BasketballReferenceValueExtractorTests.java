@@ -157,7 +157,7 @@ public class BasketballReferenceValueExtractorTests {
 
     @Test
     public void shouldBeAbleToExtractNextPageUrlFromPlayerDocuments() throws Exception {
-        assertThat(nextPageUrlValueExtractorFactory.createValueExtractor(basketballReferenceSeasonTotals).call().findFirst().get(), is(equalTo("/leagues/NBA_2016_totals.html")));
+        assertThat(nextPageUrlValueExtractorFactory.createValueExtractor(basketballReferenceSeasonTotals).call().findFirst().get(), is(equalTo("http://www.basketball-reference.com/leagues/NBA_2016_totals.html")));
     }
 
     @Test

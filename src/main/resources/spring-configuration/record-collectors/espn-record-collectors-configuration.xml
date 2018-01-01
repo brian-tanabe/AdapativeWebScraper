@@ -7,6 +7,7 @@
     <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/common/web-request-factory-configuration.xml"/>
     <import resource="classpath:/spring-configuration/factories/factory-configuration.xml"/>
 
     <!-- Intentionally left empty -->
@@ -189,6 +190,7 @@
     <bean id="espnNflPlayerProjectionsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
         <property name="executorService" ref="listeningExecutorService"/>
+        <property name="webRequestTaskFactory" ref="webRequestTaskFactory"/>
         <property name="seedWebPage" value="http://games.espn.com/ffl/tools/projections?leagueId=84978"/>
         <property name="nextPageValueExtractorFactory" ref="espnProjectionsPageNextPageValueExtractorFactory"/>
         <property name="nextPageUrlPattern" ref="blankUrlPattern"/>

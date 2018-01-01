@@ -7,6 +7,7 @@
     <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+    <import resource="classpath:/spring-configuration/common/web-request-factory-configuration.xml"/>
     <import resource="classpath:/spring-configuration/factories/factory-configuration.xml"/>
 
     <!-- Intentionally left empty -->
@@ -299,6 +300,7 @@
     <bean id="basketballReferenceSeasonTotalsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
         <property name="executorService" ref="listeningExecutorService"/>
+        <property name="webRequestTaskFactory" ref="webRequestTaskFactory"/>
         <property name="seedWebPage" value="http://www.basketball-reference.com/leagues/NBA_2017_totals.html"/>
         <property name="nextPageValueExtractorFactory"
                   ref="basketballReferenceSeasonTotalsNextPageValueExtractorFactory"/>

@@ -47,6 +47,10 @@ public class EspnProjectionsPageRecordCollectorTests extends MockWebRequestTaskB
 
     @Before
     public void performRecordCollection() throws Exception {
+
+        // This must be done to use the mocked WebRequestTaskFactory:
+        espnNflProjectionsPageRecordCollector.setWebRequestTaskFactory(mockWebRequestTaskFactory);
+
         if (collectedRecords == null) {
             CollectedRecordsListener recordsListener = new CollectedRecordsListener();
             eventBus.register(recordsListener);

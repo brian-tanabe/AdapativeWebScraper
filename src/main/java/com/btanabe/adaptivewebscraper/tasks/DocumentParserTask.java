@@ -13,6 +13,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jsoup.nodes.Document;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.stream.Stream;
 
@@ -46,7 +47,7 @@ public class DocumentParserTask<OutputClazz> implements Callable<OutputClazz> {
                 value = future.get().findFirst().orElse(null);
                 outputObjectSetter.setValue(outputObject, setterMethodName, value);
             } catch (Exception error) {
-                log.error(String.format("OutputObject=[%s] threw an exception when trying to call method=[%s] with value=[%s] valueClass=[%s]", outputObject, setterMethodName, value, value.getClass().getSimpleName()));
+                log.error(String.format("OutputObject=[%s] threw an exception when trying to call method=[%s] with value=[%s] valueClass=[%s]", outputObject, setterMethodName, value, Objects.isNull(value.getClass()) ? "null" : value.getClass().getSimpleName()));
                 log.error(ExceptionUtils.getStackTrace(error));
             }
         });

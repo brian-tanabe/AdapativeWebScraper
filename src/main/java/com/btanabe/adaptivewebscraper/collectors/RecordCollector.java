@@ -54,6 +54,10 @@ public class RecordCollector<OutputType> implements Callable<Void> {
 
     @NonNull
     @Setter(onMethod = @__({@Autowired}))
+    private WebRequestTaskFactory webRequestTaskFactory;
+
+    @NonNull
+    @Setter(onMethod = @__({@Autowired}))
     private String seedWebPage;
 
     @NonNull
@@ -125,7 +129,7 @@ public class RecordCollector<OutputType> implements Callable<Void> {
         Multimap<ValueExtractorFactoryI, String> valueExtractorFactoryToSetterMethodNameMap = LinkedHashMultimap.create(this.valueExtractorFactoryToSetterMethodNameMap);
 
         // Step 1: Download Page HTML
-        ListenableFuture<Document> webPageDownloadFuture = executorService.submit(WebRequestTaskFactory.createWebRequestTask(pageUrl));
+        ListenableFuture<Document> webPageDownloadFuture = executorService.submit(webRequestTaskFactory.createWebRequestTask(pageUrl));
 
         // Step 2: Find the link to the next page:
         AsyncFunction<Document, Stream<String>> nextPageUrlFunction = input -> executorService.submit(new UrlPatternTransformerTask(nextPageValueExtractorFactory.createValueExtractor(input), nextPageUrlPattern));
@@ -136,9 +140,7 @@ public class RecordCollector<OutputType> implements Callable<Void> {
         ListenableFuture<Multimap<ValueExtractorFactoryI<String>, String>> globalValueExtractorsFuture = Futures.transformAsync(webPageDownloadFuture, globalValueExtractorFunction, executorService);
 
         // Step 2: Extract all Elements into their own Document:
-        AsyncFunction<Document, Stream<Document>> recordPartitioningFunction = input -> {
-            return executorService.submit(recordDocumentExtractorFactory.createValueExtractor(input));
-        };
+        AsyncFunction<Document, Stream<Document>> recordPartitioningFunction = input -> executorService.submit(recordDocumentExtractorFactory.createValueExtractor(input));
 
         // Step 3: Gather all Documents:
         Stream<Document> allPlayersInTheirOwnDocumentStream = Futures.transformAsync(webPageDownloadFuture, recordPartitioningFunction, executorService).get();

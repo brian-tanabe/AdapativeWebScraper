@@ -37,6 +37,10 @@ public class BasketballReferenceSeasonTotalsRecordCollectorTests extends MockWeb
 
     @Before
     public void performRecordCollection() throws Exception {
+
+        // This must be done to use the mocked WebRequestTaskFactory:
+        basketballReferenceSeasonTotalsRecordCollector.setWebRequestTaskFactory(mockWebRequestTaskFactory);
+
         if (collectedRecords == null) {
             CollectedRecordsListener recordsListener = new CollectedRecordsListener();
             eventBus.register(recordsListener);

@@ -7,6 +7,7 @@
     <import resource="classpath:/spring-configuration/value-extractors/url-patterns-configurations.xml"/>
     <import resource="classpath:/spring-configuration/common/thread-pool-configuration.xml"/>
     <import resource="classpath:/spring-configuration/common/event-bus-configuration.xml"/>
+    <!--<import resource="classpath:/spring-configuration/common/web-request-factory-configuration.xml"/>-->
     <import resource="classpath:/spring-configuration/factories/factory-configuration.xml"/>
 
     <!--
@@ -620,6 +621,7 @@
     <bean id="yahooNflRunningBackStatsRecordCollector"
           class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
         <property name="eventBus" ref="collectedRecordsEventBus"/>
+        <property name="webRequestTaskFactory" ref="webRequestTaskFactory"/>
         <property name="executorService" ref="listeningExecutorService"/>
         <property name="nextPageValueExtractorFactory" ref="yahooStatsPageNextPageValueExtractorFactory"/>
         <property name="nextPageUrlPattern" ref="yahooStatsPageRunningBacksUrlPattern"/>
@@ -634,8 +636,9 @@
     </bean>
 
     <bean id="yahooNflQuarterbackStatsRecordCollector"
-          class="com.btanabe.adaptivewebscraper.collectors.RecordCollector">
+          class="com.btanabe.adaptivewebscraper.collectors.RecordCollector" depends-on="webRequestTaskFactory">
         <property name="eventBus" ref="collectedRecordsEventBus"/>
+        <property name="webRequestTaskFactory" ref="webRequestTaskFactory"/>
         <property name="executorService" ref="listeningExecutorService"/>
         <property name="nextPageValueExtractorFactory" ref="yahooStatsPageNextPageValueExtractorFactory"/>
         <property name="nextPageUrlPattern" ref="yahooStatsPageQuarterbacksUrlPattern"/>

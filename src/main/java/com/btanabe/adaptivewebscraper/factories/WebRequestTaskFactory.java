@@ -7,7 +7,7 @@ import com.btanabe.adaptivewebscraper.tasks.WebRequestTask;
  */
 public class WebRequestTaskFactory {
 
-    public static WebRequestTask createWebRequestTask(final String urlToDownload) {
+    public WebRequestTask createWebRequestTask(final String urlToDownload) {
         return new WebRequestTask(urlToDownload);
     }
 }

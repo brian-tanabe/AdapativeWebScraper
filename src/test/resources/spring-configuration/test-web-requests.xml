@@ -169,7 +169,7 @@
                value-ref="basketballReference1999SeasonTotalsMockWeRequestTask"/>
     </util:map>
 
-    <bean id="mockStaticWebRequestFactory"
+    <bean id="webRequestTaskFactory"
           class="com.btanabe.adaptivewebscraper.test.factories.MockWebRequestTaskFactoryFactory">
         <property name="webRequestTaskToSiteUrlMap" ref="webRequestTaskToSiteUrlMap"/>
     </bean>
